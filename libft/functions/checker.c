@@ -5,15 +5,16 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: edoll <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/09 16:34:26 by edoll             #+#    #+#             */
-/*   Updated: 2019/09/09 16:47:41 by edoll            ###   ########.fr       */
+/*   Created: 2019/09/10 19:10:43 by edoll             #+#    #+#             */
+/*   Updated: 2019/09/10 20:26:10 by edoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #include "libft.h"
 
 int		main()
-//{
+{
    
    // FT_MEMSET //
 
@@ -41,16 +42,23 @@ int		main()
 
 //-------------------------------------------------------------------------//
 
-{
+
 
     // FT_MEMCCPY //
 
-    char src[14] = "abc3 2abc 465";
-    char dest[5];
+//    char src[14] = "abc3 2abc 465";
+//    char dest[5];
 
-    printf("src: %s\n", src);
-    printf("dest: %s\n", ft_memccpy(dest, src, '4', 11));
+//    printf("src: %s\n", src);
+//    printf("dest: %s\n", ft_memccpy(dest, src, '4', 11));/
 
+//-------------------------------------------------------------------------//
+
+	// FT_STRLEN //
+	
+	char str[5] = "a1b8";
+	printf("strlen: %lu\n", strlen(str)); 
+	printf("ft_strlen: %zu\n", ft_strlen(str)); 
 
 
     return (0);
