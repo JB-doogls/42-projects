@@ -10,17 +10,48 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "lib.h"
+#include "libft.h"
 
-int		main();
+int		main()
+//{
+   
+   // FT_MEMSET //
+
+//    char str[17] = "abcdefghijklmnop";
+
+//    printf("source string: %s\n", str);
+//    printf("memset string: %s\n", ft_memset(str, '1', 5));
+
+   
+//-------------------------------------------------------------------------//
+   // FT_BZERO //
+
+//    char str[11] = "abcdefghij";
+//    ft_bzero(str, 5);
 
 
-	// ft_memset //
-	
-	char str[17] = "abcdefghijklmnop";
-	char *p;
+//-------------------------------------------------------------------------//
+    // FT_MEMCPY //
 
-	p = &(ft_memset(str, "1", 5));
-	printf ("%s\n", p);
-	return (0);
-	}
+//    char src[0]; //= "abcef";
+//    char dest[6];
+
+//    printf("src: %s\n", src);
+//    printf("dest: %s\n", ft_memcpy(dest, src, 6));
+
+//-------------------------------------------------------------------------//
+
+{
+
+    // FT_MEMCCPY //
+
+    char src[14] = "abc3 2abc 465";
+    char dest[5];
+
+    printf("src: %s\n", src);
+    printf("dest: %s\n", ft_memccpy(dest, src, '4', 11));
+
+
+
+    return (0);
+}
