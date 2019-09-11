@@ -17,8 +17,8 @@
 	• memcmp   	—
  
 	• strlen 	YES   
-	• strdup    	NO
-	• strcpy    
+	• strdup    	YES
+	• strcpy    	YES
 	• strncpy    
 	• strcat    
 	• strncat    
