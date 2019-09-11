@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edoll <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/11 17:58:30 by edoll             #+#    #+#             */
-/*   Updated: 2019/09/11 20:39:43 by edoll            ###   ########.fr       */
+/*   Created: 2019/09/11 20:41:21 by edoll             #+#    #+#             */
+/*   Updated: 2019/09/11 21:51:21 by edoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcpy(char *dest, const char *src)
+char	*ft_strncpy(char *dest, const char *src, size_t len)
 {
-	size_t count;
+	char *dest_ptr;
 
-	count = 0;
-	while (src[count])
-	{
-		dest[count] = src[count];
-		count++;
-	}
-	dest[count] = '\0';
+	dest_ptr = dest;
+	while (*src && len-- != 0)
+		*dest_ptr++ = *src++;
+	*dest_ptr = '\0';
+	while (len-- != 0)
+		*dest_ptr++ = '\0';
 	return (dest);
 }

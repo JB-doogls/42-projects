@@ -6,14 +6,12 @@
 /*   By: edoll <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/10 19:22:48 by edoll             #+#    #+#             */
-/*   Updated: 2019/09/11 18:13:26 by edoll            ###   ########.fr       */
+/*   Updated: 2019/09/11 21:45:56 by edoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
-
-# include <stdio.h>	    // FOR PRINTF - DELETE before push! //
 
 # include <string.h>
 # include <stdlib.h>
@@ -29,5 +27,7 @@ void	*ft_memmove(void *dest, const void *src, size_t n);
 size_t	ft_strlen(const char *str);
 char	*ft_strdup(const char *src);
 char	*ft_strcpy(char *dest, const char *src);
+char	*ft_strncpy(char *dest, const char *src, size_t len);
+
 
 #endif

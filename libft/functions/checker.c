@@ -6,11 +6,12 @@
 /*   By: edoll <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/10 19:10:43 by edoll             #+#    #+#             */
-/*   Updated: 2019/09/11 18:45:33 by edoll            ###   ########.fr       */
+/*   Updated: 2019/09/11 21:51:24 by edoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 void    ft_putchar(char c)
 {
@@ -75,13 +76,20 @@ int		main()
 
 //-------------------------------------------------------------------------//
 
-	// FT_STRDUP //	FT_STRCPY //
+	// FT_STRDUP //	FT_STRCPY // FT_STRNCPY //
 
-	const char src[8] = "ab 1fgd";
-	char dest[8];
+	const char src[8] = "ab1cfgd";
+	char *dest;
+	char *ptr;
+	size_t n = 5;
 
 	//dest = ft_strdup(src);
-	printf("dest : %s\n", ft_strcpy(dest, src));
+	//printf("dest : %s\n", ft_strcpy(dest, src));
+
+	ptr = ft_strncpy(dest, src, n);
+	printf("dest_len : %zu\n", strlen(ptr));
+	printf("my dest : %s\n", ft_strncpy(dest, src, n));
+	printf("lib dest: %s\n", strncpy(dest, src, n));
 	printf("src : %s\n", src);
 
 
@@ -93,5 +101,5 @@ int		main()
 
 
 //-------------------------------------------------------------------------//
-    return (0);
+    return(0);
 }
