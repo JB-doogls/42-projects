@@ -6,7 +6,7 @@
 /*   By: edoll <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/10 19:10:43 by edoll             #+#    #+#             */
-/*   Updated: 2019/09/11 21:51:24 by edoll            ###   ########.fr       */
+/*   Updated: 2019/09/12 00:13:17 by edoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,21 +76,37 @@ int		main()
 
 //-------------------------------------------------------------------------//
 
-	// FT_STRDUP //	FT_STRCPY // FT_STRNCPY //
+	// FT_STRDUP //	FT_STRCPY // FT_STRNCPY // FT_STRCAT //
 
-	const char src[8] = "ab1cfgd";
-	char *dest;
+	char s2[4] = "abc";
+	char s1[7] = "x1y2z3";				/* s1 - onstack string */
+
+/* ft_strcat */
+
 	char *ptr;
-	size_t n = 5;
+	size_t l;
 
-	//dest = ft_strdup(src);
-	//printf("dest : %s\n", ft_strcpy(dest, src));
+	l = ft_strlen(s1);
+	ptr = strcat(s1, s2);
+	printf("my dest : %s\n", ft_strcat(s1, s2));
+	printf("lib dest: %s\n", strcat(s1, s2));
+	printf("strlen s1 : %lu\n", strlen(s1));
+	printf("ft_strlen s1  : %zu\n", l);
 
+
+
+/* ft_strdup
+	dest = ft_strdup(src);
+	printf("dest : %s\n", ft_strcpy(dest, src));	*/
+
+/* ft_strncpy
+	char *ptr;
+	size_t n =5;
 	ptr = ft_strncpy(dest, src, n);
 	printf("dest_len : %zu\n", strlen(ptr));
 	printf("my dest : %s\n", ft_strncpy(dest, src, n));
 	printf("lib dest: %s\n", strncpy(dest, src, n));
-	printf("src : %s\n", src);
+	printf("src : %s\n", src);	*/
 
 
 //-------------------------------------------------------------------------//

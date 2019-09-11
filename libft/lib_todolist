@@ -16,11 +16,11 @@
 	• memchr    	—
 	• memcmp   	—
  
-	• strlen 	YES 	/ use 42file_checker
-	• strdup    	YES	/ use 42file_checker
-	• strcpy    	YES	/ use 42file_checker
-	• strncpy    	YES	/ use 42file_checker
-	• strcat    
+	• strlen 	YES 		/ use 42file_checker
+	• strdup    	YES		/ use 42file_checker
+	• strcpy    	YES		/ use 42file_checker
+	• strncpy    	YES		/ use 42file_checker
+	• strcat  	YES / NO linker failed (gcc —v) 		  
 	• strncat    
 	• strlcat    
 	• strchr    
