@@ -4497,20 +4497,20 @@ int test_all()
 		printf(BLUE "\n\n      *** BEGIN ***\n\n");
 		printf(WHITE "");
 	}
-
+/*
 	ft_memset_test();
 	ft_bzero_test();
 	ft_memcpy_test();
-	ft_memccpy_test();
+  	ft_memccpy_test();  
 	ft_memmove_test();
 	ft_memchr_test();
-	ft_memcmp_test();
-	ft_strlen_test();
-	ft_strdup_test();
+	ft_memcmp_test();   */
+	ft_strlen_test(); 
+/*	ft_strdup_test();
 	ft_strcpy_test();
-	ft_strncpy_test();
+	ft_strncpy_test();  */
 	/*ft_strlcpy_test();*/
-	ft_strcat_test();
+/*	ft_strcat_test();
 	ft_strncat_test();
 	ft_strlcat_test();
 	ft_strchr_test();
@@ -4551,7 +4551,7 @@ int test_all()
 	ft_putchar_fd_test();
 	ft_putstr_fd_test();
 	ft_putendl_fd_test();
-	ft_putnbr_fd_test();
+	ft_putnbr_fd_test();	*/
 
 	print_total();
 	return (total == success);

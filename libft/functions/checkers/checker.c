@@ -62,7 +62,7 @@ int		main()
 
     printf("src: %s\n", src);
     printf("dest: %s\n", ft_memccpy(dest, src, '4', 11));/
-
+*/
 
 //-------------------------------------------------------------------------//
 
@@ -72,16 +72,16 @@ int		main()
 	printf("strlen: %lu\n", strlen(str));
 	printf("ft_strlen: %zu\n", ft_strlen(str));
 
-*/
+
 
 //-------------------------------------------------------------------------//
 
 	// FT_STRDUP //	FT_STRCPY // FT_STRNCPY // FT_STRCAT //
-
+/*
 	char s2[4] = "abc";
-	char s1[7] = "x1y2z3";				/* s1 - onstack string */
+	char s1[7] = "x1y2z3";				// s1 - onstack string 
 
-/* ft_strcat */
+// ft_strcat 
 
 	char *ptr;
 	size_t l;
@@ -95,19 +95,19 @@ int		main()
 
 
 
-/* ft_strdup
+// ft_strdup
 	dest = ft_strdup(src);
-	printf("dest : %s\n", ft_strcpy(dest, src));	*/
+	printf("dest : %s\n", ft_strcpy(dest, src));	
 
-/* ft_strncpy
+// ft_strncpy
 	char *ptr;
 	size_t n =5;
 	ptr = ft_strncpy(dest, src, n);
 	printf("dest_len : %zu\n", strlen(ptr));
 	printf("my dest : %s\n", ft_strncpy(dest, src, n));
 	printf("lib dest: %s\n", strncpy(dest, src, n));
-	printf("src : %s\n", src);	*/
-
+	printf("src : %s\n", src);	
+*/
 
 //-------------------------------------------------------------------------//
 
