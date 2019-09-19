@@ -119,16 +119,17 @@ int		main()
 
 //-------------------------------------------------------------------------//
 
-	// FT_STRCHR
+	// FT_STRCHR // FT_STRSTR
 
 	char str[11] = "0183458789";
+	char str2[4] = "345";
 	char *ptr;
 //	char *ptr1;
 
-	ptr = ft_strrchr(str, '8');
+	ptr = ft_strnstr(str, str2, 3);
 //	ptr1 = strchr(str, 3);
 	if (ptr == NULL)
-		printf("no symbol\n");
+		printf("no occure\n");
 	else
 		printf("ft position: %d\n", ptr - str + 1);
 

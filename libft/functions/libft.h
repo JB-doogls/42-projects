@@ -33,5 +33,7 @@ char	*ft_strncat(char *dst, const char *s2, size_t n);
 size_t	*ft_strlcat(char *dst, const char *s2, size_t size);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strrchr(const char *s, int c);
+char	*ft_strstr(const char *s1, const char *s2);
+char	*ft_strnstr(const char *s1, const char *s2, size_t len);
 
 #endif
