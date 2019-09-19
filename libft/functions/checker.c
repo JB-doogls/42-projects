@@ -6,13 +6,14 @@
 /*   By: edoll <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/10 19:10:43 by edoll             #+#    #+#             */
-/*   Updated: 2019/09/12 00:13:17 by edoll            ###   ########.fr       */
+/*   Updated: 2019/09/19 19:48:46 by edoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
 
+/*
 void    ft_putchar(char c)
 {
 	write(1, &c, 1);
@@ -23,46 +24,54 @@ void    ft_putstr(char *str)
 	while(*str)
 		ft_putchar(*str++);
 }
+*/
 
 int		main()
 {
-
-   // FT_MEMSET //
 /*
-    char str[17] = "abcdefghijklmnop";
+   // FT_MEMSET //
 
-    printf("source string: %s\n", str);
-    printf("memset string: %s\n", ft_memset(str, '1', 5));
+    char str[] = "ab";
+	char str2[] = "ab";
+
+    printf("orig_str: %s\n", str);
+	printf("memset: %s\n", memset(str2, '1', 2));
+    printf("ft_memset: %s\n", ft_memset(str, '1', 2));
 
 
 //-------------------------------------------------------------------------//
    // FT_BZERO //
 
-    char str[11] = "abcdefghij";
-    ft_bzero(str, 5);
-
+    char str[] = "abcde";
+    ft_bzero(str, 3);
+*/
 
 //-------------------------------------------------------------------------//
     // FT_MEMCPY //
+/*
+    char src[6] = "12345";
+    char dst[2] = "";
+//	char src1[] = "12345";
+//	char dst1[] = "";
 
-    char src[0]; //= "abcef";
-    char dest[6];
+//    printf("memcpy: %s\n", memcpy(dst1, src1, '5'));
+    printf("ft_memcpy: %s\n", ft_memcpy(dst, src, 3));
 
-    printf("src: %s\n", src);
-    printf("dest: %s\n", ft_memcpy(dest, src, 6));
-
-
+*/
 //-------------------------------------------------------------------------//
 
 
-    // FT_MEMCCPY //
+    // FT_MEMCCPY // FT_MEMMOVE
 
-    char src[14] = "abc3 2abc 465";
-    char dest[5];
+    char dst[6] = "";
+    char src[7] = "1234567";
+	char dst1[6] = "";
+    char src1[7] = "1234567";
 
-    printf("src: %s\n", src);
-    printf("dest: %s\n", ft_memccpy(dest, src, '4', 11));/
-*/
+    printf("ft_memmove: %s\n", ft_memmove(dst, src, 6));
+	printf("memmove: %s\n", memmove(dst1, src1, 6));
+
+
 
 //-------------------------------------------------------------------------//
 
@@ -79,11 +88,11 @@ int		main()
 	// FT_STRDUP //	FT_STRCPY // FT_STRNCPY // FT_STRCAT //
 /*
 	char s2[4] = "abc";
-	char s1[7] = "x1y2z3";				// s1 - onstack string 
+	char s1[7] = "x1y2z3";				// s1 - onstack string
 */
 /*
-// ft_strcat 
-	
+// ft_strcat
+
 //	char s1[6] = "abcde";
 //	char s2[4] = "xyz";
 	char s11[6] = "abcde";
@@ -97,7 +106,7 @@ int		main()
 
 //	printf("ft_strlen(l) s1  : %zu\n", l);
 	//	printf("ft_strlen s1  : %zu\n", ft_strlen(s1));
-	
+
 	//	printf("ft_strcat dest : %s\n", ft_strcat(s1, s2));
 	printf("strcat dest: %s\n", strlcat(s11, s22, 4));
 */
@@ -105,7 +114,7 @@ int		main()
 /*
 // ft_strdup
 	dest = ft_strdup(src);
-	printf("dest : %s\n", ft_strcpy(dest, src));	
+	printf("dest : %s\n", ft_strcpy(dest, src));
 
 // ft_strncpy
 	char *ptr;
@@ -114,7 +123,7 @@ int		main()
 	printf("dest_len : %zu\n", strlen(ptr));
 	printf("my dest : %s\n", ft_strncpy(dest, src, n));
 	printf("lib dest: %s\n", strncpy(dest, src, n));
-	printf("src : %s\n", src);	
+	printf("src : %s\n", src);
 */
 
 //-------------------------------------------------------------------------//
@@ -131,7 +140,7 @@ int		main()
 //	if (ptr == NULL)
 //		printf("no occure\n");
 //	else
-	
+
 		printf("libc: %d\n", strcmp(str, str2));
 		printf("ft: %d\n", ft_strcmp(str, str2));
 
@@ -140,10 +149,11 @@ int		main()
 //-------------------------------------------------------------------------//
 
 	// FT_ATOI
-
+/*
 	char s[] = "-2147483646";		//" \n\v\t\r=\f 2+a34";
 	printf ("libc: %d\n", atoi(s));
 	printf ("ft: %d\n", ft_atoi(s));
+*/
 
 //-------------------------------------------------------------------------//
     return(0);

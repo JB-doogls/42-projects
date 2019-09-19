@@ -6,7 +6,7 @@
 /*   By: edoll <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/10 20:28:41 by edoll             #+#    #+#             */
-/*   Updated: 2019/09/11 18:45:57 by edoll            ###   ########.fr       */
+/*   Updated: 2019/09/19 15:04:53 by edoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ char	*ft_strdup(const char *src)
 		return (NULL);
 	len = 0;
 	while (src[len])
-	{ 
+	{
 		ptr[len] = src[len];
 		len++;
 	}
