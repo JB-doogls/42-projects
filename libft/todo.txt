@@ -1,4 +1,4 @@
-﻿		
+		
 		|| LIBFT: check-list ||
 
 	Part Ii
@@ -22,20 +22,20 @@
 	• strncpy    	YES		/ use 42file_checker
 	• strcat  	YES / NO linker failed (gcc —v) 		  
 	• strncat    	YES / NO
-	• strlcat    
+	• strlcat    	YES / check
 	
-	• strchr    
-	• strrchr    
-	• strstr    
-	• strnstr    
-	• strcmp    
-	• strncmp    
+	• strchr    	YES
+	• strrchr   	YES
+	• strstr    	YES
+	• strnstr   	YES 
+	• strcmp    	YES
+	• strncmp   	YES
 	
-	• atoi    
-	• isalpha    
-	• isdigit    
-	• isalnum    
-	• isascii    
-	• isprint    
-	• toupper    
-	• tolower
+	• atoi    	YES / check
+	• isalpha    	YES / check
+	• isdigit    	YES / check
+	• isalnum    	YES / check
+	• isascii    	YES / check
+	• isprint    	YES / check
+	• toupper    	YES / check
+	• tolower	YES / check
