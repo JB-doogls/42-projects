@@ -119,19 +119,21 @@ int		main()
 
 //-------------------------------------------------------------------------//
 
-	// FT_STRCHR // FT_STRSTR
+	// FT_STRCHR // FT_STRSTR // FT_STRCMP
 
-	char str[11] = "0183458789";
-	char str2[4] = "345";
-	char *ptr;
+	char str[] = "176";
+	char str2[] = "387";
+//	char *ptr;
 //	char *ptr1;
 
-	ptr = ft_strnstr(str, str2, 3);
+//	ptr = ft_strnstr(str, str2, 3);
 //	ptr1 = strchr(str, 3);
-	if (ptr == NULL)
-		printf("no occure\n");
-	else
-		printf("ft position: %d\n", ptr - str + 1);
+//	if (ptr == NULL)
+//		printf("no occure\n");
+//	else
+	
+		printf("libc: %d\n", strcmp(str, str2));
+		printf("ft: %d\n", ft_strcmp(str, str2));
 
 
 //-------------------------------------------------------------------------//
