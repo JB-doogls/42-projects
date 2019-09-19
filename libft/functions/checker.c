@@ -67,11 +67,11 @@ int		main()
 //-------------------------------------------------------------------------//
 
 	// FT_STRLEN //
-
+/*
 	char str[5] = "a1b8";
 	printf("strlen: %lu\n", strlen(str));
 	printf("ft_strlen: %zu\n", ft_strlen(str));
-
+*/
 
 
 //-------------------------------------------------------------------------//
@@ -80,21 +80,29 @@ int		main()
 /*
 	char s2[4] = "abc";
 	char s1[7] = "x1y2z3";				// s1 - onstack string 
-
+*/
+/*
 // ft_strcat 
+	
+//	char s1[6] = "abcde";
+//	char s2[4] = "xyz";
+	char s11[6] = "abcde";
+	char s22[4] = "xyz";
+//	size_t l;
 
-	char *ptr;
-	size_t l;
+//	l = ft_strlen(s1);
 
-	l = ft_strlen(s1);
-	ptr = strcat(s1, s2);
-	printf("my dest : %s\n", ft_strcat(s1, s2));
-	printf("lib dest: %s\n", strcat(s1, s2));
-	printf("strlen s1 : %lu\n", strlen(s1));
-	printf("ft_strlen s1  : %zu\n", l);
+	printf("s1 orig : %s\n", s11);
+	//	printf("strlen s1 : %lu\n", strlen(s1));
 
+//	printf("ft_strlen(l) s1  : %zu\n", l);
+	//	printf("ft_strlen s1  : %zu\n", ft_strlen(s1));
+	
+	//	printf("ft_strcat dest : %s\n", ft_strcat(s1, s2));
+	printf("strcat dest: %s\n", strlcat(s11, s22, 4));
+*/
 
-
+/*
 // ft_strdup
 	dest = ft_strdup(src);
 	printf("dest : %s\n", ft_strcpy(dest, src));	
@@ -111,6 +119,18 @@ int		main()
 
 //-------------------------------------------------------------------------//
 
+	// FT_STRCHR
+
+	char str[11] = "0183458789";
+	char *ptr;
+//	char *ptr1;
+
+	ptr = ft_strrchr(str, '8');
+//	ptr1 = strchr(str, 3);
+	if (ptr == NULL)
+		printf("no symbol\n");
+	else
+		printf("ft position: %d\n", ptr - str + 1);
 
 
 //-------------------------------------------------------------------------//

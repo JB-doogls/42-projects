@@ -1,0 +1,1 @@
+/usr/bin/cc -g  -Wl,--enable-auto-import CMakeFiles/functions.dir/checker.c.o CMakeFiles/functions.dir/ft_strcat.c.o CMakeFiles/functions.dir/ft_strlen.c.o  -o functions.exe -Wl,--out-implib,libfunctions.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
