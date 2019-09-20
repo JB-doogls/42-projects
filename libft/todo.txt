@@ -33,3 +33,18 @@
 	• isprint    	YES / check
 	• toupper    	YES / check
 	• tolower	YES / check
+
+	
+		CHECK_YOUR)SELF
+	
+	• все указатели (*ptr) во ВСЕХ функциях ч.2,ч.3 на NULL
+	• проверка на то, что оба аргумента NULL в функциях 
+			ft_memove, ft_memcpy, ft_memccpy. ft_memcpy*.
+	
+	• Переполнение size_t -> выделение недостаточного объема памяти, 
+		и segmentation fault (ft_strnew)
+
+	• Утечки памяти: вся выделенная malloc память либо:
+		- free
+		- возвращаем из функции  *ptr (указатель на выделенную память)  
+	•
