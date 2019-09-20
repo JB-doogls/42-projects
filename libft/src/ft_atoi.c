@@ -1,28 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FT_memcpy_debug.c                                  :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edoll <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/10 19:12:07 by edoll             #+#    #+#             */
-/*   Updated: 2019/09/10 19:14:25 by edoll            ###   ########.fr       */
+/*   Created: 2019/09/19 15:00:44 by edoll             #+#    #+#             */
+/*   Updated: 2019/09/19 15:10:39 by edoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
+int		ft_atoi(const char *pt)
 {
-    unsigned char *destptr;
-    unsigned char *srcptr;
+	long int	res;
+	int			sign;
 
-    destptr = (unsigned char*)dest;
-    srcptr = (unsigned char*)src;
-    if ((destptr - srcptr) >= n)
-	printf("ptr_arith: %d\n", destptr - srcptr);	// check the result of pointers arithmetics //
-	return (NULL);
-    while (n--)
-	*destptr++ = *srcptr++;
-    return (dest);
+	sign = 1;
+	res = 0;
+	while (*pt && (*pt == ' ' || *pt == '\n' || *pt == '\t' ||
+			*pt == '\v' || *pt == '\f' || *pt == '\r'))
+		*pt++;
+	if (*pt == '-')
+		sign = -1;
+	if (*pt == '-' || *pt == '+')
+		*pt++;
+	while (*pt && *pt >= '0' && *pt <= '9')
+	{
+		res = res * 10 + (*pt - '0');
+		*pt++;
+	}
+	return (res * sign);
 }
