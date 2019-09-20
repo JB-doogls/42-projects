@@ -6,7 +6,7 @@
 /*   By: edoll <edoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/20 17:18:17 by edoll             #+#    #+#             */
-/*   Updated: 2019/09/20 22:54:26 by edoll            ###   ########.fr       */
+/*   Updated: 2019/09/20 23:19:18 by edoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	*ft_memchr(const void *s, int c, size_t n)
 {
 	unsigned char *s_pt;
-	
+
 	s_pt = (unsigned char*)s;
 	if (!s_pt)
 		return (NULL);
