@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edoll <edoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/19 15:05:41 by edoll             #+#    #+#             */
-/*   Updated: 2019/09/20 22:54:36 by edoll            ###   ########.fr       */
+/*   Created: 2019/09/20 20:24:44 by edoll             #+#    #+#             */
+/*   Updated: 2019/09/20 22:52:54 by edoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_strncmp(const char *s1, const char *s2, size_t n)
+int		ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	size_t ct;
+	unsigned char *s_pt1;
+	unsigned char *s_pt2;
 
-	ct = 0;
-	if ((!s1[ct] && !s2[ct]) || n == 0)
+	s_pt1 = (unsigned char *)s1;
+	s_pt2 = (unsigned char *)s2;
+	if (!s_pt1)
 		return (0);
-	while (s1[ct] && s2[ct] && s1[ct] == s2[ct] && ct < n - 1)
-		ct++;
-	return ((unsigned char)s1[ct] - (unsigned char)s2[ct]);
+	else
+		return (ft_strncmp((char*)s_pt1, (char*)s_pt2, n));
 }

@@ -12,7 +12,7 @@
             ],
             "cStandard": "c99",
             "intelliSenseMode": "gcc-x64",
-            "compilerPath": "C:\\mingw-w64\\x86_64-8.1.0-posix-seh-rt_v6-rev0\\mingw64\\bin\\gcc.exe",
+            "compilerPath": "/usr/bin/gcc",
             "compilerArgs": [
                 "-Wall -Wextra -Werror"
             ]
@@ -27,7 +27,7 @@
                 "UNICODE",
                 "_UNICODE"
             ],
-            "compilerPath": "C:\\cygwin64\\bin\\gcc.exe",
+            "compilerPath": "/usr/bin/gcc",
             "compilerArgs": [
                 "-Wall -Wextra -Werror"
             ],

@@ -1,3 +1,14 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: edoll <edoll@student.42.fr>                +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2019/09/20 22:58:53 by edoll             #+#    #+#              #
+#    Updated: 2019/09/20 22:58:53 by edoll            ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
 NAME = libft.a
 
@@ -6,8 +17,8 @@ FUNCTIONS = ft_memset \
 			ft_memcpy \
 			ft_memccpy \
 			ft_memmove \
-					//	ft_memchr \ //
-					//	ft_memcmp \ //
+			ft_memchr \
+			ft_memcmp \
 			ft_strlen \
 			ft_strdup \
 			ft_strcpy \

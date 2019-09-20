@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edoll <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: edoll <edoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/10 19:10:43 by edoll             #+#    #+#             */
-/*   Updated: 2019/09/19 19:48:46 by edoll            ###   ########.fr       */
+/*   Updated: 2019/09/20 22:53:56 by edoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,35 @@ void    ft_putstr(char *str)
 
 int		main()
 {
+	// FT_MEMCHR // FT_MEMCMP
+
+	char str1[] = "ab";
+	char str2[] = "abcde";
+	size_t n = 5;
+
+
+//	char 	*ptr_ft;
+//	char 	*ptr_libc;
+//	ptr_ft = ft_memchr(str1, '9', 6);
+//	ptr_libc = memchr(str1, '9', 6);
+
+
+	printf("libc: %d\n", memcmp(str1, str2, n));
+	printf("ft: %d\n", ft_memcmp(str1, str2, n));
+
+
+/*	
+	if (ptr_ft == NULL)
+		printf("ft_: no occure\n");
+	else
+		printf("ft_: occcurence pos %ld\n", (ptr_ft - str1 + 1));
+	
+	if (ptr_libc == NULL)
+		printf("libc: no occure\n");
+	else
+		printf("libc: occcurence pos %ld\n", (ptr_libc - str2 + 1));
+*/	
+
 /*
    // FT_MEMSET //
 
@@ -71,7 +100,6 @@ int		main()
     printf("ft_memmove: %s\n", ft_memmove(dst, src, 6));
 	printf("memmove: %s\n", memmove(dst1, src1, 6));
 */
-
 
 //-------------------------------------------------------------------------//
 
@@ -149,12 +177,13 @@ int		main()
 */
 //-------------------------------------------------------------------------//
 
+/*
 	// FT_ATOI
 
 	char s[] = "−9223372036854775028";		//" \n\v\t\r=\f 2+a34";
 	printf ("libc: %d\n", atoi(s));
 	printf ("ft: %d\n", ft_atoi(s));
-
+	*/
 /*								long int min = -9 223 372 036 854 775 808  max =  9 223 372 036 854 775 807
 "9 223 372 036 854 775 828" 
 "9 223 372 036 854 775 808"
@@ -166,5 +195,6 @@ int		main()
 */
 
 //-------------------------------------------------------------------------//
+
     return(0);
 }

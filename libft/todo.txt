@@ -6,15 +6,10 @@
 	• memset   YES / NO :	check origin & check file_checker
 	• bzero    YES / NO:  	origin & check file_checker
 	• memcpy   YES / NO : 	check origin & check file_checker
-
 	• memccpy  YES / NO :	check and debug  
-	
-		about overlap! http://qaru.site/questions/66573/what-is-the-difference-between-memmove-and-memcpy
-
-
 	• memmove	YES / NO :	write checker & check origin & check 42file_checker 
-	• memchr    	—
-	• memcmp   	—
+	• memchr    	YES / NO
+	• memcmp   	YES / NO
  
 	• strlen 	YES 		/ use 42file_checker
 	• strdup    	YES		/ use 42file_checker
@@ -23,7 +18,6 @@
 	• strcat  	YES / NO linker failed (gcc —v) 		  
 	• strncat    	YES / NO
 	• strlcat    	YES / check
-	
 	• strchr    	YES
 	• strrchr   	YES
 	• strstr    	YES
