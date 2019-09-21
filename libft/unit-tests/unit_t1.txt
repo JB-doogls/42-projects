@@ -74,16 +74,22 @@ RUNING TESTS:
      "-.-"     "-.-"     "-.-"     "-.-"     "-.-"    
 
 ft_memset:     [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
+
+        // LITTLE //
 ft_bzero:      [FAILED] [OK] [OK] [OK] 
 [fail]: bzero with normal params fail !
 
+        // LITTLE //
 ft_memcpy:     [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [CRASH] 
 [crash]: your memcpy does not behave well with NULL as both params with size
 
 ft_memccpy:    [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
+
+
 ft_memmove:    [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [CRASH] [OK] 
 [crash]: your memmove does not well with NULL as both parameters and size
 
+        // FAIL //
 ft_memchr:     [FAILED] [FAILED] [OK] [OK] [FAILED] [OK] [FAILED] [NO CRASH] 
 [fail]: your memchr does not work with basic input
 [fail]: your memchr does not cast in unsigned the memory
@@ -91,6 +97,7 @@ ft_memchr:     [FAILED] [FAILED] [OK] [OK] [FAILED] [OK] [FAILED] [NO CRASH]
 [fail]: your memchr failed to find a \0
 [no crash]: your memchr does not segfault when null param is sent
 
+        // FAIL //
 ft_memcmp:     [OK] [OK] [OK] [OK] [OK] [FAILED] [FAILED] [OK] [NO CRASH] [OK] 
 [fail]: your memcmp stop at \0
 [fail]: your memcmp does not work with basic input
@@ -99,6 +106,8 @@ ft_memcmp:     [OK] [OK] [OK] [OK] [OK] [FAILED] [FAILED] [OK] [NO CRASH] [OK]
 ft_strlen:     [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
 ft_strdup:     [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
 ft_strcpy:     [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
+
+        // FAIL //
 ft_strncpy:    [CRASH] [CRASH] [CRASH] [OK] [OK] [OK] [OK] [CRASH] [OK] [OK] [OK] 
 [crash]: your strncpy does not work with basic input
 [crash]: your strncpy return value is false / your strncpy does not works
@@ -108,6 +117,8 @@ ft_strncpy:    [CRASH] [CRASH] [CRASH] [OK] [OK] [OK] [OK] [CRASH] [OK] [OK] [OK
 ft_strcat:     [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
 ft_strncat:    [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
 ft_strlcat:    [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
+
+        // FAIL //
 ft_strchr:     [FAILED] [FAILED] [FAILED] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
 [fail]: your strchr does not work with basic input
 [fail]: your strchr does not work with the first char of input
@@ -118,6 +129,7 @@ ft_strstr:     [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
 ft_strnstr:    [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
 ft_strcmp:     [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
 ft_strncmp:    [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
+
 ft_atoi:       [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [KO] [KO] [OK] 
 [KO]: your atoi does not work with over long max value
 [KO]: your atoi does not work with over long min value
