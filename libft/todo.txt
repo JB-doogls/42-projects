@@ -1,40 +1,87 @@
 		
 		|| LIBFT: check-list ||
 
-	Part Ii
+				Part I
+						Done
+	• memset 
+	• bzero 
+	• memcpy   
+	• memccpy  
+	• memmove	
+	• memchr    	
+	• memcmp
 
-	• memset   YES / NO :	check origin & check file_checker
-	• bzero    YES / NO:  	origin & check file_checker
-	• memcpy   YES / NO : 	check origin & check file_checker
-	• memccpy  YES / NO :	check and debug  
-	• memmove	YES / NO :	write checker & check origin & check 42file_checker 
-	• memchr    	YES / NO
-	• memcmp   	YES / NO
- 
-	• strlen 	YES 		/ use 42file_checker
-	• strdup    	YES		/ use 42file_checker
-	• strcpy    	YES		/ use 42file_checker
-	• strncpy    	YES		/ use 42file_checker
-	• strcat  	YES / NO linker failed (gcc —v) 		  
-	• strncat    	YES / NO
-	• strlcat    	YES / check
-	• strchr    	YES
-	• strrchr   	YES
-	• strstr    	YES
-	• strnstr   	YES 
-	• strcmp    	YES
-	• strncmp   	YES
-	
-	• atoi    	YES / check
-	• isalpha    	YES / check
-	• isdigit    	YES / check
-	• isalnum    	YES / check
-	• isascii    	YES / check
-	• isprint    	YES / check
-	• toupper    	YES / check
-	• tolower	YES / check
+ 	• strlen 	
+	• strdup    
+	• strcpy    	
+	• strncpy    	
+	• strcat 	  
+	• strncat    	
+	• strlcat    	
+	• strchr    	
+	• strrchr   	
+	• strstr    	
+	• strnstr   	 
+	• strcmp    	
+	• strncmp 
 
+	• atoi    
+	• isalpha
+	• isdigit    	
+	• isalnum    	
+	• isascii    	
+	• isprint  
+	• toupper
+	• tolower
+			
+			
+				Part II
+
+	ft_itoa
+	ft_memalloc
+	ft_memdel
+
+	ft_putchar
+	ft_putchar_fd
+	ft_putendl
+	ft_putendl_fd
+	ft_putnbr
+	ft_putnbr_fd
+	ft_putstr
+	ft_putstr_fd
+
+	ft_strsplit
+	ft_strclr 
 	
+	ft_strequ
+	ft_striter
+	ft_striteri
+	ft_strjoin
+	ft_strmap
+	ft_strmapi
+	ft_strnequ
+
+	ft_strnew
+	ft_strdel 
+
+	 
+	ft_strsub
+	ft_strtrim
+
+
+
+
+						Part II
+
+
+	t_list				*ft_lstnew(void const *content, size_t content_size);
+	void				ft_lstdel(t_list **alst, void (*del)(void *, size_t));
+	void				ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
+	void				ft_lstadd(t_list **alst, t_list *new);
+	void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
+	t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));	
+
+
 		CHECK_YOUR)SELF
 	
 	• все указатели (*ptr) во ВСЕХ функциях ч.2,ч.3 на NULL
@@ -47,4 +94,7 @@
 	• Утечки памяти: вся выделенная malloc память либо:
 		- free
 		- возвращаем из функции  *ptr (указатель на выделенную память)  
-	•
+	
+	• Алогичные примеры 
+		- ft_atoi проверить на "−9223372036854775828", "−9223372036854775028", 
+		"9223372036854775828", "9223372036854775808" (long int для переменной)
