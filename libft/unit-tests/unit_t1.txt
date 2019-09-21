@@ -76,14 +76,14 @@ RUNING TESTS:
 ft_memset:     [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
 
         // LITTLE //
-ft_bzero:      [FAILED] [OK] [OK] [OK] 
+ft_bzero:      [FAILED] [OK] [OK] [OK]                          /* try_upd */
 [fail]: bzero with normal params fail !
 
         // LITTLE //
-ft_memcpy:     [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [CRASH] 
+ft_memcpy:     [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [CRASH]                           /* try_upd */
 [crash]: your memcpy does not behave well with NULL as both params with size
 
-ft_memccpy:    [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
+ft_memccpy:    [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK]                          /* try_upd */
 
 
 ft_memmove:    [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [CRASH] [OK] 
