@@ -80,25 +80,25 @@ ft_bzero:      [FAILED] [OK] [OK] [OK]                          /* try_upd */
 [fail]: bzero with normal params fail !
 
         // LITTLE //
-ft_memcpy:     [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [CRASH]                           /* try_upd */
+ft_memcpy:     [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [CRASH]                     /* try_upd */
 [crash]: your memcpy does not behave well with NULL as both params with size
 
-ft_memccpy:    [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK]                          /* try_upd */
+ft_memccpy:    [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK]                    /* try_upd */
 
 
-ft_memmove:    [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [CRASH] [OK] 
+ft_memmove:    [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [CRASH] [OK]       /* try_upd */ 
 [crash]: your memmove does not well with NULL as both parameters and size
 
         // FAIL //
 ft_memchr:     [FAILED] [FAILED] [OK] [OK] [FAILED] [OK] [FAILED] [NO CRASH] 
-[fail]: your memchr does not work with basic input
+[fail]: your memchr does not work with basic input                              // Done my try to fix this by change cond (if(!s_pt) -to- if(n == 0)//
 [fail]: your memchr does not cast in unsigned the memory
 [fail]: your memchr does not work on basic input
 [fail]: your memchr failed to find a \0
 [no crash]: your memchr does not segfault when null param is sent
 
         // FAIL //
-ft_memcmp:     [OK] [OK] [OK] [OK] [OK] [FAILED] [FAILED] [OK] [NO CRASH] [OK] 
+ft_memcmp:     [OK] [OK] [OK] [OK] [OK] [FAILED] [FAILED] [OK] [NO CRASH] [OK]         // done try to fix all crashs by delete cond (if (!s_ptr1) return (0)) //
 [fail]: your memcmp stop at \0
 [fail]: your memcmp does not work with basic input
 [no crash]: your memcmp does not segfault when null parameter is sent
