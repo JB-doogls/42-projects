@@ -11,13 +11,14 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "stdio.h"
 
 void	*ft_memmove(void *dst, const void *src, size_t n)
 {
 	unsigned char *dpt;
 	unsigned char *spt;
 
+        if (!dst || !src)       /* just add - check!! */
+           return (NULL);
 	dpt = (unsigned char*)dst;
 	spt = (unsigned char*)src;
 	if (spt > dpt)
