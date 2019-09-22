@@ -46,6 +46,7 @@ FUNCTIONS = ft_memset \
 			ft_strdel \
 			ft_strclr \
 			ft_striter \
+			ft_striteri \
 			ft_putchar_fd \
 			ft_putchar \
 			ft_putstr_fd \

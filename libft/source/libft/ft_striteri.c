@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/22 19:12:14 by marvin            #+#    #+#             */
-/*   Updated: 2019/09/22 19:12:14 by marvin           ###   ########.fr       */
+/*   Created: 2019/09/22 21:38:58 by marvin            #+#    #+#             */
+/*   Updated: 2019/09/22 21:38:58 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,15 @@
 
 void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
+    size_t ct;
     
+    ct = 0;
+    if (s && f)
+    {
+        while (s[ct] && !((ct + 1) >= ct))
+        {
+            f(ct, &s[ct]);
+            ct++;
+        }
+    }
 }

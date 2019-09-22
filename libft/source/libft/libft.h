@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/10 19:22:48 by edoll             #+#    #+#             */
-/*   Updated: 2019/09/22 19:14:32 by marvin           ###   ########.fr       */
+/*   Updated: 2019/09/22 21:48:54 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,7 @@ void	ft_memdel(void **ap);
 void	ft_strdel(char **as);
 void	ft_strclr(char *s);
 void	ft_striter(char *s, void (*f)(char *));
-
 void	ft_striteri(char *s, void (*f)(unsigned int, char *));
-
 void	ft_putchar_fd(char c, int fd);
 void	ft_putchar(char c);
 void	ft_putstr_fd(char const *s, int fd);
