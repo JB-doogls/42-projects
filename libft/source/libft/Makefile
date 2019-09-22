@@ -44,23 +44,27 @@ FUNCTIONS = ft_memset \
 			ft_strnew \
 			ft_memdel \
 			ft_strdel \
+			ft_stclr \
+			ft_striter \
 			ft_putchar_fd \
 			ft_putchar \
 			ft_putstr_fd \
 			ft_putstr \
 			ft_putendl_fd \
-			ft_putendl
+			ft_putendl \
+			ft_putnbr_fd \
+			ft_putnbr
 OBJ = $(patsubst %,%.o,$(FUNCTIONS))
 SRC = $(patsubst %,%.c,$(FUNCTIONS))
-INC = libft.h
 CFLAGS = -Wall -Wextra -Werror
+HEAD = libft.h
 
 .PHONY: all clean fclean re
 
 all: $(NAME)
 
 $(NAME):
-	gcc -I $(INC) $(CFLAGS) -c $(SRC)
+	gcc $(CFLAGS) -c $(SRC)
 	ar rc $(NAME) $(OBJ)
 
 clean:
