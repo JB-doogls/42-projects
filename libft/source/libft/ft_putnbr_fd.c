@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/22 19:05:05 by marvin            #+#    #+#             */
-/*   Updated: 2019/09/22 19:05:11 by marvin           ###   ########.fr       */
+/*   Updated: 2019/09/22 19:56:04 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ void	ft_putnbr_fd(int n, int fd)
 	else if (n >= 10)
 	{
 		n = (unsigned int)n;
-		ft_putnbr_fr(nb / 10, fd);
-		ft_putnbr_fd(nb % 10, fd);
+		ft_putnbr_fd(n / 10, fd);
+		ft_putnbr_fd(n % 10, fd);
 	}
 	else
 		ft_putchar_fd((char)(n + '0'), fd);

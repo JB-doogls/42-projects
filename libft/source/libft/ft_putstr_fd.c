@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/22 08:18:32 by marvin            #+#    #+#             */
-/*   Updated: 2019/09/22 18:47:50 by marvin           ###   ########.fr       */
+/*   Updated: 2019/09/22 20:20:36 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,15 @@
 
 void	ft_putstr_fd(char const *s, int fd)
 {
-	if (!s)
+	size_t ct;
+
+	ct = 0;
+	if (!s[ct])
 		write(1, "(NULL)", 6);
 	else
-		while (*s)
+		while (s[ct])
 		{
-			ft_putchar_fd(s, fd);
-			s++;
+			ft_putchar_fd(s[ct], fd);
+			ct++;
 		}
-}	
+}

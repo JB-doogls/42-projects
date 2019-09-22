@@ -17,12 +17,10 @@ void	ft_striter(char *s, void (*f)(char *))
     size_t ct;
 
     ct = 0;
-
     if (s && f)
     {
         ct = 0;
-        while (s[ct] && (!(ct + 1) >= ct))
-        {
+        while (s[ct] && !((ct + 1) >= ct))
             f(&s[ct++]);
-        }
+    }
 }
