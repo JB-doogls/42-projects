@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edoll <edoll@student.42.fr>                +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/10 19:22:48 by edoll             #+#    #+#             */
-/*   Updated: 2019/09/22 04:03:29 by edoll            ###   ########.fr       */
+/*   Updated: 2019/09/22 09:05:26 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,13 +49,13 @@ void	*ft_memalloc(size_t size);
 char	*ft_strnew(size_t size);
 void	ft_memdel(void **ap);
 void	ft_strdel(char **as);
-
 void	ft_putchar_fd(char c, int fd);
 void	ft_putchar(char c);
-void	ft_putnbr_fd(int n, int fd);
-void	ft_putnbr(int n);
 void	ft_putstr_fd(char const *s, int fd);
 void	ft_putstr(char const *s);
+
+void	ft_putnbr_fd(int n, int fd);
+void	ft_putnbr(int n);
 void	ft_putendl_fd(char const *s, int fd);
 void	ft_putendl(char const *s);
 
