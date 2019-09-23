@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: edoll <edoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/10 19:22:48 by edoll             #+#    #+#             */
-/*   Updated: 2019/09/22 21:48:54 by marvin           ###   ########.fr       */
+/*   Updated: 2019/09/23 19:48:07 by edoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,9 @@ void	*ft_memccpy(void *dst, const void *src, int c, size_t n);
 void	*ft_memmove(void *dst, const void *src, size_t n);
 void	*ft_memchr(const void *s, int c, size_t n);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
+void	*ft_memalloc(size_t size);
+char	*ft_strnew(size_t size);
+void	ft_memdel(void **ap);
 size_t	ft_strlen(const char *str);
 char	*ft_strdup(const char *src);
 char	*ft_strcpy(char *dest, const char *src);
@@ -45,9 +48,6 @@ int		ft_isascii(int c);
 int		ft_isprint(int c);
 int		ft_toupper(int c);
 int		ft_tolower(int c);
-void	*ft_memalloc(size_t size);
-char	*ft_strnew(size_t size);
-void	ft_memdel(void **ap);
 void	ft_strdel(char **as);
 void	ft_strclr(char *s);
 void	ft_striter(char *s, void (*f)(char *));
@@ -60,13 +60,13 @@ void	ft_putendl_fd(char const *s, int fd);
 void	ft_putendl(char const *s);
 void	ft_putnbr_fd(int n, int fd);
 void	ft_putnbr(int n);
-
+char	*ft_strmap(char const *s, char (*f)(char));
 
 char	*ft_itoa(int n);
 int		ft_strnequ(char const *s1, char const *s2, size_t n);
 int		ft_strequ(char const *s1, char const *s2);
 char	*ft_strjoin(char const *s1, char const *s2);
-char	*ft_strmap(char const *s, char (*f)(char));
+
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char	**ft_strsplit(char const *s, char c);
 char	*ft_strdup(char const *src);

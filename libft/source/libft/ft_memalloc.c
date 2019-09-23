@@ -6,7 +6,7 @@
 /*   By: edoll <edoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/22 02:43:50 by edoll             #+#    #+#             */
-/*   Updated: 2019/09/22 04:03:26 by edoll            ###   ########.fr       */
+/*   Updated: 2019/09/23 17:25:58 by edoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	*ft_memalloc(size_t size)
 
 	if (size + 1 <= size)
 		return (NULL);
-	if (!(str = (char *)malloc(sizeof(char) * size)))
+	if (!(str = (char *)malloc(sizeof(char) * (size + 1))))
 	{
 		free(str);
 		return (NULL);

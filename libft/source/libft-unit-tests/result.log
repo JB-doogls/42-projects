@@ -26,15 +26,15 @@ ft_isascii:    [OK]
 ft_isprint:    [OK] 
 ft_toupper:    [OK] 
 ft_tolower:    [OK] 
-ft_memalloc:   [MISSING]
-ft_memdel:     [MISSING]
-ft_strnew:     [MISSING]
-ft_strdel:     [MISSING]
-ft_strclr:     [MISSING]
-ft_striter:    [MISSING]
-ft_striteri:   [MISSING]
-ft_strmap:     [MISSING]
-ft_strmapi:    [MISSING]
+ft_memalloc:   [OK] [OK] [OK] [OK] [OK] 
+ft_memdel:     [OK] [OK] {protected}
+ft_strnew:     [OK] [OK] [OK] [OK] 
+ft_strdel:     [OK] [OK] {protected}
+ft_strclr:     [OK] {protected}
+ft_striter:    [OK] [OK] {protected}
+ft_striteri:   [OK] [OK] {protected}
+ft_strmap:     [OK] [OK] [OK] [OK] [OK] {protected}
+ft_strmapi:    [OK] [OK] [OK] [OK] [OK] {protected}
 ft_strequ:     [MISSING]
 ft_strnequ:    [MISSING]
 ft_strsub:     [MISSING]
@@ -42,11 +42,53 @@ ft_strjoin:    [MISSING]
 ft_strtrim:    [MISSING]
 ft_strsplit:   [MISSING]
 ft_itoa:       [MISSING]
-ft_putchar:    [MISSING]
-ft_putstr:     [MISSING]
-ft_putendl:    [MISSING]
-ft_putnbr:     [MISSING]
-ft_putchar_fd: [MISSING]
-ft_putstr_fd:  [MISSING]
-ft_putendl_fd: [MISSING]
-ft_putnbr_fd:  [MISSING]
+ft_putchar:    [OK] [OK] [KO] 
+[KO]: your putchar does not work with unicode
+Test code:
+	char buff[10];
+	char buff2[10];
+	int c = L'ø';
+	int len = 0;
+
+	putwchart(c, &len, buff2);
+	buff2[len] = 0;
+	fd_to_buffer(1);
+	ft_putchar(c);
+	write(1, "", 1);
+	get_fd_buffer(1, buff, 10);
+	if (!strcmp(buff, buff2))
+		exit(TEST_SUCCESS);
+	exit(TEST_KO);
+
+Diffs:
+     putchar: |�|
+  ft_putchar: |ø|
+
+ft_putstr:     [OK] [OK] {protected}
+ft_putendl:    [OK] [OK] {protected}
+ft_putnbr:     [OK] [OK] [OK] [OK] [OK] 
+ft_putchar_fd: [OK] [OK] [KO] 
+[KO]: your putchar_fd does not work with unicode
+Test code:
+	char buff[10];
+	char buff2[10];
+	int c = L'ø';
+	int len = 0;
+
+	putwchart(c, &len, buff2);
+	buff2[len] = 0;
+	fd_to_buffer(2);
+	ft_putchar_fd(c, 2);
+	write(2, "", 1);
+	get_fd_buffer(2, buff, 10);
+	if (!strcmp(buff, buff2))
+		exit(TEST_SUCCESS);
+	exit(TEST_KO);
+
+Diffs:
+  putchar_fd: |�|
+ft_putchar_fd: |ø|
+
+ft_putstr_fd:  [OK] [OK] {protected}
+ft_putendl_fd: [OK] [OK] {protected}
+ft_putnbr_fd:  [OK] [OK] [OK] [OK] [OK] 
