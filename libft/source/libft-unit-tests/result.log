@@ -37,7 +37,7 @@ ft_strmap:     [OK] [OK] [OK] [OK] [OK] {protected}
 ft_strmapi:    [OK] [OK] [OK] [OK] [OK] {protected}
 ft_strequ:     [MISSING]
 ft_strnequ:    [MISSING]
-ft_strsub:     [MISSING]
+ft_strsub:     [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] {protected}
 ft_strjoin:    [MISSING]
 ft_strtrim:    [MISSING]
 ft_strsplit:   [MISSING]
