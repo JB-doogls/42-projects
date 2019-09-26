@@ -6,7 +6,7 @@
 /*   By: edoll <edoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/23 20:08:15 by edoll             #+#    #+#             */
-/*   Updated: 2019/09/23 20:21:04 by edoll            ###   ########.fr       */
+/*   Updated: 2019/09/26 19:37:51 by edoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
+	size_t	ct;
+	char	*new;
+
 	if (s && f)
 	{
-		size_t	ct;
-		char	*new;
-
 		ct = 0;
 		if (!(new = (char *)malloc(sizeof(char) * (ft_strlen(s) + 1))))
 		{

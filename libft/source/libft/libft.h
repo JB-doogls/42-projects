@@ -6,7 +6,7 @@
 /*   By: edoll <edoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/10 19:22:48 by edoll             #+#    #+#             */
-/*   Updated: 2019/09/26 15:07:02 by edoll            ###   ########.fr       */
+/*   Updated: 2019/09/26 19:45:05 by edoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,9 +67,11 @@ int		ft_strequ(char const *s1, char const *s2);
 int		ft_strnequ(char const *s1, char const *s2, size_t n);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strtrim(char const *s);
-
-char	*ft_itoa(int n);
+int		ft_iswspace(int c);
+int		ft_power(int n, int power);
+long	ft_long_power(long n, long power);
+char	*ft_strrev(char *str);
 char	**ft_strsplit(char const *s, char c);
-
+char	*ft_itoa(int n);
 
 #endif

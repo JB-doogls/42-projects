@@ -1,33 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edoll <edoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/27 11:08:06 by dtedgui           #+#    #+#             */
-/*   Updated: 2019/09/26 17:39:29 by edoll            ###   ########.fr       */
+/*   Created: 2019/09/26 17:43:15 by edoll             #+#    #+#             */
+/*   Updated: 2019/09/26 19:21:13 by edoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_itoa(int n)
 {
-	char	*new;
+	int		ln;
+	char	*rs;
+	long	sn;
 	int		i;
+	long	nb;
 
-	if (s1 || s2)
-	{
-		i = 0;
-	if (!(new = (char*)malloc(ft_strlen(s1) + ft_strlen(s2) + 1)))
+	nb = n;
+	ln = 1;
+	if ((sn = nb) < 0)
+		nb = -nb;
+	while (ft_long_power(10, ln) < nb)
+		ln++;
+	if (!(rs = (char*)malloc(sizeof(char) * (ln + 1))))
 		return (NULL);
-	while (*s1)
-		new[i++] = *s1++;
-	while (*s2)
-		new[i++] = *s2++;
-	new[i] = '\0';
-	return (new);
-	}
-	return (NULL);
+	i = 1;
+	rs[0] = (nb % 10) + '0';
+	while ((nb = nb / 10) > 0)
+		rs[i++] = (nb % 10) + '0';
+	if (sn < 0)
+		rs[i++] = '-';
+	rs[i] = '\0';
+	return (ft_strrev(rs));
 }
