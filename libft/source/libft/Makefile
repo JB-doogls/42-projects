@@ -57,7 +57,10 @@ FUNCTIONS = ft_memset \
 			ft_putnbr \
 			ft_strmap \
 			ft_strmapi \
-			ft_strsub
+			ft_strsub \
+			ft_strequ \
+			ft_strnequ \
+			ft_strjoin
 OBJ = $(patsubst %,%.o,$(FUNCTIONS))
 SRC = $(patsubst %,%.c,$(FUNCTIONS))
 CFLAGS = -Wall -Wextra -Werror
