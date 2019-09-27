@@ -6,11 +6,13 @@
 /*   By: edoll <edoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/19 15:00:44 by edoll             #+#    #+#             */
-/*   Updated: 2019/09/27 17:25:01 by edoll            ###   ########.fr       */
+/*   Updated: 2019/09/27 18:40:17 by edoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+#include <stdio.h>
 
 int		ft_atoi(const char *pt)
 {
@@ -37,4 +39,13 @@ int		ft_atoi(const char *pt)
 		return (0);
 	else
 		return (rs * sn);
+}
+
+int		main(void)
+{
+	char s[] = "−9223372036854775928";
+	
+	printf ("libc: %d\n", atoi(s));
+	printf ("ft: %d\n", ft_atoi(s));
+	return (0);
 }
