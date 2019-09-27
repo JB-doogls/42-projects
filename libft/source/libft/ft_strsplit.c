@@ -6,7 +6,7 @@
 /*   By: edoll <edoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/26 16:38:28 by edoll             #+#    #+#             */
-/*   Updated: 2019/09/26 19:48:04 by edoll            ###   ########.fr       */
+/*   Updated: 2019/09/27 16:18:51 by edoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,17 +42,14 @@ static char		*get_word(const char *s, char c)
 	while (&s[ln] && s[ln] != c)
 		ln++;
 	if (!(word = (char*)malloc(sizeof(char) * (ln + 1))))
-	{
-		free(word);
 		return (NULL);
-	}
 	while (*s && *s != c)
 		word[i++] = *s++;
 	word[i] = '\0';
 	return (word);
 }
 
-char	**ft_strsplit(char const *s, char c)
+char			**ft_strsplit(char const *s, char c)
 {
 	char	**tab;
 	size_t	w_ct;
@@ -70,7 +67,7 @@ char	**ft_strsplit(char const *s, char c)
 				s++;
 			else
 			{
-				tab[i++] = get_word(s, c); 			// i++ was on the new line //
+				tab[i++] = get_word(s, c);
 				while (*s && *s != c)
 					s++;
 			}

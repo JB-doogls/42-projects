@@ -6,7 +6,7 @@
 /*   By: edoll <edoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/26 15:06:36 by edoll             #+#    #+#             */
-/*   Updated: 2019/09/26 19:49:42 by edoll            ###   ########.fr       */
+/*   Updated: 2019/09/27 16:15:54 by edoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,7 @@ char	*ft_strtrim(char const *s)
 		while (s[i] && ft_iswspace(s[j + i]))
 			j--;
 		if (!(new = ft_strnew(j + 1)))
-		{
-			free(new);
 			return (NULL);
-		}
 		ft_strncpy(new, (s + i), (j + 1));
 		return (new);
 	}

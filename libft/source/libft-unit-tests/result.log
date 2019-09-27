@@ -38,7 +38,7 @@ ft_strmapi:    [OK] [OK] [OK] [OK] [OK] {protected}
 ft_strequ:     [OK] [OK] [OK] [OK] {protected}
 ft_strnequ:    [OK] [OK] [OK] [OK] {protected}
 ft_strsub:     [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] {protected}
-ft_strjoin:    [OK] [OK] [OK] [OK] [OK] {not protected}
+ft_strjoin:    [OK] [OK] [OK] [OK] [OK] {protected}
 ft_strtrim:    [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] {protected}
 ft_strsplit:   [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] {protected}
 ft_itoa:       [OK] [OK] [OK] [OK] [OK] [OK] [KO] [OK] [OK] 

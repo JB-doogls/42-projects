@@ -6,7 +6,7 @@
 /*   By: edoll <edoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/26 17:43:15 by edoll             #+#    #+#             */
-/*   Updated: 2019/09/26 19:21:13 by edoll            ###   ########.fr       */
+/*   Updated: 2019/09/27 17:42:25 by edoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ char	*ft_itoa(int n)
 		nb = -nb;
 	while (ft_long_power(10, ln) < nb)
 		ln++;
-	if (!(rs = (char*)malloc(sizeof(char) * (ln + 1))))
+	if (!(rs = (char *)malloc(sizeof(char) * (ln + 1))))
 		return (NULL);
 	i = 1;
 	rs[0] = (nb % 10) + '0';
