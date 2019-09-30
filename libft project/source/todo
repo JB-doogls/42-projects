@@ -1,0 +1,176 @@
+		
+		|| LIBFT: check-list ||
+
+	
+	* ft_strequ ⊆ ft_strnequ
+	* ft_strdup ⊆ ft_strjoin
+	* ft_malloc ⊆ ft_realloc ⊆ ft_memjoin
+	* (ft_itoa ⋂ ft_putnbr_fd) = ft_itostr
+
+
+
+* ft_bzero ⊆ ft_memset
+* ft_strcpy ⊆ ft_memccpy
+* ft_strcmp ⊆ ft_strncmp
+* ft_strcat ⊆ ft_strncat
+* ft_strstr ⊆ ft_strnstr
+* ft_ischar ⊆ ft_isalpha
+* (ft_isupper ∪ ft_islower) = ft_isalpha
+* (ft_isdigit ∪ ft_isalpha) = ft_isalnum ⊆ ft_isprint
+* (ft_isnotprint ∪ ft_isprint) = ft_isascii
+* ft_isspace ⊆ ft_isascii
+* ft_strnew ⊆ ft_memalloc
+* ft_strdel ⊆ ft_memdel
+* ft_putnbr ⊆ ft_putnbr_fd
+* ft_putchar ⊆ ft_putchar_fd
+* ft_putstr ⊆ ft_putstr_fd ⊆ ft_putchar_fd
+* ft_putendl ⊆ ft_putendl_fd ⊆ ft_putchar_fd
+* ft_strlen ⊆ ft_strnlen
+* ft_strnequ \ ft_strncmp = logic_op()
+
+
+		CHECK_YOUR)SELF
+	
+	• все указатели (*ptr) во ВСЕХ функциях ч.2,ч.3 на NULL
+	• проверка на то, что оба аргумента NULL в функциях 
+			ft_memove, ft_memcpy, ft_memccpy. ft_memcpy*.
+	
+	• Переполнение size_t -> выделение недостаточного объема памяти, 
+		и segmentation fault (ft_strnew)
+
+	• Утечки памяти: вся выделенная malloc память либо:
+		- free
+		- возвращаем из функции  *ptr (указатель на выделенную память)  
+	
+	• Алогичные примеры 
+		- ft_atoi проверить на "−9223372036854775828", "−9223372036854775028", 
+		"9223372036854775828", "9223372036854775808" (long int для переменной)
+
+	/*
+min	long
+	−2 147 483 648
+max long
+	2 147 483 647
+min long long
+	−9 223 372 036 854 775 808
+max long long
+	+9 223 372 036 854 775 807]
+*/
+
+		Mandatory part
+
+Part I
+
+ft_atoi
+ft_bzero
+ft_isalnum
+ft_isalpha
+ft_isascii
+ft_isdigit
+ft_isprint
+ft_tolower
+ft_toupper
+
+ft_memccpy
+ft_memchr
+ft_memcmp
+ft_memcpy
+ft_memmove
+ft_memset
+
+ft_strcat
+ft_strchr
+ft_strcmp
+ft_strcpy
+ft_strdup
+ft_strlcat
+ft_strlen
+ft_strncat
+ft_strncmp
+ft_strncpy
+ft_strnstr
+ft_strrchr
+ft_strstr
+
+
+
+Part II
+
+ft_itoa
+ft_memalloc
+ft_memdel
+ft_putchar
+ft_putchar_fd
+ft_putendl
+ft_putendl_fd
+ft_putnbr
+ft_putnbr_fd
+ft_putstr
+ft_putstr_fd
+ft_strclr
+ft_strdel
+ft_strequ
+ft_striter
+ft_striteri
+ft_strjoin
+ft_strmap
+ft_strmapi
+ft_strnequ
+ft_strnew
+ft_strsplit
+ft_strsub
+ft_strtrim
+
+
+
+		
+
+
+
+						Part II
+
+
+	t_list				*ft_lstnew(void const *content, size_t content_size);
+	void				ft_lstdel(t_list **alst, void (*del)(void *, size_t));
+	void				ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
+	void				ft_lstadd(t_list **alst, t_list *new);
+	void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
+	t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));	
+
+
+	
+
+
+
+Bonus part
+
+
+ft_lstiter
+ft_lstmap
+ft_lstnew
+ft_lstadd
+ft_lstdel
+ft_lstdelone
+Addtional part
+ft_isblank
+ft_iscntrl
+ft_isgraph
+ft_islower
+ft_isspace
+ft_isupper
+ft_isxdigit
+ft_itoa_base
+ft_str_is_alpha
+ft_str_is_lowercase
+ft_str_is_numeric
+ft_str_is_printable
+ft_str_is_uppercase
+ft_strcapitalize
+ft_strcasecmp
+ft_strcasestr
+ft_strlcpy
+ft_strlowcase
+ft_strncasecmp
+ft_strndup
+ft_strupcase
+ft_strtok
