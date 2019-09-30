@@ -6,11 +6,13 @@
 /*   By: edoll <edoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/26 17:43:15 by edoll             #+#    #+#             */
-/*   Updated: 2019/09/27 17:42:25 by edoll            ###   ########.fr       */
+/*   Updated: 2019/09/30 16:28:15 by edoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+#include <stdio.h>
 
 char	*ft_itoa(int n)
 {
@@ -36,4 +38,15 @@ char	*ft_itoa(int n)
 		rs[i++] = '-';
 	rs[i] = '\0';
 	return (ft_strrev(rs));
+}
+
+int 	main(void)
+{
+	int n = 1234;
+	char *str;
+
+	str = ft_itoa(n);
+	printf("s = %s\n", str);
+	free(str);
+	return (0);
 }

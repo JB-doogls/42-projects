@@ -1,6 +1,0 @@
-1c1
-< -
-\ No newline at end of file
----
-> -1
-\ No newline at end of file

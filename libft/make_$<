@@ -1,0 +1,6 @@
+all: $(NAME)
+
+$(OBJ): %.o : %.c
+    gcc $(CFLAGS) -c $<
+$(NAME): $(OBJ)
+    ar rc $(NAME) $(OBJ)

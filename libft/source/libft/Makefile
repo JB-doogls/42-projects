@@ -77,8 +77,9 @@ HEAD = libft.h
 
 all: $(NAME)
 
-$(NAME):
-	gcc $(CFLAGS) -c $(SRC)
+$(OBJ): %.o : %.c
+	gcc $(FLAGS) -c $<
+$(NAME): $(OBJ)
 	ar rc $(NAME) $(OBJ)
 
 clean:
