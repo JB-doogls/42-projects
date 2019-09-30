@@ -112,11 +112,12 @@ int main()
     ft_list_push_front(&l, "3233");
     printf("LIST_SIZE === %d\n", ft_list_size(l));
     
-    //f = ft_list_push_params(3, "KOKO", "JOJO", "POPO");
+	// t_list *f = NULL;
+    // f = ft_list_push_params(3, "KOKO", "JOJO", "POPO");
     
     t_list *d;
     d = ft_list_last(l);
-    printf("LAST LAST LAST ===== %s\n", (char *)d->data);
+    printf("LAST LAST LAST ===== %s\n\n", (char *)d->data);
     
     while (l)
     {
