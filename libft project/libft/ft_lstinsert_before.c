@@ -24,7 +24,7 @@ void	ft_lstinsert_before(t_list **alst, t_list *target, t_list *new)
 		if (cur == target)
 		{
 			if (cur == *alst)
-				ft_lstadd_beginning(alst, new);
+				ft_lstadd(alst, new);
 			else
 			{
 				new->next = target;

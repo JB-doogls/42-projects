@@ -72,7 +72,7 @@ FUNCTIONS = ft_memset \
 			ft_lstdelone \
 			ft_lstdel \
 			ft_lstadd \
-			ft_lst_back \
+			ft_lstadd_back \
 			ft_lstiter \
 			ft_lstmap \
 			ft_lstinsert_before \
