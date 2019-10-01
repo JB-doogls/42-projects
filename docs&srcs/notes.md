@@ -16,9 +16,9 @@ MEMORY
 * [Почему важно проверять Malloc](https://habr.com/en/company/pvs-studio/blog/348098/)
 
 ---
-<br/>  
-
-### Utils, tools, funcs, patterns
+  
+  
+### Utils, tools, funcs, patterns  
 * **[AddressSanitizer]**(https://github.com/google/sanitizers/wiki/AddressSanitizer)
 * [Jemmaloc](http://jemalloc.net/jemalloc.3.html)
 * [TCMalloc](http://goog-perftools.sourceforge.net/doc/tcmalloc.html)
