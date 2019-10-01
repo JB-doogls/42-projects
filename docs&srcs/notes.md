@@ -3,9 +3,7 @@ MEMORY
 ======
 
 ### Memory models 
-> Memory segmentation & structure  
-  
-  
+> Memory segmentation & structure<br/>
 * [Segmentation Fault (распределение памяти компьютера)](https://habr.com/en/company/nix/blog/277759/)
 * [Сегментация памяти (Схема памяти компьютера)](https://habr.com/en/post/345766/)
 * [Модели памяти, лежащие в основе языков программирования](https://habr.com/en/company/nix/blog/323624/)
