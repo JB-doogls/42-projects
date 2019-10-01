@@ -1,6 +1,7 @@
 
 MEMORY
 ======
+<br/>  
 
 ### Memory models & structure
 * [Segmentation Fault (распределение памяти компьютера)](https://habr.com/en/company/nix/blog/277759/)
@@ -8,7 +9,6 @@ MEMORY
 * [Модели памяти, лежащие в основе языков программирования](https://habr.com/en/company/nix/blog/323624/)
 
 ---
-<br/>  
 
 ### Leaks & garbage collectors (about)
 * [Searching for C object leaks](https://blog.nelhage.com/2013/03/tracking-an-eventmachine-leak/#searching-for-c-object-leaks)
