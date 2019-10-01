@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstinsert_before.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: edoll <edoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/01 15:42:22 by marvin            #+#    #+#             */
-/*   Updated: 2019/10/01 15:42:22 by marvin           ###   ########.fr       */
+/*   Created: 2019/10/01 19:19:01 by edoll             #+#    #+#             */
+/*   Updated: 2019/10/01 19:23:58 by edoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	ft_lstinsert_before(t_list **alst, t_list *target, t_list *new)
 				new->next = target;
 				prev->next = new;
 			}
-			break;
+			break ;
 		}
 		prev = cur;
 		cur = cur->next;
