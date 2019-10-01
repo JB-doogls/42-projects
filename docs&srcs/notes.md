@@ -19,8 +19,8 @@ MEMORY
 <br/>
 
 ### Utils, tools, funcs, patterns  
-* [**AddressSanitizer**](https://github.com/google/sanitizers/wiki/AddressSanitizer)  **|-->  usefull leaks detector**
---
+* [**AddressSanitizer**](https://github.com/google/sanitizers/wiki/AddressSanitizer)  **|-->  usefull leaks detector**<br/>
+
 * [Jemmaloc](http://jemalloc.net/jemalloc.3.html)
 * [TCMalloc](http://goog-perftools.sourceforge.net/doc/tcmalloc.html)
 * [Управление памятью (Оonathan Bartlett)](https://habr.com/en/post/270009/)
