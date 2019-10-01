@@ -1,13 +1,13 @@
 
-## || MEMORY ||
+# || MEMORY ||
 
-  **Memory models. Segmentation, mem. structure**
+## Memory models. Segmentation, mem. structure
 * [Segmentation Fault (распределение памяти компьютера)](https://habr.com/en/company/nix/blog/277759/)
 * [Сегментация памяти (Схема памяти компьютера)](https://habr.com/en/post/345766/)
 * [Модели памяти, лежащие в основе языков программирования](https://habr.com/en/company/nix/blog/323624/)
 
-
-  **Leaks & garbage collectors (about)**
+***
+**Leaks & garbage collectors (about)**
 * [Searching for C object leaks](https://blog.nelhage.com/2013/03/tracking-an-eventmachine-leak/#searching-for-c-object-leaks)
 * [Три вида утечек памяти](https://habr.com/en/company/piter/blog/432072/)
 * [Почему важно проверять Malloc](https://habr.com/en/company/pvs-studio/blog/348098/)
