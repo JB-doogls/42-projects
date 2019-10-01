@@ -16,7 +16,6 @@ MEMORY
 * [Почему важно проверять Malloc](https://habr.com/en/company/pvs-studio/blog/348098/)
 
 ---
-<br/>
 
 ### Utils, tools, funcs, patterns  
 * [**AddressSanitizer**](https://github.com/google/sanitizers/wiki/AddressSanitizer) **|--> usefull leaks detector**
