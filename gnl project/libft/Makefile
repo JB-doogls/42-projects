@@ -13,12 +13,13 @@
 NAME = libft.a
 
 FUNCTIONS = ft_memdel \
-			ft_strsub \
-			ft_strchr \
 			ft_strjoin \
-			ft_strnew \
-			ft_bzero \
 			ft_strlen \
+			ft_strnew \
+			ft_strsub \
+			ft_bzero \
+			ft_strsub_free \
+			ft_strchr \
 
 			# ft_memset \
 			# ft_memcpy \
@@ -68,7 +69,16 @@ FUNCTIONS = ft_memdel \
 			# ft_power \
 			# ft_long_power \
 			# ft_strrev \
-			# ft_itoa
+			# ft_itoa \
+			# ft_lstnew \
+			# ft_lstdelone \
+			# ft_lstdel \
+			# ft_lstadd \
+			# ft_lstadd_back \
+			# ft_lstiter \
+			# ft_lstmap \
+			# ft_lstinsert_before \
+			# ft_lstinsert_after
 OBJ = $(patsubst %,%.o,$(FUNCTIONS))
 SRC = $(patsubst %,%.c,$(FUNCTIONS))
 CFLAGS = -Wall -Wextra -Werror
@@ -90,3 +100,6 @@ fclean: clean
 	/bin/rm -f $(NAME)
 
 re: fclean all
+
+va:
+	valgrind --leak-check=full ./a.out

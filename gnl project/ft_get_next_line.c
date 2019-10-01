@@ -6,11 +6,12 @@
 /*   By: edoll <edoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/30 18:23:12 by edoll             #+#    #+#             */
-/*   Updated: 2019/10/01 04:38:39 by edoll            ###   ########.fr       */
+/*   Updated: 2019/10/01 22:28:07 by edoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+# include "libft/libft.h"
 
 static t_listg		*set_elem(int fd)
 {
@@ -54,8 +55,8 @@ static void			copy_line(t_listg *elem, char **line, char *pos)
 	char	*sec;
 	char	*temp_free;
 
-	fir = ft_strsub(elem->temp, 0, pos - elem->temp);
-	sec = ft_strsub(elem->temp, ((pos - elem->temp) + 1), ft_strlen(elem->temp));
+	fir = ft_strsub_free(elem->temp, 0, pos - elem->temp);
+	sec = ft_strsub_free(elem->temp, ((pos - elem->temp) + 1), ft_strlen(elem->temp));
 	temp_free = *line;
 	*line = ft_strjoin(*line, fir);
 	ft_memdel((void**)&temp_free);
@@ -117,4 +118,3 @@ int			get_next_line(int const fd, char **line)
 	else
 		return (-1);
 }
-

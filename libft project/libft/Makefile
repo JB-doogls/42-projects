@@ -98,3 +98,6 @@ fclean: clean
 	/bin/rm -f $(NAME)
 
 re: fclean all
+
+va:
+	valgrind --leak-check=full ./a.out

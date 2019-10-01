@@ -14,8 +14,15 @@ int main(int ac, char **av)
 		if (ret == -1)
 		{
 			printf("error main");
-			return (0);
+		//	return (0);
 		}
 		printf("%s\n", line);
 	}
 }
+
+// 	fd = open(av[2], O_RDONLY);
+// 	int ret1 = 
+
+// fd = open(av[2], O_RDONLY);
+// 	int ret1
+
