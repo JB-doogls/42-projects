@@ -1,6 +1,6 @@
-Firts correct version
----------------------
+# Firts correct version
 ##### Work with basic issues: read from file (fd > 2) and store in char **line.
+---
 
 smth to fix:
 - check on mem. leaks and fix;
