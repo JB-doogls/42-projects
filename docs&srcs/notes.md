@@ -1,6 +1,7 @@
 
-# || MEMORY ||
---------------
+MEMORY
+======
+
 ### Memory models. Segmentation, mem. structure
 * [Segmentation Fault (распределение памяти компьютера)](https://habr.com/en/company/nix/blog/277759/)
 * [Сегментация памяти (Схема памяти компьютера)](https://habr.com/en/post/345766/)
@@ -18,7 +19,3 @@
 * [Jemmaloc](http://jemalloc.net/jemalloc.3.html)
 * [TCMalloc](http://goog-perftools.sourceforge.net/doc/tcmalloc.html)
 * [Управление памятью (Оonathan Bartlett)](https://habr.com/en/post/270009/)
-
-
-# AddressSanitizer | https://github.com/google/sanitizers/wiki/AddressSanitizer
-[AddressSanitizer](https://github.com/google/sanitizers/wiki/AddressSanitizer)
