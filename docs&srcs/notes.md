@@ -22,3 +22,6 @@ MEMORY
 * [Jemmaloc](http://jemalloc.net/jemalloc.3.html)
 * [TCMalloc](http://goog-perftools.sourceforge.net/doc/tcmalloc.html)
 * [Управление памятью (Оonathan Bartlett)](https://habr.com/en/post/270009/)
+
+
+* [valgrind guide cs107](https://web.stanford.edu/class/archive/cs/cs107/cs107.1166/guide_valgrind.html)
