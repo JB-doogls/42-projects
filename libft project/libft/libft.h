@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edoll <edoll@student.42.fr>                +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/10 19:22:48 by edoll             #+#    #+#             */
-/*   Updated: 2019/09/26 19:45:05 by edoll            ###   ########.fr       */
+/*   Updated: 2019/10/01 15:42:59 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,5 +73,24 @@ long	ft_long_power(long n, long power);
 char	*ft_strrev(char *str);
 char	**ft_strsplit(char const *s, char c);
 char	*ft_itoa(int n);
+
+
+
+typedef struct      s_list
+{
+    char            *content;
+    size_t          content_size;
+    struct s_list   *next;
+}                   t_list;
+
+t_list	*ft_lstnew(void const *content, size_t content_size);
+void	ft_lstdelone(t_list **alst, void (*del)(void*, size_t));
+void	ft_lstdel(t_list **alst, void (*del)(void*, size_t));
+void	ft_lstadd(t_list **alst, t_list *new);
+void	ft_lstadd_back(t_list **alst, t_list *new);
+void	ft_lstiter(t_list *lst, void (*f)(t_list *elem));
+t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
+void	ft_lstinsert_before(t_list **alst, t_list *target, t_list *new);
+void	ft_lstinsert_after(t_list *target, t_list *new);
 
 #endif

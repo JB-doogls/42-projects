@@ -67,7 +67,16 @@ FUNCTIONS = ft_memset \
 			ft_power \
 			ft_long_power \
 			ft_strrev \
-			ft_itoa
+			ft_itoa \
+			ft_lstnew \
+			ft_lstdelone \
+			ft_lstdel \
+			ft_lstadd \
+			ft_lst_back \
+			ft_lstiter \
+			ft_lstmap \
+			ft_lstinsert_before \
+			ft_lstinsert_after
 OBJ = $(patsubst %,%.o,$(FUNCTIONS))
 SRC = $(patsubst %,%.c,$(FUNCTIONS))
 CFLAGS = -Wall -Wextra -Werror
