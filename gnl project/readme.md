@@ -8,6 +8,6 @@
 * check functions and clean-up (set spec funcs for lists + check libft.h funcs for upgrades (strjoin_free(?))
 
 
--- compile with
-
-  gcc ft_get_next_line.c main.c ./libft/*.c ./libft/*.h
+#### compile with
+  
+    gcc ft_get_next_line.c main.c ./libft/*.c ./libft/*.h
