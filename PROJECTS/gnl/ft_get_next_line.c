@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_get_next_line.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edoll <edoll@student.42.fr>                +#+  +:+       +#+        */
+/*   By: jbdoogls <jbdoogls@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/30 18:23:12 by edoll             #+#    #+#             */
-/*   Updated: 2019/10/01 22:28:07 by edoll            ###   ########.fr       */
+/*   Updated: 2019/10/02 13:25:16 by jbdoogls         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,8 @@ static void			copy_line(t_listg *elem, char **line, char *pos)
 	char	*sec;
 	char	*temp_free;
 
-	fir = ft_strsub_free(elem->temp, 0, pos - elem->temp);
-	sec = ft_strsub_free(elem->temp, ((pos - elem->temp) + 1), ft_strlen(elem->temp));
+	fir = ft_strsub(elem->temp, 0, pos - elem->temp);
+	sec = ft_strsub(elem->temp, ((pos - elem->temp) + 1), ft_strlen(elem->temp));
 	temp_free = *line;
 	*line = ft_strjoin(*line, fir);
 	ft_memdel((void**)&temp_free);
