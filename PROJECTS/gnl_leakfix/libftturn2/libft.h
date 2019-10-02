@@ -6,7 +6,7 @@
 /*   By: jbdoogls <jbdoogls@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/10 19:22:48 by edoll             #+#    #+#             */
-/*   Updated: 2019/10/02 19:35:54 by jbdoogls         ###   ########.fr       */
+/*   Updated: 2019/10/02 19:36:55 by jbdoogls         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,12 +112,6 @@ void			ft_lstinsert_after(t_list *target, t_list *new);
 /*
 **	GET_NEXT_LINE
 */
-typedef struct	s_listg
-{
-	int				fd;
-	char			*temp;
-	struct s_listg	*next;
-} 				t_listg;
 
 char			*ft_strsub_free(char *s, unsigned int start, size_t len);
 char			*ft_strjoin_free(char *s1, char *s2);
