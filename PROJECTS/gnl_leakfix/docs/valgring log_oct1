@@ -1,0 +1,262 @@
+				
+
+
+
+
+				// valgrind --leak-check=full ./a.out 25000.txt //
+
+	+ strsub_free
+
+
+==10372== HEAP SUMMARY:
+==10372==     in use at exit: 652,641 bytes in 11,687 blocks
+==10372==   total heap usage: 46,572 allocs, 57,927 frees, 26,262,439 bytes allocated
+==10372== 
+==10372== 1 bytes in 1 blocks are definitely lost in loss record 1 of 47
+==10372==    at 0x10009A626: malloc (in /Users/edoll/.brew/Cellar/valgrind/3.15.0/lib/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==10372==    by 0x100001BB4: ft_strjoin (in ./a.out)
+==10372==    by 0x1000017E1: read_new_line (in ./a.out)
+==10372==    by 0x1000015B7: get_next_line (in ./a.out)
+==10372==    by 0x1000019AF: main (in ./a.out)
+==10372== 
+==10372== 72 bytes in 3 blocks are possibly lost in loss record 28 of 47
+==10372==    at 0x10009AC8A: calloc (in /Users/edoll/.brew/Cellar/valgrind/3.15.0/lib/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==10372==    by 0x1005B4846: map_images_nolock (in /usr/lib/libobjc.A.dylib)
+==10372==    by 0x1005C7FE8: objc_object::sidetable_retainCount() (in /usr/lib/libobjc.A.dylib)
+==10372==    by 0x10000903B: dyld::notifyBatchPartial(dyld_image_states, bool, char const* (*)(dyld_image_states, unsigned int, dyld_image_info const*), bool, bool) (in /usr/lib/dyld)
+==10372==    by 0x100009255: dyld::registerObjCNotifiers(void (*)(unsigned int, char const* const*, mach_header const* const*), void (*)(char const*, mach_header const*), void (*)(char const*, mach_header const*)) (in /usr/lib/dyld)
+==10372==    by 0x10020200A: _dyld_objc_notify_register (in /usr/lib/system/libdyld.dylib)
+==10372==    by 0x1005B4074: _objc_init (in /usr/lib/libobjc.A.dylib)
+==10372==    by 0x10019568D: _os_object_init (in /usr/lib/system/libdispatch.dylib)
+==10372==    by 0x10019563A: libdispatch_init (in /usr/lib/system/libdispatch.dylib)
+==10372==    by 0x1000A99D5: libSystem_initializer (in /usr/lib/libSystem.B.dylib)
+==10372==    by 0x100019A1A: ImageLoaderMachO::doModInitFunctions(ImageLoader::LinkContext const&) (in /usr/lib/dyld)
+==10372==    by 0x100019C1D: ImageLoaderMachO::doInitialization(ImageLoader::LinkContext const&) (in /usr/lib/dyld)
+==10372== 
+==10372== 626,305 bytes in 11,521 blocks are definitely lost in loss record 47 of 47
+==10372==    at 0x10009A626: malloc (in /Users/edoll/.brew/Cellar/valgrind/3.15.0/lib/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==10372==    by 0x100001BB4: ft_strjoin (in ./a.out)
+==10372==    by 0x100001929: copy_line (in ./a.out)
+==10372==    by 0x1000017B6: read_new_line (in ./a.out)
+==10372==    by 0x1000015B7: get_next_line (in ./a.out)
+==10372==    by 0x1000019AF: main (in ./a.out)
+==10372== 
+==10372== LEAK SUMMARY:
+==10372==    definitely lost: 626,306 bytes in 11,522 blocks
+==10372==    indirectly lost: 0 bytes in 0 blocks
+==10372==      possibly lost: 72 bytes in 3 blocks
+==10372==    still reachable: 4,322 bytes in 8 blocks
+==10372==         suppressed: 21,941 bytes in 154 blocks
+==10372== Reachable blocks (those to which a pointer was found) are not shown.
+==10372== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==10372== 
+
+
+
+				
+				// valgrind --leak-check=full ./a.out 25000.txt //
+
+
+==7925== Process terminating with default action of signal 2 (SIGINT)
+==7925==    at 0x100003CAA: ft_strsub (in ./a.out)
+==7925==    by 0x10000144A: copy_line (in ./a.out)
+==7925==    by 0x1000012F6: read_new_line (in ./a.out)
+==7925==    by 0x1000010F7: get_next_line (in ./a.out)
+==7925==    by 0x1000014EF: main (in ./a.out)
+==7925== 
+==7925== HEAP SUMMARY:
+==7925==     in use at exit: 1,229,248 bytes in 995 blocks
+==7925==   total heap usage: 3,492 allocs, 2,497 frees, 510,967,721 bytes allocated
+==7925== 
+==7925== LEAK SUMMARY:
+==7925==    definitely lost: 45,673 bytes in 827 blocks
+==7925==    indirectly lost: 0 bytes in 0 blocks
+==7925==      possibly lost: 72 bytes in 3 blocks
+==7925==    still reachable: 1,161,562 bytes in 11 blocks
+==7925==         suppressed: 21,941 bytes in 154 blocks
+==7925== Rerun with --leak-check=full to see details of leaked memory
+==7925== 
+==7925== For lists of detected and suppressed errors, rerun with: -s
+==7925== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 4 from 4)
+
+
+
+
+
+
+
+
+							//valgrind --leak-check=full ./a.out
+
+
+==4684== Memcheck, a memory error detector
+==4684== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==4684== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==4684== Command: ./a.out
+==4684== 
+==4684== Syscall param open(filename) points to unaddressable byte(s)
+==4684==    at 0x1003B4A3E: open (in /usr/lib/system/libsystem_kernel.dylib)
+==4684==    by 0x1000014E0: main (in ./a.out)
+==4684==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
+==4684== 
+error main==4684== 
+==4684== HEAP SUMMARY:
+==4684==     in use at exit: 22,213 bytes in 163 blocks
+==4684==   total heap usage: 179 allocs, 16 frees, 28,357 bytes allocated
+==4684== 
+==4684== 72 bytes in 3 blocks are possibly lost in loss record 26 of 43
+==4684==    at 0x10009CC8A: calloc (in /Users/edoll/.brew/Cellar/valgrind/3.15.0/lib/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==4684==    by 0x1005B6846: map_images_nolock (in /usr/lib/libobjc.A.dylib)
+==4684==    by 0x1005C9FE8: objc_object::sidetable_retainCount() (in /usr/lib/libobjc.A.dylib)
+==4684==    by 0x10000B03B: dyld::notifyBatchPartial(dyld_image_states, bool, char const* (*)(dyld_image_states, unsigned int, dyld_image_info const*), bool, bool) (in /usr/lib/dyld)
+==4684==    by 0x10000B255: dyld::registerObjCNotifiers(void (*)(unsigned int, char const* const*, mach_header const* const*), void (*)(char const*, mach_header const*), void (*)(char const*, mach_header const*)) (in /usr/lib/dyld)
+==4684==    by 0x10020400A: _dyld_objc_notify_register (in /usr/lib/system/libdyld.dylib)
+==4684==    by 0x1005B6074: _objc_init (in /usr/lib/libobjc.A.dylib)
+==4684==    by 0x10019768D: _os_object_init (in /usr/lib/system/libdispatch.dylib)
+==4684==    by 0x10019763A: libdispatch_init (in /usr/lib/system/libdispatch.dylib)
+==4684==    by 0x1000AB9D5: libSystem_initializer (in /usr/lib/libSystem.B.dylib)
+==4684==    by 0x10001BA1A: ImageLoaderMachO::doModInitFunctions(ImageLoader::LinkContext const&) (in /usr/lib/dyld)
+==4684==    by 0x10001BC1D: ImageLoaderMachO::doInitialization(ImageLoader::LinkContext const&) (in /usr/lib/dyld)
+==4684== 
+==4684== LEAK SUMMARY:
+==4684==    definitely lost: 0 bytes in 0 blocks
+==4684==    indirectly lost: 0 bytes in 0 blocks
+==4684==      possibly lost: 72 bytes in 3 blocks
+==4684==    still reachable: 200 bytes in 6 blocks
+==4684==         suppressed: 21,941 bytes in 154 blocks
+==4684== Reachable blocks (those to which a pointer was found) are not shown.
+==4684== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==4684== 
+==4684== For lists of detected and suppressed errors, rerun with: -s
+==4684== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 12 from 12)
+
+
+
+
+
+
+							//	valgrind --leak-check=full --show-leak-kinds=all ./a.out	//
+
+
+==4614== Memcheck, a memory error detector
+==4614== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==4614== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==4614== Command: ./a.out
+==4614== 
+==4614== Syscall param open(filename) points to unaddressable byte(s)
+==4614==    at 0x1003B4A3E: open (in /usr/lib/system/libsystem_kernel.dylib)
+==4614==    by 0x1000014E0: main (in ./a.out)
+==4614==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
+==4614== 
+error main==4614== 
+==4614== HEAP SUMMARY:
+==4614==     in use at exit: 22,213 bytes in 163 blocks
+==4614==   total heap usage: 179 allocs, 16 frees, 28,357 bytes allocated
+==4614== 
+==4614== 24 bytes in 1 blocks are still reachable in loss record 3 of 43
+==4614==    at 0x10009C89E: malloc_zone_malloc (in /Users/edoll/.brew/Cellar/valgrind/3.15.0/lib/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==4614==    by 0x1005B88A6: NXCreateMapTableFromZone (in /usr/lib/libobjc.A.dylib)
+==4614==    by 0x1005B8878: NXCreateMapTableFromZone (in /usr/lib/libobjc.A.dylib)
+==4614==    by 0x1005B7350: __sel_registerName(char const*, int, int) (in /usr/lib/libobjc.A.dylib)
+==4614==    by 0x1005B7062: sel_init (in /usr/lib/libobjc.A.dylib)
+==4614==    by 0x1005B69CA: map_images_nolock (in /usr/lib/libobjc.A.dylib)
+==4614==    by 0x1005C9FE8: objc_object::sidetable_retainCount() (in /usr/lib/libobjc.A.dylib)
+==4614==    by 0x10000B03B: dyld::notifyBatchPartial(dyld_image_states, bool, char const* (*)(dyld_image_states, unsigned int, dyld_image_info const*), bool, bool) (in /usr/lib/dyld)
+==4614==    by 0x10000B255: dyld::registerObjCNotifiers(void (*)(unsigned int, char const* const*, mach_header const* const*), void (*)(char const*, mach_header const*), void (*)(char const*, mach_header const*)) (in /usr/lib/dyld)
+==4614==    by 0x10020400A: _dyld_objc_notify_register (in /usr/lib/system/libdyld.dylib)
+==4614==    by 0x1005B6074: _objc_init (in /usr/lib/libobjc.A.dylib)
+==4614==    by 0x10019768D: _os_object_init (in /usr/lib/system/libdispatch.dylib)
+==4614== 
+==4614== 32 bytes in 1 blocks are still reachable in loss record 8 of 43
+==4614==    at 0x10009C89E: malloc_zone_malloc (in /Users/edoll/.brew/Cellar/valgrind/3.15.0/lib/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==4614==    by 0x1005B89FE: NXCreateHashTableFromZone (in /usr/lib/libobjc.A.dylib)
+==4614==    by 0x1005B89CE: NXCreateHashTable (in /usr/lib/libobjc.A.dylib)
+==4614==    by 0x1005B88CE: NXCreateMapTableFromZone (in /usr/lib/libobjc.A.dylib)
+==4614==    by 0x1005B8878: NXCreateMapTableFromZone (in /usr/lib/libobjc.A.dylib)
+==4614==    by 0x1005B7350: __sel_registerName(char const*, int, int) (in /usr/lib/libobjc.A.dylib)
+==4614==    by 0x1005B7062: sel_init (in /usr/lib/libobjc.A.dylib)
+==4614==    by 0x1005B69CA: map_images_nolock (in /usr/lib/libobjc.A.dylib)
+==4614==    by 0x1005C9FE8: objc_object::sidetable_retainCount() (in /usr/lib/libobjc.A.dylib)
+==4614==    by 0x10000B03B: dyld::notifyBatchPartial(dyld_image_states, bool, char const* (*)(dyld_image_states, unsigned int, dyld_image_info const*), bool, bool) (in /usr/lib/dyld)
+==4614==    by 0x10000B255: dyld::registerObjCNotifiers(void (*)(unsigned int, char const* const*, mach_header const* const*), void (*)(char const*, mach_header const*), void (*)(char const*, mach_header const*)) (in /usr/lib/dyld)
+==4614==    by 0x10020400A: _dyld_objc_notify_register (in /usr/lib/system/libdyld.dylib)
+==4614== 
+==4614== 32 bytes in 1 blocks are still reachable in loss record 9 of 43
+==4614==    at 0x10009C89E: malloc_zone_malloc (in /Users/edoll/.brew/Cellar/valgrind/3.15.0/lib/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==4614==    by 0x1005B8A1F: NXCreateHashTableFromZone (in /usr/lib/libobjc.A.dylib)
+==4614==    by 0x1005B89CE: NXCreateHashTable (in /usr/lib/libobjc.A.dylib)
+==4614==    by 0x1005B88CE: NXCreateMapTableFromZone (in /usr/lib/libobjc.A.dylib)
+==4614==    by 0x1005B8878: NXCreateMapTableFromZone (in /usr/lib/libobjc.A.dylib)
+==4614==    by 0x1005B7350: __sel_registerName(char const*, int, int) (in /usr/lib/libobjc.A.dylib)
+==4614==    by 0x1005B7062: sel_init (in /usr/lib/libobjc.A.dylib)
+==4614==    by 0x1005B69CA: map_images_nolock (in /usr/lib/libobjc.A.dylib)
+==4614==    by 0x1005C9FE8: objc_object::sidetable_retainCount() (in /usr/lib/libobjc.A.dylib)
+==4614==    by 0x10000B03B: dyld::notifyBatchPartial(dyld_image_states, bool, char const* (*)(dyld_image_states, unsigned int, dyld_image_info const*), bool, bool) (in /usr/lib/dyld)
+==4614==    by 0x10000B255: dyld::registerObjCNotifiers(void (*)(unsigned int, char const* const*, mach_header const* const*), void (*)(char const*, mach_header const*), void (*)(char const*, mach_header const*)) (in /usr/lib/dyld)
+==4614==    by 0x10020400A: _dyld_objc_notify_register (in /usr/lib/system/libdyld.dylib)
+==4614== 
+==4614== 32 bytes in 1 blocks are still reachable in loss record 10 of 43
+==4614==    at 0x10009C626: malloc (in /Users/edoll/.brew/Cellar/valgrind/3.15.0/lib/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==4614==    by 0x1005B8AE3: NXCreateHashTableFromZone (in /usr/lib/libobjc.A.dylib)
+==4614==    by 0x1005B89CE: NXCreateHashTable (in /usr/lib/libobjc.A.dylib)
+==4614==    by 0x1005B88CE: NXCreateMapTableFromZone (in /usr/lib/libobjc.A.dylib)
+==4614==    by 0x1005B8878: NXCreateMapTableFromZone (in /usr/lib/libobjc.A.dylib)
+==4614==    by 0x1005B7350: __sel_registerName(char const*, int, int) (in /usr/lib/libobjc.A.dylib)
+==4614==    by 0x1005B7062: sel_init (in /usr/lib/libobjc.A.dylib)
+==4614==    by 0x1005B69CA: map_images_nolock (in /usr/lib/libobjc.A.dylib)
+==4614==    by 0x1005C9FE8: objc_object::sidetable_retainCount() (in /usr/lib/libobjc.A.dylib)
+==4614==    by 0x10000B03B: dyld::notifyBatchPartial(dyld_image_states, bool, char const* (*)(dyld_image_states, unsigned int, dyld_image_info const*), bool, bool) (in /usr/lib/dyld)
+==4614==    by 0x10000B255: dyld::registerObjCNotifiers(void (*)(unsigned int, char const* const*, mach_header const* const*), void (*)(char const*, mach_header const*), void (*)(char const*, mach_header const*)) (in /usr/lib/dyld)
+==4614==    by 0x10020400A: _dyld_objc_notify_register (in /usr/lib/system/libdyld.dylib)
+==4614== 
+==4614== 32 bytes in 1 blocks are still reachable in loss record 11 of 43
+==4614==    at 0x10009C626: malloc (in /Users/edoll/.brew/Cellar/valgrind/3.15.0/lib/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==4614==    by 0x1005B8934: NXCreateMapTableFromZone (in /usr/lib/libobjc.A.dylib)
+==4614==    by 0x1005B8878: NXCreateMapTableFromZone (in /usr/lib/libobjc.A.dylib)
+==4614==    by 0x1005B7350: __sel_registerName(char const*, int, int) (in /usr/lib/libobjc.A.dylib)
+==4614==    by 0x1005B7062: sel_init (in /usr/lib/libobjc.A.dylib)
+==4614==    by 0x1005B69CA: map_images_nolock (in /usr/lib/libobjc.A.dylib)
+==4614==    by 0x1005C9FE8: objc_object::sidetable_retainCount() (in /usr/lib/libobjc.A.dylib)
+==4614==    by 0x10000B03B: dyld::notifyBatchPartial(dyld_image_states, bool, char const* (*)(dyld_image_states, unsigned int, dyld_image_info const*), bool, bool) (in /usr/lib/dyld)
+==4614==    by 0x10000B255: dyld::registerObjCNotifiers(void (*)(unsigned int, char const* const*, mach_header const* const*), void (*)(char const*, mach_header const*), void (*)(char const*, mach_header const*)) (in /usr/lib/dyld)
+==4614==    by 0x10020400A: _dyld_objc_notify_register (in /usr/lib/system/libdyld.dylib)
+==4614==    by 0x1005B6074: _objc_init (in /usr/lib/libobjc.A.dylib)
+==4614==    by 0x10019768D: _os_object_init (in /usr/lib/system/libdispatch.dylib)
+==4614== 
+==4614== 48 bytes in 1 blocks are still reachable in loss record 15 of 43
+==4614==    at 0x10009CE4D: malloc_zone_calloc (in /Users/edoll/.brew/Cellar/valgrind/3.15.0/lib/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==4614==    by 0x1005B8EC6: _NXHashRehashToCapacity (in /usr/lib/libobjc.A.dylib)
+==4614==    by 0x1005B8E50: NXHashInsert (in /usr/lib/libobjc.A.dylib)
+==4614==    by 0x1005B8B0D: NXCreateHashTableFromZone (in /usr/lib/libobjc.A.dylib)
+==4614==    by 0x1005B89CE: NXCreateHashTable (in /usr/lib/libobjc.A.dylib)
+==4614==    by 0x1005B88CE: NXCreateMapTableFromZone (in /usr/lib/libobjc.A.dylib)
+==4614==    by 0x1005B8878: NXCreateMapTableFromZone (in /usr/lib/libobjc.A.dylib)
+==4614==    by 0x1005B7350: __sel_registerName(char const*, int, int) (in /usr/lib/libobjc.A.dylib)
+==4614==    by 0x1005B7062: sel_init (in /usr/lib/libobjc.A.dylib)
+==4614==    by 0x1005B69CA: map_images_nolock (in /usr/lib/libobjc.A.dylib)
+==4614==    by 0x1005C9FE8: objc_object::sidetable_retainCount() (in /usr/lib/libobjc.A.dylib)
+==4614==    by 0x10000B03B: dyld::notifyBatchPartial(dyld_image_states, bool, char const* (*)(dyld_image_states, unsigned int, dyld_image_info const*), bool, bool) (in /usr/lib/dyld)
+==4614== 
+==4614== 72 bytes in 3 blocks are possibly lost in loss record 26 of 43
+==4614==    at 0x10009CC8A: calloc (in /Users/edoll/.brew/Cellar/valgrind/3.15.0/lib/valgrind/vgpreload_memcheck-amd64-darwin.so)
+==4614==    by 0x1005B6846: map_images_nolock (in /usr/lib/libobjc.A.dylib)
+==4614==    by 0x1005C9FE8: objc_object::sidetable_retainCount() (in /usr/lib/libobjc.A.dylib)
+==4614==    by 0x10000B03B: dyld::notifyBatchPartial(dyld_image_states, bool, char const* (*)(dyld_image_states, unsigned int, dyld_image_info const*), bool, bool) (in /usr/lib/dyld)
+==4614==    by 0x10000B255: dyld::registerObjCNotifiers(void (*)(unsigned int, char const* const*, mach_header const* const*), void (*)(char const*, mach_header const*), void (*)(char const*, mach_header const*)) (in /usr/lib/dyld)
+==4614==    by 0x10020400A: _dyld_objc_notify_register (in /usr/lib/system/libdyld.dylib)
+==4614==    by 0x1005B6074: _objc_init (in /usr/lib/libobjc.A.dylib)
+==4614==    by 0x10019768D: _os_object_init (in /usr/lib/system/libdispatch.dylib)
+==4614==    by 0x10019763A: libdispatch_init (in /usr/lib/system/libdispatch.dylib)
+==4614==    by 0x1000AB9D5: libSystem_initializer (in /usr/lib/libSystem.B.dylib)
+==4614==    by 0x10001BA1A: ImageLoaderMachO::doModInitFunctions(ImageLoader::LinkContext const&) (in /usr/lib/dyld)
+==4614==    by 0x10001BC1D: ImageLoaderMachO::doInitialization(ImageLoader::LinkContext const&) (in /usr/lib/dyld)
+==4614== 
+==4614== LEAK SUMMARY:
+==4614==    definitely lost: 0 bytes in 0 blocks
+==4614==    indirectly lost: 0 bytes in 0 blocks
+==4614==      possibly lost: 72 bytes in 3 blocks
+==4614==    still reachable: 200 bytes in 6 blocks
+==4614==         suppressed: 21,941 bytes in 154 blocks
+==4614== 
+==4614== For lists of detected and suppressed errors, rerun with: -s
+==4614== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 12 from 12)
