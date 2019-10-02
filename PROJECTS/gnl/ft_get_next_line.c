@@ -6,12 +6,11 @@
 /*   By: jbdoogls <jbdoogls@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/30 18:23:12 by edoll             #+#    #+#             */
-/*   Updated: 2019/10/02 13:25:16 by jbdoogls         ###   ########.fr       */
+/*   Updated: 2019/10/02 13:39:32 by jbdoogls         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-# include "libft/libft.h"
 
 static t_listg		*set_elem(int fd)
 {
