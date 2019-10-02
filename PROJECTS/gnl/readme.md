@@ -10,8 +10,8 @@
 
 #### compile with
   
-    gcc ft_get_next_line.c main.c ./libft/*.c ./libft/*.h
+    gcc ft_get_next_line.c get_next_line.h main.c libft/*.c libft/*.h
 
 ##### check with
 	
-	valgrind --leak-check=full
+	valgrind --leak-check=full ./a.out "your_file_to_read"
