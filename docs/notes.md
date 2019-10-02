@@ -14,6 +14,7 @@ MEMORY
 * [Searching for C object leaks](https://blog.nelhage.com/2013/03/tracking-an-eventmachine-leak/#searching-for-c-object-leaks)
 * [Три вида утечек памяти](https://habr.com/en/company/piter/blog/432072/)
 * [Почему важно проверять Malloc](https://habr.com/en/company/pvs-studio/blog/348098/)
+* [Разыменовывание нулевого указателя](https://www.viva64.com/ru/b/0306/)
 
 ---
 
