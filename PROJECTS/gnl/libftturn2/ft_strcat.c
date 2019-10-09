@@ -1,22 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memdel.c                                        :+:      :+:    :+:   */
+/*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edoll <edoll@student.42.fr>                +#+  +:+       +#+        */
+/*   By: edoll <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/22 00:17:35 by edoll             #+#    #+#             */
-/*   Updated: 2019/10/09 16:57:11 by edoll            ###   ########.fr       */
+/*   Created: 2019/09/11 21:53:53 by edoll             #+#    #+#             */
+/*   Updated: 2019/09/12 00:12:08 by edoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_memdel(void **ap)
+char	*ft_strcat(char *dst, const char *s2)
 {
-	if (ap && *ap)
-	{
-		free(*ap);
-		*ap = NULL;
-	}
+	size_t ln;
+
+	ln = ft_strlen(dst);
+	while (*s2)
+		dst[ln++] = *s2++;
+	dst[ln] = '\0';
+	return (dst);
 }

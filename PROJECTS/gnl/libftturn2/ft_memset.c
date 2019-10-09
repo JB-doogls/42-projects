@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memdel.c                                        :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edoll <edoll@student.42.fr>                +#+  +:+       +#+        */
+/*   By: edoll <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/22 00:17:35 by edoll             #+#    #+#             */
-/*   Updated: 2019/10/09 16:57:11 by edoll            ###   ########.fr       */
+/*   Created: 2019/09/10 19:22:35 by edoll             #+#    #+#             */
+/*   Updated: 2019/09/19 19:07:16 by edoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_memdel(void **ap)
+void	*ft_memset(void *dst, int c, size_t n)
 {
-	if (ap && *ap)
-	{
-		free(*ap);
-		*ap = NULL;
-	}
+	unsigned char *ptr;
+
+	ptr = (unsigned char*)dst;
+	while (n--)
+		*ptr++ = (unsigned char)c;
+	return (dst);
 }

@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_strequ.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edoll <edoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/30 18:23:09 by edoll             #+#    #+#             */
-/*   Updated: 2019/10/09 20:33:24 by edoll            ###   ########.fr       */
+/*   Created: 2019/09/26 13:59:37 by edoll             #+#    #+#             */
+/*   Updated: 2019/09/26 14:16:55 by edoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "libft.h"
 
-//# ifndef BUFF_SIZE
-# define BUFF_SIZE (11)
-// #  elif BUFF_SIZE > SSIZE_MAX
-// #   undef BUFF_SIZE
-// #   define BUFF_SIZE (4096)
-// # endif
-# define MAX_FD 256 + 1							// launchctl limit maxfiles // ulimit -n //
+int		ft_strequ(char const *s1, char const *s2)
+{
+	size_t ct;
 
-# include <fcntl.h>
-# include "libft/libft.h"
-
- int get_next_line(const int fd, char **line);
-
-#endif
+	ct = 0;
+	if (s1 && s2)
+	{
+		while (s1[ct] && s2[ct] && s1[ct] == s2[ct])
+		{
+			if (s1[ct] != s2[ct])
+				return (0);
+			ct++;
+		}
+		if ((!s1[ct] || !s2[ct]) && s1[ct] == s2[ct])
+			return (1);
+	}
+	return (0);
+}

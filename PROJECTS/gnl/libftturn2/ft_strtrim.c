@@ -1,29 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edoll <edoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/30 18:23:09 by edoll             #+#    #+#             */
-/*   Updated: 2019/10/09 20:33:24 by edoll            ###   ########.fr       */
+/*   Created: 2019/09/26 15:06:36 by edoll             #+#    #+#             */
+/*   Updated: 2019/09/27 16:15:54 by edoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "libft.h"
 
-//# ifndef BUFF_SIZE
-# define BUFF_SIZE (11)
-// #  elif BUFF_SIZE > SSIZE_MAX
-// #   undef BUFF_SIZE
-// #   define BUFF_SIZE (4096)
-// # endif
-# define MAX_FD 256 + 1							// launchctl limit maxfiles // ulimit -n //
+char	*ft_strtrim(char const *s)
+{
+	char	*new;
+	size_t	i;
+	size_t	j;
 
-# include <fcntl.h>
-# include "libft/libft.h"
-
- int get_next_line(const int fd, char **line);
-
-#endif
+	if (s)
+	{
+		i = 0;
+		while (s[i] && ft_iswspace(s[i]))
+			i++;
+		j = ft_strlen(&s[i]) - 1;
+		while (s[i] && ft_iswspace(s[j + i]))
+			j--;
+		if (!(new = ft_strnew(j + 1)))
+			return (NULL);
+		ft_strncpy(new, (s + i), (j + 1));
+		return (new);
+	}
+	return (NULL);
+}

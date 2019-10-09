@@ -3,12 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_get_next_line.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jbdoogls <jbdoogls@student.42.fr>          +#+  +:+       +#+        */
+/*   By: edoll <edoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/30 18:23:12 by edoll             #+#    #+#             */
-/*   Updated: 2019/10/09 13:20:23 by jbdoogls         ###   ########.fr       */
+/*   Updated: 2019/10/09 20:33:13 by edoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <stdio.h> // D E L E T E 
 
 #include "get_next_line.h"
 
@@ -46,49 +48,50 @@ static t_listg		*set_cur_elem(t_listg *head, int fd)
 	return (elem);
 }
 
-static void			copy_line(t_listg *elem, char **line, char *pos)
+static void			copy_line(t_listg **elem, char **line, char *pos)
 {
 	char	*fir;
 	char	*sec;
-	char	*temp_free;
 
-	fir = ft_strsub(elem->temp, 0, pos - elem->temp);
-	sec = ft_strsub(elem->temp, ((pos - elem->temp) + 1), ft_strlen(elem->temp));
-	temp_free = *line;
-	*line = ft_strjoin_free(*line, fir);
-	ft_memdel((void**)&temp_free);
-//	ft_memdel((void**)&fir);
-	ft_memdel((void**)&(elem->temp));
-	elem->temp = sec;
+	fir = ft_strsub((*elem)->temp, 0, pos - (*elem)->temp);
+	sec = ft_strsub((*elem)->temp, ((pos - (*elem)->temp) + 1), ft_strlen(pos + 1));
+	*line = ft_strdup(fir);						// strdub //
+	ft_memdel((void**)&fir);
+	ft_memdel((void**)&((*elem)->temp));
+	(*elem)->temp = sec;
 }
 
 static int			read_new_line(int fd, t_listg *elem, char **line)
 {
 	char	*pos;
-	char	*temp_free;
+	//char	*temp_free;
 	size_t	size;
 	size_t	ln;
 
 	size = 1;
 	while (size > 0)
 	{
+		
 		if ((pos = ft_strchr(elem->temp, '\n')))
 		{
-			copy_line(elem, line, pos);
+			copy_line(&elem, line, pos);
+			printf("elem->temp 2 %s\n", elem->temp);
 			return (1);
 		}
-		temp_free = *line;
-		*line = ft_strjoin(*line, elem->temp);
-		ft_memdel((void **)&temp_free);
+		//temp_free = *line;
+		*line = ft_strdup(elem->temp);
+		// *line = ft_strjoin(*line, elem->temp);
+		//ft_memdel((void **)&temp_free);
 		ln = ft_strlen(elem->temp);
 		ft_memdel((void **)&(elem->temp));
 		if (!(elem->temp = ft_strnew(BUFF_SIZE + 1)))
 			return (-1);
 		size = read(fd, elem->temp, BUFF_SIZE);
+		(elem->temp)[BUFF_SIZE] = '\0';
 		if (!size && !ln)
 		{
-			free(elem->temp);
-			elem->temp = NULL;
+			//free(elem->temp);
+			//elem->temp = NULL;
 			return (0);
 		}
 	}
@@ -97,7 +100,8 @@ static int			read_new_line(int fd, t_listg *elem, char **line)
 
 int			get_next_line(int const fd, char **line)
 {
-	static t_listg	*head;
+//printf("{ 1 }\n");
+	static t_listg *head;
 	t_listg			*cur_elem;
 	size_t			ret;
 
@@ -109,6 +113,7 @@ int			get_next_line(int const fd, char **line)
 			return (-1);
 	}
 	*line = ft_strnew(1);
+	//*line = NULL;
 	if (!(cur_elem = set_cur_elem(head, fd)))
 		return (-1);
 	ret = read_new_line(fd, cur_elem, line);
@@ -116,11 +121,11 @@ int			get_next_line(int const fd, char **line)
 		return (1);
 	else if (ret == 0)
 	{
-		if (cur_elem)
-		{
-			free(cur_elem);
-			cur_elem = NULL;
-		}
+		// if (cur_elem)
+		// {
+		// 	free(cur_elem);
+		// 	cur_elem = NULL;
+		// }
 		return (0);
 	}
 	else

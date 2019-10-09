@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edoll <edoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/30 18:23:09 by edoll             #+#    #+#             */
-/*   Updated: 2019/10/09 20:33:24 by edoll            ###   ########.fr       */
+/*   Created: 2019/10/01 19:24:32 by edoll             #+#    #+#             */
+/*   Updated: 2019/10/01 20:46:57 by edoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "libft.h"
 
-//# ifndef BUFF_SIZE
-# define BUFF_SIZE (11)
-// #  elif BUFF_SIZE > SSIZE_MAX
-// #   undef BUFF_SIZE
-// #   define BUFF_SIZE (4096)
-// # endif
-# define MAX_FD 256 + 1							// launchctl limit maxfiles // ulimit -n //
+t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
+{
+	t_list *new_elem;
+	t_list *head;
 
-# include <fcntl.h>
-# include "libft/libft.h"
-
- int get_next_line(const int fd, char **line);
-
-#endif
+	if (!lst || !f || !(new_elem = ft_lstnew(NULL, 0)))
+		return (NULL);
+	new_elem = f(lst);
+	head = new_elem;
+	while (lst->next)
+	{
+		lst = lst->next;
+		new_elem->next = f(lst);
+		new_elem = new_elem->next;
+	}
+	return (head);
+}

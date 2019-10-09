@@ -1,29 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edoll <edoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/30 18:23:09 by edoll             #+#    #+#             */
-/*   Updated: 2019/10/09 20:33:24 by edoll            ###   ########.fr       */
+/*   Created: 2019/09/10 19:22:16 by edoll             #+#    #+#             */
+/*   Updated: 2019/09/21 20:25:33 by edoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "libft.h"
 
-//# ifndef BUFF_SIZE
-# define BUFF_SIZE (11)
-// #  elif BUFF_SIZE > SSIZE_MAX
-// #   undef BUFF_SIZE
-// #   define BUFF_SIZE (4096)
-// # endif
-# define MAX_FD 256 + 1							// launchctl limit maxfiles // ulimit -n //
+void	*ft_memmove(void *dst, const void *src, size_t n)
+{
+	unsigned char *dpt;
+	unsigned char *spt;
 
-# include <fcntl.h>
-# include "libft/libft.h"
-
- int get_next_line(const int fd, char **line);
-
-#endif
+	if (!dst && !src && n)
+		return (NULL);
+	dpt = (unsigned char*)dst;
+	spt = (unsigned char*)src;
+	if (spt > dpt)
+		ft_memcpy(dst, src, n);
+	else
+	{
+		while (n > 0)
+		{
+			dpt[n - 1] = spt[n - 1];
+			n--;
+		}
+	}
+	return (dst);
+}

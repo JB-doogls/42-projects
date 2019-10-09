@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_strrev.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edoll <edoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/30 18:23:09 by edoll             #+#    #+#             */
-/*   Updated: 2019/10/09 20:33:24 by edoll            ###   ########.fr       */
+/*   Created: 2019/09/26 18:07:44 by edoll             #+#    #+#             */
+/*   Updated: 2019/09/26 18:16:48 by edoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "libft.h"
 
-//# ifndef BUFF_SIZE
-# define BUFF_SIZE (11)
-// #  elif BUFF_SIZE > SSIZE_MAX
-// #   undef BUFF_SIZE
-// #   define BUFF_SIZE (4096)
-// # endif
-# define MAX_FD 256 + 1							// launchctl limit maxfiles // ulimit -n //
+char	*ft_strrev(char *str)
+{
+	int		i;
+	int		ln;
+	char	temp;
 
-# include <fcntl.h>
-# include "libft/libft.h"
-
- int get_next_line(const int fd, char **line);
-
-#endif
+	i = 0;
+	ln = ft_strlen(str);
+	while (i < (ln / 2))
+	{
+		temp = str[i];
+		str[i] = str[ln - i - 1];
+		str[ln - i - 1] = temp;
+		i++;
+	}
+	str[ln] = '\0';
+	return (str);
+}

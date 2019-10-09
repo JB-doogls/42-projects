@@ -1,22 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memdel.c                                        :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edoll <edoll@student.42.fr>                +#+  +:+       +#+        */
+/*   By: edoll <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/22 00:17:35 by edoll             #+#    #+#             */
-/*   Updated: 2019/10/09 16:57:11 by edoll            ###   ########.fr       */
+/*   Created: 2019/09/11 17:58:30 by edoll             #+#    #+#             */
+/*   Updated: 2019/09/19 15:04:46 by edoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_memdel(void **ap)
+char	*ft_strcpy(char *dest, const char *src)
 {
-	if (ap && *ap)
+	size_t count;
+
+	count = 0;
+	while (src[count])
 	{
-		free(*ap);
-		*ap = NULL;
+		dest[count] = src[count];
+		count++;
 	}
+	dest[count] = '\0';
+	return (dest);
 }

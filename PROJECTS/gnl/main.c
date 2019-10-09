@@ -7,16 +7,11 @@ int main(int ac, char **av)
 {
 //	(void)ac;
 	int i = 1;
-	int k = ac;
 	
-	while (k > 1)
+	char *line = NULL;
+	while (ac-- > 1)
 	{
-//		uintptr_t *ptr;
-//		printf("error in get_next_line %p\n", &ptr);
-
-		char *line = NULL;
 		int fd = open(av[i], O_RDONLY);
-		
 		int ret;
 		while ((ret = get_next_line(fd, &line)))
 		{
@@ -25,13 +20,22 @@ int main(int ac, char **av)
 				printf("error main");
 			//	return (0);
 			}
-			printf("%s\n", line);
+			//                  printf("%s\n", line);
+			if (line)
+			{
+				free(line);
+				line = NULL;
+			}
 		}
-		free(line);
-		close (fd);
-		k--;
+		if (line)
+		{
+			free(line);
+			line = NULL;
+		}
+		close(fd);
 		i++;
 	}
+	return (1);
 }
 
 // 	fd = open(av[2], O_RDONLY);
