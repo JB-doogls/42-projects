@@ -6,7 +6,7 @@
 /*   By: jbdoogls <jbdoogls@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/30 18:23:12 by edoll             #+#    #+#             */
-/*   Updated: 2019/10/02 13:39:32 by jbdoogls         ###   ########.fr       */
+/*   Updated: 2019/10/09 13:20:23 by jbdoogls         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static t_listg		*set_elem(int fd)
 {
 	t_listg		*elem;
-	int			ret;
+	size_t		ret;
 	
 	if (!(elem = (t_listg*)malloc(sizeof(t_listg))))
 		return (NULL);
@@ -26,7 +26,6 @@ static t_listg		*set_elem(int fd)
 	if (ret == -1)
 		return (NULL);
 	elem->next = NULL;
-//	elem->prev = NULL;
 	return (elem);
 }
 static t_listg		*set_cur_elem(t_listg *head, int fd)
@@ -44,7 +43,6 @@ static t_listg		*set_cur_elem(t_listg *head, int fd)
 	if (!(elem = set_elem(fd)))
 		return (NULL);
 	head->next = elem;
-		//here??					// what about prev???? //
 	return (elem);
 }
 
@@ -57,9 +55,9 @@ static void			copy_line(t_listg *elem, char **line, char *pos)
 	fir = ft_strsub(elem->temp, 0, pos - elem->temp);
 	sec = ft_strsub(elem->temp, ((pos - elem->temp) + 1), ft_strlen(elem->temp));
 	temp_free = *line;
-	*line = ft_strjoin(*line, fir);
+	*line = ft_strjoin_free(*line, fir);
 	ft_memdel((void**)&temp_free);
-	ft_memdel((void**)&fir);
+//	ft_memdel((void**)&fir);
 	ft_memdel((void**)&(elem->temp));
 	elem->temp = sec;
 }
@@ -85,10 +83,14 @@ static int			read_new_line(int fd, t_listg *elem, char **line)
 		ln = ft_strlen(elem->temp);
 		ft_memdel((void **)&(elem->temp));
 		if (!(elem->temp = ft_strnew(BUFF_SIZE + 1)))
-			return (-1);									// -1 OR 'NULL' ???? //
+			return (-1);
 		size = read(fd, elem->temp, BUFF_SIZE);
 		if (!size && !ln)
+		{
+			free(elem->temp);
+			elem->temp = NULL;
 			return (0);
+		}
 	}
 	return (1);
 }
@@ -97,7 +99,7 @@ int			get_next_line(int const fd, char **line)
 {
 	static t_listg	*head;
 	t_listg			*cur_elem;
-	int				ret;
+	size_t			ret;
 
 	if (fd < 0 || fd == 1 || fd == 2 || BUFF_SIZE <= 0 || !line)
 		return (-1);
@@ -113,7 +115,14 @@ int			get_next_line(int const fd, char **line)
 	if (ret > 0)
 		return (1);
 	else if (ret == 0)
+	{
+		if (cur_elem)
+		{
+			free(cur_elem);
+			cur_elem = NULL;
+		}
 		return (0);
+	}
 	else
 		return (-1);
 }

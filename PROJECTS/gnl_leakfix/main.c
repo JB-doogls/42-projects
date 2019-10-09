@@ -1,5 +1,5 @@
 
-#include "get_next_line.h"
+#include "gnl_turn2.h"
 #include <stdio.h>
 
 int main(int ac, char **av)

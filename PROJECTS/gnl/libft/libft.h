@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edoll <edoll@student.42.fr>                +#+  +:+       +#+        */
+/*   By: jbdoogls <jbdoogls@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/10 19:22:48 by edoll             #+#    #+#             */
-/*   Updated: 2019/10/01 22:24:02 by edoll            ###   ########.fr       */
+/*   Updated: 2019/10/09 10:51:16 by jbdoogls         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,6 +120,7 @@ typedef struct	s_listg
 } 				t_listg;
 
 char			*ft_strsub_free(char const *s, unsigned int start, size_t len);
+char			*ft_strjoin_free(char *s1, char *s2);
 
 
 #endif

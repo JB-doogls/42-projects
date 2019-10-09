@@ -19,6 +19,7 @@ FUNCTIONS = ft_memdel \
 			ft_strsub \
 			ft_bzero \
 			ft_strsub_free \
+			ft_strjoin_free \
 			ft_strchr \
 
 			# ft_memset \
