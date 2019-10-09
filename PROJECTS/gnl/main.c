@@ -20,7 +20,7 @@ int main(int ac, char **av)
 				printf("error main");
 			//	return (0);
 			}
-			//                  printf("%s\n", line);
+												printf("%s\n", line);				/* hide it to stop output */
 			if (line)
 			{
 				free(line);

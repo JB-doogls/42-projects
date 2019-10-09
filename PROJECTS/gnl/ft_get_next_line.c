@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_get_next_line.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edoll <edoll@student.42.fr>                +#+  +:+       +#+        */
+/*   By: jbdoogls <jbdoogls@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/30 18:23:12 by edoll             #+#    #+#             */
-/*   Updated: 2019/10/09 20:33:13 by edoll            ###   ########.fr       */
+/*   Updated: 2019/10/10 02:25:49 by jbdoogls         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,10 +72,12 @@ static int			read_new_line(int fd, t_listg *elem, char **line)
 	while (size > 0)
 	{
 		
-		if ((pos = ft_strchr(elem->temp, '\n')))
+		if ((pos = ft_strchr(elem->temp, '\n')))		/* somwhere here check trouble: 
+															mistake to read with '\n' 
+															if buff_size is smaller or close to stritg */
 		{
 			copy_line(&elem, line, pos);
-			printf("elem->temp 2 %s\n", elem->temp);
+												//	printf("elem->temp 2 %s\n", elem->temp);  // use it 1st! //
 			return (1);
 		}
 		//temp_free = *line;
@@ -98,7 +100,7 @@ static int			read_new_line(int fd, t_listg *elem, char **line)
 	return (1);
 }
 
-int			get_next_line(int const fd, char **line)
+int			get_next_line(int const fd, char **line)			/* no segfaults or leaks in this ver */
 {
 //printf("{ 1 }\n");
 	static t_listg *head;
@@ -112,8 +114,8 @@ int			get_next_line(int const fd, char **line)
 		if (!(head = set_elem(fd)))
 			return (-1);
 	}
-	*line = ft_strnew(1);
-	//*line = NULL;
+	//*line = ft_strnew(1);
+	*line = NULL;									/* proved better way - no leak here in this case */
 	if (!(cur_elem = set_cur_elem(head, fd)))
 		return (-1);
 	ret = read_new_line(fd, cur_elem, line);
