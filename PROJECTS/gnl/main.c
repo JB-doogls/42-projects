@@ -15,18 +15,20 @@ int main(int ac, char **av)
 		int ret;
 		while ((ret = get_next_line(fd, &line)))
 		{
+			// printf("%d\n", ret);
 			if (ret == -1)
 			{
 				printf("error main");
 			//	return (0);
 			}
-												printf("%s\n", line);				/* hide it to stop output */
+			// printf("%s\n", line);
 			if (line)
 			{
 				free(line);
 				line = NULL;
 			}
 		}
+		printf("%s\n", line);
 		if (line)
 		{
 			free(line);
