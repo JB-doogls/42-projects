@@ -5,7 +5,6 @@
 
 int main(int ac, char **av)
 {
-//	(void)ac;
 	int i = 1;
 	
 	char *line = NULL;
@@ -15,19 +14,20 @@ int main(int ac, char **av)
 		int ret;
 		while ((ret = get_next_line(fd, &line)))
 		{
-			// printf("%d\n", ret);
 			if (ret == -1)
 			{
 				printf("error main");
-			//	return (0);
+				return (0);
 			}
-			// printf("%s\n", line);
+			printf("{ 1 }");
+			printf("%s\n", line);
 			if (line)
 			{
 				free(line);
 				line = NULL;
 			}
 		}
+		printf("{ 2 }");
 		printf("%s\n", line);
 		if (line)
 		{
@@ -39,10 +39,3 @@ int main(int ac, char **av)
 	}
 	return (1);
 }
-
-// 	fd = open(av[2], O_RDONLY);
-// 	int ret1 = 
-
-// fd = open(av[2], O_RDONLY);
-// 	int ret1
-
