@@ -6,7 +6,7 @@
 /*   By: edoll <edoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/16 21:11:30 by edoll             #+#    #+#             */
-/*   Updated: 2019/10/16 21:33:58 by edoll            ###   ########.fr       */
+/*   Updated: 2019/10/17 15:28:50 by edoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,11 @@ static void			copy_line(t_listg *elem, char **line, char *pos)
 	char		*fir;
 	char		*sec;
 
+	// if (ft_strchr(elem->temp, '\n') == NULL)
+	// {
+	// 	*line = ft_strdup(elem->temp);
+	// 	return ();
+	// }
 	fir = ft_strsub(elem->temp, 0, ft_strlen(elem->temp) - ft_strlen(pos));
 	sec = ft_strsub(elem->temp, (ft_strlen(elem->temp) - ft_strlen(pos) + 1),\
 	ft_strlen(elem->temp) - ft_strlen(fir));
