@@ -1,39 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_memalloc.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edoll <edoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/26 17:43:15 by edoll             #+#    #+#             */
-/*   Updated: 2019/10/17 20:05:53 by edoll            ###   ########.fr       */
+/*   Created: 2019/09/22 02:43:50 by edoll             #+#    #+#             */
+/*   Updated: 2019/10/17 21:58:36 by edoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_itoa(int n)
+void	*ft_memalloc(size_t size)
 {
-	int		ln;
-	char	*rs;
-	long	sn;
-	int		i;
-	long	nb;
+	char *str;
 
-	nb = n;
-	ln = 1;
-	if ((sn = nb) < 0)
-		nb = -nb;
-	while (ft_long_power(10, ln) < nb)
-		ln++;
-	if (!(rs = (char *)malloc(sizeof(char) * (ln + 1))))
+	if (size + 1 <= size)
 		return (NULL);
-	i = 1;
-	rs[0] = (nb % 10) + '0';
-	while ((nb = nb / 10) > 0)
-		rs[i++] = (nb % 10) + '0';
-	if (sn < 0)
-		rs[i++] = '-';
-	rs[i] = '\0';
-	return (ft_strrev(rs));
+	if (!(str = (char *)malloc(sizeof(char) * (size + 1))))
+		return (NULL);
+	ft_memset(str, '\0', size);
+	return (str);
 }
+
+
+
+
+
+// void	*ft_memalloc(size_t size)
+// {
+// 	size_t	ct;
+// 	void	*str;
+
+// 	ct = 0;
+// 	if (!(str = (void *)malloc(sizeof(void) * size)))
+// 		return (NULL);
+	
+// 	while (ct < size)
+// 		((unsigned char *)str)[ct++] = '\0';
+// 	return (str);
+// }

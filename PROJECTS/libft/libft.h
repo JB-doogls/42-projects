@@ -6,7 +6,7 @@
 /*   By: edoll <edoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/10 19:22:48 by edoll             #+#    #+#             */
-/*   Updated: 2019/10/01 21:12:19 by edoll            ###   ########.fr       */
+/*   Updated: 2019/10/17 19:54:03 by edoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,15 +108,5 @@ void			ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 void			ft_lstinsert_before(t_list **alst, t_list *target, t_list *new);
 void			ft_lstinsert_after(t_list *target, t_list *new);
-
-/*
-**	GET_NEXT_LINE
-*/
-typedef struct	s_listg
-{
-	int				fd;
-	char			*temp;
-	struct s_listg	*next;
-} 				t_listg;
 
 #endif

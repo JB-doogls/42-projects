@@ -1,29 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edoll <edoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/10 19:22:16 by edoll             #+#    #+#             */
-/*   Updated: 2019/10/17 20:34:37 by edoll            ###   ########.fr       */
+/*   Created: 2019/10/01 19:25:53 by edoll             #+#    #+#             */
+/*   Updated: 2019/10/17 20:36:13 by edoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t n)
+t_list	*ft_lstnew(void const *content, size_t content_size)
 {
-	size_t	ct;
+	t_list *new;
 
-	ct = 0;
-	if (dst < src)
-		while (ct < n)
-		{
-			((unsigned char *)dst)[ct] = ((unsigned char *)src)[ct];
-			ct++;
-		}
+	if (!(new = (t_list*)malloc(sizeof(t_list))))
+		return (NULL);
+	if (!content)
+	{
+		new->content = NULL;
+		new->content_size = 0;
+	}
 	else
-		ft_memcpy(dst, src, n);
-	return (dst);
+	{
+		if (!(new->content = (void *)malloc(sizeof(void) * content_size)))
+			return (NULL);
+		ft_memcpy(new->content, content, content_size);
+		new->content_size = content_size;
+	}
+	new->next = NULL;
+	return (new);
 }
