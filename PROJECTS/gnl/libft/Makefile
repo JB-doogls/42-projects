@@ -79,20 +79,17 @@ FUNCTIONS = ft_memset \
 			ft_strjoin_free
 OBJ = $(patsubst %,%.o,$(FUNCTIONS))
 SRC = $(patsubst %,%.c,$(FUNCTIONS))
-FLAGS = -Wall -Wextra -Werror
+CC = gcc
+CFLAGS = -Wall -Wextra -Werror
 HEAD = libft.h
 NAME = libft.a
-SONAME = libft.so
 
-.PHONY: all so clean fclean re
+.PHONY: all clean fclean re
 
-all: so $(NAME)
+all: $(NAME)
 
 $(OBJ): %.o : %.c
-	gcc -fPIC $(FLAGS) -c $<
-so: $(OBJ)
-	gcc -shared -Wl,-soname -o $(SONAME) $(OBJ)
-
+	$(CC) $(CFLAGS) -c $<
 $(NAME): $(OBJ)
 	ar rc $(NAME) $(OBJ)
 
@@ -100,28 +97,32 @@ clean:
 	/bin/rm -f $(OBJ)
 
 fclean: clean
-	/bin/rm -f $(SONAME) -f $(NAME)
+	/bin/rm -f $(NAME)
 
 re: fclean all
 
 
-
 #*
-#*** 	MAKEFILE MAIN (for macOS)
+#*** 	MAKEFILE .so & .a
 #*
 
 # OBJ = $(patsubst %,%.o,$(FUNCTIONS))
 # SRC = $(patsubst %,%.c,$(FUNCTIONS))
+# CC = gcc
 # CFLAGS = -Wall -Wextra -Werror
 # HEAD = libft.h
 # NAME = libft.a
+# SONAME = libft.so
 
-# .PHONY: all clean fclean re
+# .PHONY: all so clean fclean re
 
-# all: $(NAME)
+# all: so $(NAME)
 
 # $(OBJ): %.o : %.c
-# 	gcc $(FLAGS) -c $<
+# 	$(CC) -fPIC $(CFLAGS) -c $<
+# so: $(OBJ)
+# 	$(CC) -shared -Wl,-soname -o $(SONAME) $(OBJ)
+
 # $(NAME): $(OBJ)
 # 	ar rc $(NAME) $(OBJ)
 
@@ -129,6 +130,6 @@ re: fclean all
 # 	/bin/rm -f $(OBJ)
 
 # fclean: clean
-# 	/bin/rm -f $(NAME)
+# 	/bin/rm -f $(SONAME) -f $(NAME)
 
 # re: fclean all

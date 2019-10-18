@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jbdoogls <jbdoogls@student.42.fr>          +#+  +:+       +#+        */
+/*   By: edoll <edoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/10 19:22:48 by edoll             #+#    #+#             */
-/*   Updated: 2019/10/18 13:38:28 by jbdoogls         ###   ########.fr       */
+/*   Updated: 2019/10/18 18:07:23 by edoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,6 @@ void			ft_lstinsert_after(t_list *target, t_list *new);
 /*
 **	GET_NEXT_LINE
 */
-
 typedef struct	s_list_gnl
 {
 	int					fd;
@@ -120,7 +119,7 @@ typedef struct	s_list_gnl
 	struct s_list_gnl	*next;
 }				t_gnl;
 
-t_gnl   		*ft_lstnewset(int fd);
-char			*ft_strjoin_free(char *s1, char const *s2);
+t_gnl					*ft_lstnewset(int fd);
+char					*ft_strjoin_free(char *s1, char const *s2);
 
 #endif
