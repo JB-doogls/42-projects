@@ -10,8 +10,6 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libft.a
-
 FUNCTIONS = ft_memset \
 			ft_bzero \
 			ft_memcpy \
@@ -79,15 +77,21 @@ FUNCTIONS = ft_memset \
 			ft_lstinsert_after
 OBJ = $(patsubst %,%.o,$(FUNCTIONS))
 SRC = $(patsubst %,%.c,$(FUNCTIONS))
-CFLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror
 HEAD = libft.h
+NAME = libft.a
+SONAME = libft.so
 
-.PHONY: all clean fclean re
 
-all: $(NAME)
+.PHONY: all so clean fclean re
+
+all: so $(NAME)
 
 $(OBJ): %.o : %.c
-	gcc $(FLAGS) -c $<
+	gcc -fPIC $(FLAGS) -c $<
+so: $(OBJ)
+	gcc -shared -Wl,-soname -o $(SONAME) $(OBJ)
+
 $(NAME): $(OBJ)
 	ar rc $(NAME) $(OBJ)
 
@@ -95,6 +99,36 @@ clean:
 	/bin/rm -f $(OBJ)
 
 fclean: clean
-	/bin/rm -f $(NAME)
+	/bin/rm -f $(SONAME) -f $(NAME)
+
 
 re: fclean all
+
+
+
+#*
+#*** 	MAKEFILE MAIN (for macOS)
+#*
+
+# OBJ = $(patsubst %,%.o,$(FUNCTIONS))
+# SRC = $(patsubst %,%.c,$(FUNCTIONS))
+# CFLAGS = -Wall -Wextra -Werror
+# HEAD = libft.h
+# NAME = libft.a
+
+# .PHONY: all clean fclean re
+
+# all: $(NAME)
+
+# $(OBJ): %.o : %.c
+# 	gcc $(FLAGS) -c $<
+# $(NAME): $(OBJ)
+# 	ar rc $(NAME) $(OBJ)
+
+# clean:
+# 	/bin/rm -f $(OBJ)
+
+# fclean: clean
+# 	/bin/rm -f $(NAME)
+
+# re: fclean all

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edoll <edoll@student.42.fr>                +#+  +:+       +#+        */
+/*   By: jbdoogls <jbdoogls@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/26 17:43:15 by edoll             #+#    #+#             */
-/*   Updated: 2019/10/17 20:05:53 by edoll            ###   ########.fr       */
+/*   Updated: 2019/10/18 05:49:45 by jbdoogls         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_itoa(int n)
 	int		i;
 	long	nb;
 
-	nb = n;
+	nb = (long)n;
 	ln = 1;
 	if ((sn = nb) < 0)
 		nb = -nb;
