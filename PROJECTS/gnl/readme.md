@@ -3,13 +3,14 @@
 <br/>  
     
 **to fix**
-* memory leaks!!! 
-* check functions and clean-up (set spec funcs for lists + check libft.h funcs for upgrades (strjoin_free(?))
+* is correct the return value in case of numbers of strings with no '\n' 
+* whitch file to include struct define (in case of additional func to libft using the t_gnl struct)
+* edit Makefile for libft (make clear conditions about static and dinamic lib's)
 
 
 #### compile with
   
-    gcc ft_get_next_line.c get_next_line.h main.c libft/*.c libft/*.h
+    gcc get_next_line.c main.c libft/*.c
 
 ##### check reading with
 
