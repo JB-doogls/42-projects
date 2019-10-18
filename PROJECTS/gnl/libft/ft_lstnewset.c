@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_lstnewset.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edoll <edoll@student.42.fr>                +#+  +:+       +#+        */
+/*   By: jbdoogls <jbdoogls@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/10 19:22:16 by edoll             #+#    #+#             */
-/*   Updated: 2019/10/17 20:34:37 by edoll            ###   ########.fr       */
+/*   Created: 2019/10/18 11:04:40 by jbdoogls          #+#    #+#             */
+/*   Updated: 2019/10/18 11:50:30 by jbdoogls         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t n)
+t_gnl   *ft_lstnewset(int fd)
 {
-	size_t	ct;
+    	t_gnl	*new;
 
-	ct = 0;
-	if (dst < src)
-		while (ct < n)
-		{
-			((unsigned char *)dst)[ct] = ((unsigned char *)src)[ct];
-			ct++;
-		}
-	else
-		ft_memcpy(dst, src, n);
-	return (dst);
+	if (!(new = (t_gnl *)malloc(sizeof(t_gnl) * 1)))
+		return (NULL);
+	new->content = NULL;
+	new->fd = fd;
+	new->next = NULL;
+	return (new);
 }
