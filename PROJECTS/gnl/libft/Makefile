@@ -100,36 +100,3 @@ fclean: clean
 	/bin/rm -f $(NAME)
 
 re: fclean all
-
-
-#*
-#*** 	MAKEFILE .so & .a
-#*
-
-# OBJ = $(patsubst %,%.o,$(FUNCTIONS))
-# SRC = $(patsubst %,%.c,$(FUNCTIONS))
-# CC = gcc
-# CFLAGS = -Wall -Wextra -Werror
-# HEAD = libft.h
-# NAME = libft.a
-# SONAME = libft.so
-
-# .PHONY: all so clean fclean re
-
-# all: so $(NAME)
-
-# $(OBJ): %.o : %.c
-# 	$(CC) -fPIC $(CFLAGS) -c $<
-# so: $(OBJ)
-# 	$(CC) -shared -Wl,-soname -o $(SONAME) $(OBJ)
-
-# $(NAME): $(OBJ)
-# 	ar rc $(NAME) $(OBJ)
-
-# clean:
-# 	/bin/rm -f $(OBJ)
-
-# fclean: clean
-# 	/bin/rm -f $(SONAME) -f $(NAME)
-
-# re: fclean all

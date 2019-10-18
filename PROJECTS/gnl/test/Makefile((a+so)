@@ -10,8 +10,6 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libft.a
-
 FUNCTIONS = ft_memset \
 			ft_bzero \
 			ft_memcpy \
@@ -77,19 +75,21 @@ FUNCTIONS = ft_memset \
 			ft_lstmap \
 			ft_lstinsert_before \
 			ft_lstinsert_after \
-			ft_strsub_free \
-			ft_strjoin_free \
+			ft_lstnewset \
+			ft_strjoin_free
 OBJ = $(patsubst %,%.o,$(FUNCTIONS))
 SRC = $(patsubst %,%.c,$(FUNCTIONS))
+CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 HEAD = libft.h
+NAME = libft.a
 
 .PHONY: all clean fclean re
 
 all: $(NAME)
 
 $(OBJ): %.o : %.c
-	gcc $(FLAGS) -c $<
+	$(CC) $(CFLAGS) -c $<
 $(NAME): $(OBJ)
 	ar rc $(NAME) $(OBJ)
 
@@ -101,5 +101,35 @@ fclean: clean
 
 re: fclean all
 
-va:
-	valgrind --leak-check=full ./a.out
+
+#*
+#*** 	MAKEFILE .so & .a
+#*
+
+# OBJ = $(patsubst %,%.o,$(FUNCTIONS))
+# SRC = $(patsubst %,%.c,$(FUNCTIONS))
+# CC = gcc
+# CFLAGS = -Wall -Wextra -Werror
+# HEAD = libft.h
+# NAME = libft.a
+# SONAME = libft.so
+
+# .PHONY: all so clean fclean re
+
+# all: so $(NAME)
+
+# $(OBJ): %.o : %.c
+# 	$(CC) -fPIC $(CFLAGS) -c $<
+# so: $(OBJ)
+# 	$(CC) -shared -Wl,-soname -o $(SONAME) $(OBJ)
+
+# $(NAME): $(OBJ)
+# 	ar rc $(NAME) $(OBJ)
+
+# clean:
+# 	/bin/rm -f $(OBJ)
+
+# fclean: clean
+# 	/bin/rm -f $(SONAME) -f $(NAME)
+
+# re: fclean all
