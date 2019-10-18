@@ -27,7 +27,7 @@ int main(int argc, char **argv)
 		if (ret == -1)
 			printf("-----------\nError\n");
 		else if (ret == 0)
-			printf("\n-----------\nEnd of file\n");
+			printf("-----------\nEnd of file\n");
 		close(fd);
 		i++;
 		}
