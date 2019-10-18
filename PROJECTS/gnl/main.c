@@ -22,12 +22,12 @@ int main(int argc, char **argv)
 			printf("[Return: %d] Line #%d: %s\n", ret, ++line_count, buff);
 			free(buff);
 		}
-		printf("[Return: %d] Line #%d: %s\n", ret, ++line_count, buff);
+		// printf("[Return: %d] Line #%d: %s\n", ret, ++line_count, buff);
 		free(buff);
 		if (ret == -1)
 			printf("-----------\nError\n");
 		else if (ret == 0)
-			printf("-----------\nEnd of file\n");
+			printf("\n-----------\nEnd of file\n");
 		close(fd);
 		i++;
 		}

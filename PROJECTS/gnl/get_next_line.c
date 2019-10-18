@@ -6,30 +6,47 @@
 /*   By: edoll <edoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/18 17:11:38 by edoll             #+#    #+#             */
-/*   Updated: 2019/10/18 17:11:43 by edoll            ###   ########.fr       */
+/*   Updated: 2019/10/18 19:57:14 by edoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-static int		set_cur_list(t_gnl **list, t_gnl **l_head, int fd)
+int		write_last(t_gnl **list, t_gnl **l_head, char **line)
 {
-	if (!(*list))
-		if (!((*list) = ft_lstnewset(fd)))
-			return (-1);
-	*l_head = *list;
-	while ((*list)->fd != fd && (*list)->next)
-		*list = (*list)->next;
-	if ((*list)->fd != fd)
+	char *is_feed;
+
+	if (!(*list)->content)
 	{
-		if (!((*list)->next = ft_lstnewset(fd)))
-			return (-1);
-		*list = (*list)->next;
+		*line = NULL;
+		return (0);
 	}
-	return (1);
+	*line = ft_strdup((*list)->content);
+	if (!(ft_strlen(*line)))
+		return (0);
+	is_feed = ft_strchr((*list)->content, '\n');
+	free((*list)->content);
+	(*list)->content = NULL;
+	*list = *l_head;
+	if (!is_feed)
+		return (1);
+	else
+		return (0);
 }
 
-static int			check_read_line(char **cont, char **line, t_gnl **list, t_gnl **l_head)
+int		rec_line(char **cont, char *buff)
+{
+	if (*cont)
+	{
+		if (!(*cont = ft_strjoin_free(*cont, buff)))
+			return (-1);
+	}
+	else if (!(*cont = ft_strdup(buff)))
+		return (-1);
+	return (0);
+}
+
+int		check_line(char **cont, char **line, t_gnl **list, t_gnl **l_head)
 {
 	char	*pos;
 	char	*tmp;
@@ -48,35 +65,24 @@ static int			check_read_line(char **cont, char **line, t_gnl **list, t_gnl **l_h
 	return (1);
 }
 
-static int			rec_read_line(char **cont, char *buff)
+int		set_list(t_gnl **list, t_gnl **l_head, int fd)
 {
-	if (*cont)
-	{
-		if (!(*cont = ft_strjoin_free(*cont, buff)))
+	if (!(*list))
+		if (!((*list) = ft_lstnewset(fd)))
 			return (-1);
-	}
-	else if (!(*cont = ft_strdup(buff)))
-		return (-1);
-	return (0);
-}
-
-static int			write_last_line(t_gnl **list,  t_gnl **l_head, char **line)
-{
-	if (!(*list)->content)
+	*l_head = *list;
+	while ((*list)->fd != fd && (*list)->next)
+		*list = (*list)->next;
+	if ((*list)->fd != fd)
 	{
-		*line = NULL;
-		return (0);
+		if (!((*list)->next = ft_lstnewset(fd)))
+			return (-1);
+		*list = (*list)->next;
 	}
-	*line = ft_strdup((*list)->content);
-	if (!(ft_strlen(*line)))
-		return (0);
-	free((*list)->content);
-	(*list)->content = NULL;
-	*list = *l_head;
-	return (0);
+	return (1);
 }
 
-int					get_next_line(int const fd, char **line)
+int		get_next_line(int const fd, char **line)
 {
 	static t_gnl	*list;
 	t_gnl			*l_head;
@@ -85,19 +91,19 @@ int					get_next_line(int const fd, char **line)
 
 	if (fd < 0 || BUFF_SIZE <= 0 || !line || read(fd, NULL, 0) < 0)
 		return (-1);
-	if (set_cur_list(&list, &l_head, fd) == -1)
+	if (set_list(&list, &l_head, fd) == -1)
 		return (-1);
-	ret = check_read_line(&(list->content), line, &list, &l_head);
+	ret = check_line(&(list->content), line, &list, &l_head);
 	if (ret)
 		return (ret);
 	while ((ret = read(fd, buff, BUFF_SIZE)))
 	{
 		buff[ret] = '\0';
-		if (rec_read_line(&(list->content), buff))
+		if (rec_line(&(list->content), buff))
 			return (-1);
-		ret = check_read_line(&(list->content), line, &list, &l_head);
+		ret = check_line(&(list->content), line, &list, &l_head);
 		if (ret)
 			return (ret);
 	}
-	return (write_last_line(&list, &l_head, line));
+	return (write_last(&list, &l_head, line));
 }

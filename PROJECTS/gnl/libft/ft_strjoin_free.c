@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin_free.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jbdoogls <jbdoogls@student.42.fr>          +#+  +:+       +#+        */
+/*   By: edoll <edoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/02 14:48:13 by jbdoogls          #+#    #+#             */
-/*   Updated: 2019/10/18 11:25:51 by jbdoogls         ###   ########.fr       */
+/*   Updated: 2019/10/18 18:26:20 by edoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 char	*ft_strjoin_free(char *s1, char const *s2)
 {
-	char	*new;
-	char	*tmp_new;
-    char  	*tmp_s1;
+	char *new;
+	char *tmp_new;
+	char *tmp_s1;
 
 	if (!s1 || !s2 || !(new = ft_strnew(ft_strlen(s1) + ft_strlen(s2))))
 		return (NULL);
