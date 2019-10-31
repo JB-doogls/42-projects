@@ -6,9 +6,13 @@
 /*   By: edoll <edoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/31 14:49:10 by edoll             #+#    #+#             */
-/*   Updated: 2019/10/31 14:51:28 by edoll            ###   ########.fr       */
+/*   Updated: 2019/10/31 14:59:20 by edoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/filit.h"
 
+int		find_min_square(int grid(x,y), t_fil list)
+{
+	
+}
