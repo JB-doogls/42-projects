@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   solve.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jbdoogls <jbdoogls@student.42.fr>          +#+  +:+       +#+        */
+/*   By: edoll <edoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/31 14:49:10 by edoll             #+#    #+#             */
-/*   Updated: 2019/11/01 12:23:56 by jbdoogls         ###   ########.fr       */
+/*   Updated: 2019/11/01 19:19:11 by edoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ int     ft_solving(t_tetri *list)
     while (!(ft_backtrack_algo(map, list, map_size))
         if (!(map = ft_make_map(map, map_size++))
             retrun (-1);
-    
     j = 0;                          // <-- it seems we can impliment the output function here //
     while (map[j])                
     {
@@ -38,6 +37,9 @@ int     ft_solving(t_tetri *list)
     }
     return (0);
 }
+
+
+
 
 /*
 **  function to create and increase the map for arrange the shapes
@@ -51,8 +53,8 @@ char    **ft_make_map(char **map, int map_size)
 
     if (*map)
     {
-        tmp = *map;                     // set as a separate function?
-        free (*tmp++);
+        temp = *map;                     // set as a separate function?
+        free (*temp++);
     }
     if (!(*map = (char**)malloc(sizeof(char*) * (map_size + 1))))
         return (NULL);
@@ -62,8 +64,8 @@ char    **ft_make_map(char **map, int map_size)
     {
         if (!(*map[y] = (char*)malloc(sizeof(char) * (map_size + 2))))
         {
-            tmp = *map;
-            free(*tmp++);               // set as a separate function? 
+            temp = *map;
+            free(*temp++);               // set as a separate function? 
             return (NULL);
         }
         x = 0;
@@ -110,9 +112,7 @@ char    **ft_backtrack_algo(char **map, t_tetri *list, int map_size)
                 
                     
             }
-            x++;
         }
-        y++;
     }
     return (NULL);
 }
@@ -124,17 +124,17 @@ char    **ft_backtrack_algo(char **map, t_tetri *list, int map_size)
 
 int     ft_check_space_for_shape(t_tetri *lt, char **map, int x, int y, int map_size)
 {
-    if (map[y][x] == '.' &&
-    map[y + lt->shape[0]][x + lt->shape[1]] == '.' &&
-    map[y + lt->shape[0]][x + lt->shape[1]] < map_size &&
-    map[y + lt->shape[2]][x + lt->shape[3]] == '.' &&
-    map[y + lt->shape[2]][x + lt->shape[3]] < map_size &&
-    map[y + lt->shape[4]][x + lt->shape[5]] == '.' &&
-    map[y + lt->shape[4]][x + lt->shape[5]] < map_size &&
-    map[y + lt->shape[6]][x + lt->shape[7]] == '.' &&
-    map[y + lt->shape[6]][x + lt->shape[7]] < map_size)
-        return (1);
-    return (0);
+	if (map[y][x] == '.' &&
+	y + lt->shape[0] < map_size && x + lt->shape[1] < map_size &&
+	map[y + lt->shape[0]][x + lt->shape[1]] == '.' &&
+	y + lt->shape[2] < map_size && x + lt->shape[3] < map_size &&
+	map[y + lt->shape[2]][x + lt->shape[3]] == '.' &&
+	y + lt->shape[4] < map_size && x + lt->shape[5] < map_size &&
+	map[y + lt->shape[4]][x + lt->shape[5]] == '.' &&
+	y + lt->shape[6] < map_size && x + lt->shape[7] < map_size &&
+	map[y + lt->shape[6]][x + lt->shape[7]] == '.')
+		return (1);
+	return (0);
 }
 
 /*
@@ -161,12 +161,39 @@ void    ft_put_shape(t_tetri *lt, char **map)
 
 shape[8] = {0,0, 0,1  1,0, 1,1}
             y,x  y,x  y,x  y,x
-            0 1  2 3  4 5  6 7
+        
+		    0 1  2 3  4 5  6 7
+
+ 
+
+
+**************************
+	xx
+	xx 		0,0, 0, 1, 1, 0, 1, 1
+	
+	x		0,0, 1, 0, 2, 0, 3, 0
+	x
+	x
+	x			
+	
+	xxxx	0,0, 0, 1, 0, 2, 0, 3
+	
+	xx		0,0, 0, 1, 1, 0, 2, 0
+	x
+	x
+
+	0, 1, 0, 2, 1, 2
+	1, 0, 1, 1, 1, 2
+	0, 1, 1, 1, 2, 1
+	
+**************************
+
+
 
 typedef struct		s_tetri
 {
 	int					shape[8];
-	int					c;
+	char				c;
 	struct s_tetri		*next;
 }					t_tetri;
 */

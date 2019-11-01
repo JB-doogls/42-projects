@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fillit.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jbdoogls <jbdoogls@student.42.fr>          +#+  +:+       +#+        */
+/*   By: edoll <edoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/30 13:58:11 by edoll             #+#    #+#             */
-/*   Updated: 2019/11/01 11:56:49 by jbdoogls         ###   ########.fr       */
+/*   Updated: 2019/11/01 20:24:17 by edoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 typedef struct		s_tetri
 {
 	int					shape[8];
-	int					c;
+	char				c;
 	struct s_tetri		*next;
 }					t_tetri;
 
