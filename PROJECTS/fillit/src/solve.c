@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   solve.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edoll <edoll@student.42.fr>                +#+  +:+       +#+        */
+/*   By: jbdoogls <jbdoogls@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/31 14:49:10 by edoll             #+#    #+#             */
-/*   Updated: 2019/11/01 19:19:11 by edoll            ###   ########.fr       */
+/*   Updated: 2019/11/02 06:52:54 by jbdoogls         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,55 +24,54 @@ int     ft_solving(t_tetri *list)
                             //  I plane to make a func. to find min_size value later
     
     map_size = MIN_SQ_SIZE;
-    if (!(map = ft_make_map(&map, map_size))
+    if (!(map = ft_make_map(&map, map_size)))
         return (-1);
-    while (!(ft_backtrack_algo(map, list, map_size))
-        if (!(map = ft_make_map(map, map_size++))
-            retrun (-1);
+    while (!(ft_backtrack_algo(map, list, map_size)))
+        if (!(map = ft_make_map(&map, map_size++)))
+            return (-1);
     j = 0;                          // <-- it seems we can impliment the output function here //
     while (map[j])                
     {
-        ft_putstr(map[j]);
+        // ft_putstr(map[j]);               // WHY KARL?????? //
+        printf("%s\n", map[j]);
         free(map[j++]);
     }
     return (0);
 }
 
-
-
-
 /*
 **  function to create and increase the map for arrange the shapes
 */
 
-char    **ft_make_map(char **map, int map_size)
+char    **ft_make_map(char ***map, int map_size)
 {
-    int x;
-    int y;
-    char *temp;
+    int     x;
+    int     y;
+    char    **tmp;
 
     if (*map)
     {
-        temp = *map;                     // set as a separate function?
-        free (*temp++);
+        tmp = *map;                     // set as a separate function?
+        free (*tmp++);
+        // (*(tmp)++);
     }
     if (!(*map = (char**)malloc(sizeof(char*) * (map_size + 1))))
         return (NULL);
-    *map[map_size] == NULL;
+    *map[map_size] = NULL;
     y = 0;
     while (y < map_size)
     {
         if (!(*map[y] = (char*)malloc(sizeof(char) * (map_size + 2))))
         {
-            temp = *map;
-            free(*temp++);               // set as a separate function? 
+            tmp = *map;
+            free(*tmp++);               // set as a separate function? 
             return (NULL);
         }
         x = 0;
-        map[y][map_size] = '\n';
-        map[y][map_size + 1] = '\0';
+        (*map)[y][map_size] = '\n';
+        (*map)[y][map_size + 1] = '\0';
         while (x < map_size)
-            map[y][x++] = '.';
+            (*map)[y][x++] = '.';
         y++;
     }
     return (*map);
@@ -96,21 +95,18 @@ char    **ft_backtrack_algo(char **map, t_tetri *list, int map_size)
         {
             if (ft_check_space_for_shape(list, map, x, y, map_size))
             {
-                ft_put_shape(list, map);
-                if (list->next && ft_backtrack_algo(map, list, map_size))
+                ft_put_shape(list, map, x, y);
+                if (!list->next || (list->next && ft_backtrack_algo(map, list, map_size)))
                     return (map);
-                if (!list->next)
-                {
-                    ft_put_shape(list, map);
-                    return (map);
-                }
+                // if (!list->next)
+                //     return (map);
                 else
                 {
+                    ft_del_shape(list, map, x, y);
+                    x++;
                     // mark an error-flag ??? \ return error ???
                     // ft_del_shape
-                }
-                
-                    
+                }   
             }
         }
     }
@@ -141,7 +137,7 @@ int     ft_check_space_for_shape(t_tetri *lt, char **map, int x, int y, int map_
 **  here is small function to put the shape following it's coordinate after succes all checkings
 */
 
-void    ft_put_shape(t_tetri *lt, char **map)
+void    ft_put_shape(t_tetri *lt, char **map, int x, int y)
 {
     map[y + lt->shape[0]][x + lt->shape[1]] = lt->c;
     map[y + lt->shape[2]][x + lt->shape[3]] = lt->c;
@@ -149,7 +145,13 @@ void    ft_put_shape(t_tetri *lt, char **map)
     map[y + lt->shape[6]][x + lt->shape[7]] = lt->c;
 }
 
-
+void    ft_del_shape(t_tetri *lt, char **map, int x, int y)
+{
+    map[y + lt->shape[0]][x + lt->shape[1]] = '.';
+    map[y + lt->shape[2]][x + lt->shape[3]] = '.';
+    map[y + lt->shape[4]][x + lt->shape[5]] = '.';
+    map[y + lt->shape[6]][x + lt->shape[7]] = '.';
+}
 
 
 
