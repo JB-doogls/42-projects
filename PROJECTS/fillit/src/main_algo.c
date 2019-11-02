@@ -5,6 +5,7 @@
 
 t_tetri	*lst_new_set()
 {
+	printf("{ 1 } was here\n");
 	t_tetri *new;
 	int i = 0;
 
@@ -12,8 +13,9 @@ t_tetri	*lst_new_set()
 		return (NULL);
 	new->c = '0';
 	while (i < 8)
-	new->shape[i++] = 0 + i;
+	new->shape[i++] = 0;
 	new->next = NULL;
+	printf("{ 2 } was here\n");
 	return (new);
 }
 
@@ -39,9 +41,10 @@ t_tetri		*set_test(t_tetri *node)
 	}
 
 	node->shape[i++] = kvadrat[j++];
+	printf("{ 1 }\t" "i = " "%d " "j = " "%d\n", i, j);
 	node = node->next;
 	i = j = 0;
-	printf("%d\n%d\n", i, j);
+	printf("{ 2 }\t" "i = " "%d " "j = " "%d\n", i, j);
 	node->shape[i++] = palka_vniz[j++];
 	node = node->next;
 	i = j = 0;
@@ -59,7 +62,10 @@ int 	main()
 	t_tetri *node;
 	
 	if (!(node = lst_new_set()))
+	{
+		printf("error add new list\n");
 		return (-1);
+	}
 	set_test(node);
 	if (ft_solving(node) == -1)
 	{
