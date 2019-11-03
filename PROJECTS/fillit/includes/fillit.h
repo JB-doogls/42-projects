@@ -6,7 +6,7 @@
 /*   By: jbdoogls <jbdoogls@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/30 13:58:11 by edoll             #+#    #+#             */
-/*   Updated: 2019/11/02 05:59:11 by jbdoogls         ###   ########.fr       */
+/*   Updated: 2019/11/03 05:52:49 by jbdoogls         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 typedef struct		s_tetri
 {
 	int					shape[8];
-	char				c;
+	char				letter;
 	struct s_tetri		*next;
 }					t_tetri;
 

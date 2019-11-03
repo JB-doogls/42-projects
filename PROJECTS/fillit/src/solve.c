@@ -6,7 +6,7 @@
 /*   By: jbdoogls <jbdoogls@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/31 14:49:10 by edoll             #+#    #+#             */
-/*   Updated: 2019/11/02 06:52:54 by jbdoogls         ###   ########.fr       */
+/*   Updated: 2019/11/03 05:52:47 by jbdoogls         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int     ft_solving(t_tetri *list)
     int j;
     int map_size;           // for now size is defined in .h as 2 (2x2 square)
                             //  I plane to make a func. to find min_size value later
-    
+    printf("{ 3 } ft_solving\n");
     map_size = MIN_SQ_SIZE;
     if (!(map = ft_make_map(&map, map_size)))
         return (-1);
@@ -139,10 +139,10 @@ int     ft_check_space_for_shape(t_tetri *lt, char **map, int x, int y, int map_
 
 void    ft_put_shape(t_tetri *lt, char **map, int x, int y)
 {
-    map[y + lt->shape[0]][x + lt->shape[1]] = lt->c;
-    map[y + lt->shape[2]][x + lt->shape[3]] = lt->c;
-    map[y + lt->shape[4]][x + lt->shape[5]] = lt->c;
-    map[y + lt->shape[6]][x + lt->shape[7]] = lt->c;
+    map[y + lt->shape[0]][x + lt->shape[1]] = lt->letter;
+    map[y + lt->shape[2]][x + lt->shape[3]] = lt->letter;
+    map[y + lt->shape[4]][x + lt->shape[5]] = lt->letter;
+    map[y + lt->shape[6]][x + lt->shape[7]] = lt->letter;
 }
 
 void    ft_del_shape(t_tetri *lt, char **map, int x, int y)
