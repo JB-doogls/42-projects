@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   solve.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jbdoogls <jbdoogls@student.42.fr>          +#+  +:+       +#+        */
+/*   By: edoll <edoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/31 14:49:10 by edoll             #+#    #+#             */
-/*   Updated: 2019/11/03 05:52:47 by jbdoogls         ###   ########.fr       */
+/*   Updated: 2019/11/06 21:01:59 by edoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,23 +20,22 @@ int     ft_solving(t_tetri *list)
 {
     char **map;
     int j;
-    int map_size;           // for now size is defined in .h as 2 (2x2 square)
-                            //  I plane to make a func. to find min_size value later
-    printf("{ 3 } ft_solving\n");
-    map_size = MIN_SQ_SIZE;
+    int map_size;
+	
+	map_size = ft_smallest_square(list);
     if (!(map = ft_make_map(&map, map_size)))
         return (-1);
     while (!(ft_backtrack_algo(map, list, map_size)))
-        if (!(map = ft_make_map(&map, map_size++)))
+        if (!(map = ft_make_map(&map, ++map_size)))
             return (-1);
-    j = 0;                          // <-- it seems we can impliment the output function here //
+    j = 0;
     while (map[j])                
     {
-        // ft_putstr(map[j]);               // WHY KARL?????? //
-        printf("%s\n", map[j]);
+        ft_putstr(map[j]);
         free(map[j++]);
-    }
-    return (0);
+	}
+	free(map);
+	return (0);
 }
 
 /*
@@ -47,34 +46,28 @@ char    **ft_make_map(char ***map, int map_size)
 {
     int     x;
     int     y;
-    char    **tmp;
 
-    if (*map)
-    {
-        tmp = *map;                     // set as a separate function?
-        free (*tmp++);
-        // (*(tmp)++);
-    }
-    if (!(*map = (char**)malloc(sizeof(char*) * (map_size + 1))))
+	if (*map)
+		ft_clear_map(map);
+	if (!(*map = (char**)malloc(sizeof(char*) * (map_size + 1))))
         return (NULL);
-    *map[map_size] = NULL;
+    (*map)[map_size] = NULL;
     y = 0;
     while (y < map_size)
     {
-        if (!(*map[y] = (char*)malloc(sizeof(char) * (map_size + 2))))
-        {
-            tmp = *map;
-            free(*tmp++);               // set as a separate function? 
-            return (NULL);
-        }
-        x = 0;
+		x = 0;
+		if (!((*map)[y] = (char*)malloc(sizeof(char) * (map_size + 2))))
+		{
+			ft_clear_map(map);
+			return (NULL);
+		}
+		(*map)[y][map_size + 1] = '\0';
         (*map)[y][map_size] = '\n';
-        (*map)[y][map_size + 1] = '\0';
         while (x < map_size)
             (*map)[y][x++] = '.';
-        y++;
+		y++;
     }
-    return (*map);
+	return (*map);
 }
 
 /*
@@ -88,27 +81,22 @@ char    **ft_backtrack_algo(char **map, t_tetri *list, int map_size)
     int y;
     
     y = 0;
-    while (y++ < map_size)
+    while (y < map_size)
     {
         x = 0;
-        while (x++ < map_size)
+        while (x < map_size)
         {
             if (ft_check_space_for_shape(list, map, x, y, map_size))
             {
                 ft_put_shape(list, map, x, y);
-                if (!list->next || (list->next && ft_backtrack_algo(map, list, map_size)))
+                if (!list->next || (list->next && ft_backtrack_algo(map, list->next, map_size)))
                     return (map);
-                // if (!list->next)
-                //     return (map);
                 else
-                {
                     ft_del_shape(list, map, x, y);
-                    x++;
-                    // mark an error-flag ??? \ return error ???
-                    // ft_del_shape
-                }   
             }
-        }
+			x++;
+		}
+		y++;
     }
     return (NULL);
 }
@@ -153,9 +141,29 @@ void    ft_del_shape(t_tetri *lt, char **map, int x, int y)
     map[y + lt->shape[6]][x + lt->shape[7]] = '.';
 }
 
+void	ft_clear_map(char ***map)
+{
+	char **tmp;
 
+	tmp = *map;
+	while (*tmp)
+		free(*tmp++);
+	free(*map);
+}
 
+int		ft_smallest_square(t_tetri *list)
+{
+    int	map_size;
+	int num_tetri;
 
+	num_tetri = 4;
+	while ((list = list->next))
+		num_tetri += 4;
+	map_size = 1;
+	while (map_size * map_size < num_tetri)
+		map_size++;
+	return (map_size);
+}
 
 /*
 ** **********************************************************

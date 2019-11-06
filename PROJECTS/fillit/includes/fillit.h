@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fillit.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jbdoogls <jbdoogls@student.42.fr>          +#+  +:+       +#+        */
+/*   By: edoll <edoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/30 13:58:11 by edoll             #+#    #+#             */
-/*   Updated: 2019/11/03 05:52:49 by jbdoogls         ###   ########.fr       */
+/*   Updated: 2019/11/06 20:57:49 by edoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ char    **ft_backtrack_algo(char **map, t_tetri *list, int map_size);
 int     ft_check_space_for_shape(t_tetri *lt, char **map, int x, int y, int map_size);
 void    ft_put_shape(t_tetri *lt, char **map, int x, int y);
 void    ft_del_shape(t_tetri *list, char **map, int x, int y);
+void	ft_clear_map(char ***map);
+int		ft_smallest_square(t_tetri *list);
 
 #endif
 
