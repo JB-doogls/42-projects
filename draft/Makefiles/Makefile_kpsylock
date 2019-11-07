@@ -1,0 +1,65 @@
+.PHONY: all clean fclean re
+
+NAME_PS = push_swap
+NAME_CH = checker
+NAME_LIBFT = libft.a
+
+LIBFT = $(addprefix $(LIBFT_DIR),$(NAME_LIBFT))
+
+OP_DIR = ./src/operations/
+PS_DIR = ./src/push_swap/
+CH_DIR = ./src/checker/
+INC_DIR = ./includes/
+LIBFT_DIR = ./libft/
+LFT = -L $(LIBFT_DIR) -lft
+
+OP_SRCS_LIST = create_stacks.c check_stacks.c display_stacks.c count_operations.c flags.c get_av.c papb.c rr.c rrr.c ss.c
+PS_SRCS_LIST = push_swap.c finders.c scrolls.c sort_all.c sort_small.c
+CH_SRCS_LIST = checker.c execute_commands.c
+HEADERS_LIST = push_swap.h
+
+HEADERS = $(addprefix $(INC_DIR), $(HEADERS_LIST))
+
+OP_SRCS = $(addprefix $(OP_DIR),$(OP_SRCS_LIST))
+PS_SRCS = $(addprefix $(PS_DIR),$(PS_SRCS_LIST))
+CH_SRCS = $(addprefix $(CH_DIR),$(CH_SRCS_LIST))
+
+OP_OBJS = $(OP_SRCS:.c=.o)
+PS_OBJS = $(PS_SRCS:.c=.o)
+CH_OBJS = $(CH_SRCS:.c=.o)
+
+INCLUDES = -I $(INC_DIR) -I $(LIBFT_DIR)
+
+CC = gcc
+CFLAGS = -Wall -Wextra -Werror
+
+all: $(NAME_PS) $(NAME_CH)
+
+%.o: %.c $(HEADERS)
+	@$(CC) $(CFLAGS) $(INCLUDES) -o $@ -c $<
+	@echo ".\c"
+
+$(NAME_PS): $(LIBFT) $(OP_OBJS) $(PS_OBJS) $(HEADERS)
+	@$(CC) $(CFLAGS) $(LFT) $(INCLUDES) $(OP_OBJS) $(PS_OBJS) -o $(NAME_PS)
+	@echo "$(NAME_PS) executable created"
+
+$(NAME_CH): $(LIBFT) $(OP_OBJS) $(CH_OBJS) $(HEADERS)
+	@$(CC) $(CFLAGS) $(LFT) $(INCLUDES) $(OP_OBJS) $(CH_OBJS) -o $(NAME_CH)
+	@echo "$(NAME_CH) executable created"
+
+FORCE: ;
+
+$(LIBFT): FORCE
+	@make -C $(LIBFT_DIR)
+
+clean:
+	@/bin/rm -f $(OP_OBJS) $(CH_OBJS) $(PS_OBJS)
+	@echo "Object files deleted"
+	@make clean -C $(LIBFT_DIR)
+
+fclean: clean
+	@/bin/rm -f $(NAME_CH) $(NAME_PS)
+	@echo "Executable files deleted"
+	@make fclean -C $(LIBFT_DIR)
+
+re: fclean all
