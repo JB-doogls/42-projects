@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: edoll <edoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/31 20:27:08 by jlavona           #+#    #+#             */
-/*   Updated: 2019/11/07 20:28:57 by edoll            ###   ########.fr       */
+/*   Created: 2019/11/08 20:11:46 by edoll             #+#    #+#             */
+/*   Updated: 2019/11/08 20:11:49 by edoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "reader.h"
+#include "../includes/fillit.h"
 
 /*
 ** Shifts the coords to the upper-left (to the origin)
@@ -71,8 +71,6 @@ t_point		get_min_xy(t_point coords[])
 
 t_point		*get_coords(char *block)
 {
-	int		x_counter;
-	int		y_counter;
 	int		i;
 	t_point	*coords;
 	int		coords_ix;
@@ -80,58 +78,18 @@ t_point		*get_coords(char *block)
 	if (!(coords = (t_point *)malloc(sizeof(t_point) * POINTS_IN_SHAPE)))
 		return (NULL);
 	i = 0;
-	x_counter = 0;
-	y_counter = 0;
 	coords_ix = 0;
 	while (i < NUM_CHARS_IN_BLOCK - 1)
 	{
-		if (block[i] == '\n')
+		if (block[i] == '#')
 		{
-			++y_counter;
-			x_counter = 0;
-		}
-		else if (block[i] == '#')
-		{
-			coords[coords_ix].x = x_counter;
-			coords[coords_ix].y = y_counter;
+			coords[coords_ix].x = ((i + 1) % 5) - 1;
+			coords[coords_ix].y = (i + 1) / 5;
 			++coords_ix;
-			++x_counter;
 		}
-		else
-			++x_counter;
 		++i;
 	}
 	return (coords);
-}
-
-/*
-** A test print function
-*/
-
-void		print_tetri(t_point *shape, char block_letter)
-{
-	int		j;
-	int		i;
-	char	tetri_string[NUM_CHARS_IN_BLOCK + 1];
-
-	tetri_string[NUM_CHARS_IN_BLOCK] = '\0';
-	j = 0;
-	while (j < NUM_CHARS_IN_BLOCK)
-	{
-		if ((j + 1) % 5 == 0)
-			tetri_string[j] = '\n';
-		else
-			tetri_string[j] = '.';
-		++j;
-	}
-	i = 0;
-	while (i < POINTS_IN_SHAPE)
-	{
-		tetri_string[shape[i].x + (shape[i].y) * 5] = block_letter;
-		++i;
-	}
-	ft_putstr(tetri_string);
-	ft_putchar('\n');
 }
 
 /*
@@ -140,6 +98,31 @@ void		print_tetri(t_point *shape, char block_letter)
 ** If successful, returns 1.
 ** If normalization or saving fails, returns 0.
 */
+
+int			save_in_node(t_point *shape, char block_letter, t_tetri *node)
+{
+	if (!(node->shape))
+	{
+		if (!(node->shape = malloc(sizeof(t_point) * POINTS_IN_SHAPE)))
+		{
+			free(shape);
+			return (0);
+		}
+		ft_memcpy(node->shape, shape, sizeof(t_point) * POINTS_IN_SHAPE);
+		node->letter = block_letter;
+	}
+	else
+	{
+		while (node->next)
+			node = node->next;
+		if (!(ft_addnode(shape, block_letter, node)))
+		{
+			free(shape);
+			return (0);
+		}
+	}
+	return (1);
+}
 
 int			save_tetri(char *block, char block_letter, t_tetri *node)
 {
@@ -151,25 +134,10 @@ int			save_tetri(char *block, char block_letter, t_tetri *node)
 	{
 		min_coords = get_min_xy(shape);
 		shape = normalize_coords(min_coords, shape);
-		if (!(node->shape))
+		if (!(save_in_node(shape, block_letter, node)))
 		{
-			if (!(node->shape = malloc(sizeof(t_point) * POINTS_IN_SHAPE)))
-			{
-				free(shape);
-				return (0);
-			}
-			ft_memcpy(node->shape, (void *)shape, sizeof(t_point) * POINTS_IN_SHAPE);
-			node->letter = block_letter;
-		}
-		else
-		{
-			while (node->next)
-				node = node->next;
-			if (!(ft_addnode(shape, block_letter, node)))
-			{
-				free(shape);
-				return (0);
-			}
+			free(shape);
+			return (0);
 		}
 		free(shape);
 	}

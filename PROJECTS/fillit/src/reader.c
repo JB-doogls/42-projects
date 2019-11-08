@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: edoll <edoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/30 17:41:27 by jlavona           #+#    #+#             */
-/*   Updated: 2019/11/07 20:28:53 by edoll            ###   ########.fr       */
+/*   Created: 2019/11/08 20:11:55 by edoll             #+#    #+#             */
+/*   Updated: 2019/11/08 21:08:42 by edoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "reader.h"
+#include "../includes/fillit.h"
 
 /*
 ** Counts adjacent filled spaces (right, left, down, up) and return their
@@ -54,7 +54,7 @@ int		block_invalid(char *block)
 	num_connections = 0;
 	while (i < NUM_CHARS_IN_BLOCK - 1)
 	{
-		if (block[i] && (block[i] != '#') && (block[i] != '.') && (block[i] != '\n'))
+		if ((block[i] != '#') && (block[i] != '.') && (block[i] != '\n'))
 			return (1);
 		if (block[i] == '#')
 		{
@@ -65,10 +65,9 @@ int		block_invalid(char *block)
 			return (1);
 		++i;
 	}
-	if ((block[i + 1] != '\n') && (block[i + 1] != '\0')) /* think about this */
+	if ((block[i + 1] != '\n') && (block[i + 1] != '\0'))
 		return (1);
-	if ((num_hashes != 4 && num_connections != 6) ||
-	(num_hashes != 4 && num_connections != 8))
+	if ((num_hashes != 4) || (num_connections != 6 && num_connections != 8))
 		return (1);
 	return (0);
 }
@@ -88,28 +87,18 @@ t_tetri	*read_input(int fd)
 	char	block_letter;
 	t_tetri	*list;
 
+	last_read = 0;
 	if (!(list = ft_createlist(NULL, 0)))
 		return (NULL);
 	block_letter = 'A';
-	buffer[NUM_CHARS_IN_BLOCK_WITH_NEWLINE] = '\0';
+	ft_bzero(buffer, NUM_CHARS_IN_BLOCK_WITH_NEWLINE + 1);
 	while ((read_result = read(fd, buffer, NUM_CHARS_IN_BLOCK_WITH_NEWLINE)))
-	{
 		if (!((read_result < NUM_CHARS_IN_BLOCK) || block_invalid(buffer))
-		&& save_tetri(buffer, block_letter, list))
-		{
-			++block_letter;
+		&& save_tetri(buffer, block_letter, list) && (++block_letter))
 			last_read = read_result;
-		}
 		else
-		{
-			ft_deletelist(list);
-			return (NULL);
-		}
-	}
+			return (ft_deletelist(list));
 	if ((last_read != NUM_CHARS_IN_BLOCK) || ((block_letter - 1) > 'Z'))
-	{
-		ft_deletelist(list);
-		return (NULL);
-	}
+		return (ft_deletelist(list));
 	return (list);
 }

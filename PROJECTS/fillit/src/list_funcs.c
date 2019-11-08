@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: edoll <edoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/02 17:58:33 by jlavona           #+#    #+#             */
-/*   Updated: 2019/11/07 20:28:59 by edoll            ###   ########.fr       */
+/*   Created: 2019/11/08 20:12:04 by edoll             #+#    #+#             */
+/*   Updated: 2019/11/08 20:16:06 by edoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "reader.h"
+#include "../includes/fillit.h"
 
-t_tetri	*ft_createlist(t_point const *shape, char letter)
+t_tetri		*ft_createlist(t_point const *shape, char letter)
 {
 	t_tetri	*node;
 
@@ -27,14 +27,14 @@ t_tetri	*ft_createlist(t_point const *shape, char letter)
 	{
 		if (!(node->shape = malloc(sizeof(t_point) * POINTS_IN_SHAPE)))
 			return (NULL);
-		ft_memcpy(node->shape, (void *)shape, sizeof(t_point) * POINTS_IN_SHAPE);
+		ft_memcpy(node->shape, shape, sizeof(t_point) * POINTS_IN_SHAPE);
 		node->letter = letter;
 	}
 	node->next = NULL;
 	return (node);
 }
 
-int		ft_addnode(t_point *shape, char letter, t_tetri *last_node)
+int			ft_addnode(t_point *shape, char letter, t_tetri *last_node)
 {
 	t_tetri *node;
 
@@ -47,7 +47,7 @@ int		ft_addnode(t_point *shape, char letter, t_tetri *last_node)
 		return (0);
 }
 
-void	ft_deletelist(t_tetri *list_head)
+t_tetri		*ft_deletelist(t_tetri *list_head)
 {
 	t_tetri *node;
 	t_tetri *tmp_node;
@@ -64,9 +64,40 @@ void	ft_deletelist(t_tetri *list_head)
 	free(node->shape);
 	free(node);
 	node = NULL;
+	return (node);
 }
 
-void	ft_printlist(t_tetri *node)
+/*
+** A test print function
+*/
+
+void		print_tetri(t_point *shape, char block_letter)
+{
+	int		j;
+	int		i;
+	char	tetri_string[NUM_CHARS_IN_BLOCK + 1];
+
+	tetri_string[NUM_CHARS_IN_BLOCK] = '\0';
+	j = 0;
+	while (j < NUM_CHARS_IN_BLOCK)
+	{
+		if ((j + 1) % 5 == 0)
+			tetri_string[j] = '\n';
+		else
+			tetri_string[j] = '.';
+		++j;
+	}
+	i = 0;
+	while (i < POINTS_IN_SHAPE)
+	{
+		tetri_string[shape[i].x + (shape[i].y) * 5] = block_letter;
+		++i;
+	}
+	ft_putstr(tetri_string);
+	ft_putchar('\n');
+}
+
+void		ft_printlist(t_tetri *node)
 {
 	while (node->next)
 	{

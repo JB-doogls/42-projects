@@ -6,7 +6,7 @@
 /*   By: edoll <edoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 14:03:41 by edoll             #+#    #+#             */
-/*   Updated: 2019/11/07 14:28:12 by edoll            ###   ########.fr       */
+/*   Updated: 2019/11/08 20:12:42 by edoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,14 @@ int		ft_check_space_for_shape(t_tetri *lt, char **map, int x, int y)
 	while (map[0][map_size] != '\n')
 		map_size++;
 	if (map[y][x] == '.' &&
-	y + lt->shape[0] < map_size && x + lt->shape[1] < map_size &&
-	map[y + lt->shape[0]][x + lt->shape[1]] == '.' &&
-	y + lt->shape[2] < map_size && x + lt->shape[3] < map_size &&
-	map[y + lt->shape[2]][x + lt->shape[3]] == '.' &&
-	y + lt->shape[4] < map_size && x + lt->shape[5] < map_size &&
-	map[y + lt->shape[4]][x + lt->shape[5]] == '.' &&
-	y + lt->shape[6] < map_size && x + lt->shape[7] < map_size &&
-	map[y + lt->shape[6]][x + lt->shape[7]] == '.')
+	y + (lt->shape)[0].y < map_size && x + (lt->shape)[0].x < map_size &&
+	map[y + (lt->shape)[0].y][x + (lt->shape)[0].x] == '.' &&
+	y + (lt->shape)[1].y < map_size && x + (lt->shape)[1].x < map_size &&
+	map[y + (lt->shape)[1].y][x + (lt->shape)[1].x] == '.' &&
+	y + (lt->shape)[2].y < map_size && x + (lt->shape)[2].x < map_size &&
+	map[y + (lt->shape)[2].y][x + (lt->shape)[2].x] == '.' &&
+	y + (lt->shape)[3].y < map_size && x + (lt->shape)[3].x < map_size &&
+	map[y + (lt->shape)[3].y][x + (lt->shape)[3].x] == '.')
 		return (1);
 	return (0);
 }
@@ -45,24 +45,30 @@ int		ft_check_space_for_shape(t_tetri *lt, char **map, int x, int y)
 
 void	ft_put_shape(t_tetri *lt, char **map, int x, int y)
 {
-	map[y + lt->shape[0]][x + lt->shape[1]] = lt->letter;
-	map[y + lt->shape[2]][x + lt->shape[3]] = lt->letter;
-	map[y + lt->shape[4]][x + lt->shape[5]] = lt->letter;
-	map[y + lt->shape[6]][x + lt->shape[7]] = lt->letter;
+	map[y + (lt->shape)[0].y][x + (lt->shape)[0].x] = lt->letter;
+	map[y + (lt->shape)[1].y][x + (lt->shape)[1].x] = lt->letter;
+	map[y + (lt->shape)[2].y][x + (lt->shape)[2].x] = lt->letter;
+	map[y + (lt->shape)[3].y][x + (lt->shape)[3].x] = lt->letter;
 }
+
+/*
+**  here is one more small function - now to del shape
+*/
 
 void	ft_del_shape(t_tetri *lt, char **map, int x, int y)
 {
-	map[y + lt->shape[0]][x + lt->shape[1]] = '.';
-	map[y + lt->shape[2]][x + lt->shape[3]] = '.';
-	map[y + lt->shape[4]][x + lt->shape[5]] = '.';
-	map[y + lt->shape[6]][x + lt->shape[7]] = '.';
+	map[y + (lt->shape)[0].y][x + (lt->shape)[0].x] = '.';
+	map[y + (lt->shape)[1].y][x + (lt->shape)[1].x] = '.';
+	map[y + (lt->shape)[2].y][x + (lt->shape)[2].x] = '.';
+	map[y + (lt->shape)[3].y][x + (lt->shape)[3].x] = '.';
 }
 
 void	ft_clear_map(char ***map)
 {
 	char **tmp;
 
+	if (!(*map))
+		return ;
 	tmp = *map;
 	while (*tmp)
 		free(*tmp++);

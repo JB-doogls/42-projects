@@ -6,7 +6,7 @@
 /*   By: edoll <edoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 14:07:16 by edoll             #+#    #+#             */
-/*   Updated: 2019/11/07 14:26:40 by edoll            ###   ########.fr       */
+/*   Updated: 2019/11/08 20:12:51 by edoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int		ft_solving(t_tetri *list)
 	int		j;
 	int		map_size;
 
+	map = NULL;
 	map_size = ft_smallest_square(list);
 	if (!(map = ft_make_map(&map, map_size)))
 		return (-1);
