@@ -6,7 +6,7 @@
 /*   By: edoll <edoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/30 18:22:26 by jlavona           #+#    #+#             */
-/*   Updated: 2019/11/08 21:11:14 by edoll            ###   ########.fr       */
+/*   Updated: 2019/11/10 14:47:08 by edoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int		main(int ac, char **av)
 		fd = open(file_path, O_RDONLY);
 		if (fd != -1)
 		{
-			list = read_input(fd);
+			list = ft_read_input(fd);
 			if (list)
 			{
 				ft_solving(list);

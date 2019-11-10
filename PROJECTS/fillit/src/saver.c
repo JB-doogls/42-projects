@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   saver_2.c                                          :+:      :+:    :+:   */
+/*   saver.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edoll <edoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/08 20:11:46 by edoll             #+#    #+#             */
-/*   Updated: 2019/11/08 20:11:49 by edoll            ###   ########.fr       */
+/*   Created: 2019/11/10 13:36:16 by edoll             #+#    #+#             */
+/*   Updated: 2019/11/10 14:45:51 by edoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 ** 		array of 4 t_point structs.
 */
 
-t_point		*normalize_coords(t_point min_xy, t_point coords[])
+static t_point		*ft_normalize_coords(t_point min_xy, t_point coords[])
 {
 	int	i;
 
@@ -40,7 +40,7 @@ t_point		*normalize_coords(t_point min_xy, t_point coords[])
 ** Returns a point struct.
 */
 
-t_point		get_min_xy(t_point coords[])
+static t_point		ft_get_min_xy(t_point coords[])
 {
 	t_point	min_xy;
 	int		min_x;
@@ -69,7 +69,7 @@ t_point		get_min_xy(t_point coords[])
 ** Returns an array of 4 point structs if successful, NULL otherwise.
 */
 
-t_point		*get_coords(char *block)
+static t_point		*ft_get_coords(char *block)
 {
 	int		i;
 	t_point	*coords;
@@ -99,7 +99,7 @@ t_point		*get_coords(char *block)
 ** If normalization or saving fails, returns 0.
 */
 
-int			save_in_node(t_point *shape, char block_letter, t_tetri *node)
+static int			ft_save_in_node(t_point *shape, char letter, t_tetri *node)
 {
 	if (!(node->shape))
 	{
@@ -109,13 +109,13 @@ int			save_in_node(t_point *shape, char block_letter, t_tetri *node)
 			return (0);
 		}
 		ft_memcpy(node->shape, shape, sizeof(t_point) * POINTS_IN_SHAPE);
-		node->letter = block_letter;
+		node->letter = letter;
 	}
 	else
 	{
 		while (node->next)
 			node = node->next;
-		if (!(ft_addnode(shape, block_letter, node)))
+		if (!(ft_addnode(shape, letter, node)))
 		{
 			free(shape);
 			return (0);
@@ -124,17 +124,17 @@ int			save_in_node(t_point *shape, char block_letter, t_tetri *node)
 	return (1);
 }
 
-int			save_tetri(char *block, char block_letter, t_tetri *node)
+int					ft_save_tetri(char *block, char block_letter, t_tetri *node)
 {
 	t_point	*shape;
 	t_point	min_coords;
 
-	shape = get_coords(block);
+	shape = ft_get_coords(block);
 	if (shape)
 	{
-		min_coords = get_min_xy(shape);
-		shape = normalize_coords(min_coords, shape);
-		if (!(save_in_node(shape, block_letter, node)))
+		min_coords = ft_get_min_xy(shape);
+		shape = ft_normalize_coords(min_coords, shape);
+		if (!(ft_save_in_node(shape, block_letter, node)))
 		{
 			free(shape);
 			return (0);

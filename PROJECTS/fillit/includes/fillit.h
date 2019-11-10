@@ -6,7 +6,7 @@
 /*   By: edoll <edoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/30 13:58:11 by edoll             #+#    #+#             */
-/*   Updated: 2019/11/08 21:12:16 by edoll            ###   ########.fr       */
+/*   Updated: 2019/11/10 14:48:16 by edoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,20 +35,18 @@ typedef struct	s_tetri
 	struct s_tetri	*next;
 }				t_tetri;
 
-t_tetri			*read_input(int fd);
-int				save_tetri(char *block, char block_letter, t_tetri *list);
-t_tetri			*ft_createlist(t_point const *shape, char letter);
-int				ft_addnode(t_point *shape, char letter, t_tetri *last_node);
-t_tetri			*ft_deletelist(t_tetri *list_head);
-void			print_tetri(t_point *shape, char block_letter);
-void			ft_printlist(t_tetri *node);
+t_tetri			*ft_read_input(int fd);
+int				ft_save_tetri(char *block, char block_letter, t_tetri *list);
+
 int				ft_solving(t_tetri *list);
-char			**ft_make_map(char ***map, int map_size);
-char			**ft_backtrack_algo(char **map, t_tetri *list, int map_size);
 int				ft_check_space_for_shape(t_tetri *lt, char **map, int x, int y);
 void			ft_put_shape(t_tetri *lt, char **map, int x, int y);
 void			ft_del_shape(t_tetri *list, char **map, int x, int y);
 void			ft_clear_map(char ***map);
 int				ft_smallest_square(t_tetri *list);
+
+t_tetri			*ft_createlist(t_point const *shape, char letter);
+int				ft_addnode(t_point *shape, char letter, t_tetri *last_node);
+t_tetri			*ft_deletelist(t_tetri *list_head);
 
 #endif

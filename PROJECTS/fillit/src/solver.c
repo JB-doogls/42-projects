@@ -1,49 +1,53 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   solving_func.c                                     :+:      :+:    :+:   */
+/*   solver.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edoll <edoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/07 14:07:16 by edoll             #+#    #+#             */
-/*   Updated: 2019/11/08 20:12:51 by edoll            ###   ########.fr       */
+/*   Created: 2019/11/10 13:37:18 by edoll             #+#    #+#             */
+/*   Updated: 2019/11/10 14:38:35 by edoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fillit.h"
 
 /*
-**  algorithm control module
+**  recursive algorithm for solving the issue
 */
 
-int		ft_solving(t_tetri *list)
+static char		**ft_backtrack_algo(char **map, t_tetri *list, int map_size)
 {
-	char	**map;
-	int		j;
-	int		map_size;
+	int		x;
+	int		y;
 
-	map = NULL;
-	map_size = ft_smallest_square(list);
-	if (!(map = ft_make_map(&map, map_size)))
-		return (-1);
-	while (!(ft_backtrack_algo(map, list, map_size)))
-		if (!(map = ft_make_map(&map, ++map_size)))
-			return (-1);
-	j = 0;
-	while (map[j])
+	y = 0;
+	while (y < map_size)
 	{
-		ft_putstr(map[j]);
-		free(map[j++]);
+		x = 0;
+		while (x < map_size)
+		{
+			if (ft_check_space_for_shape(list, map, x, y))
+			{
+				ft_put_shape(list, map, x, y);
+				if (!list->next ||
+				(list->next && ft_backtrack_algo(map, list->next, map_size)))
+					return (map);
+				else
+					ft_del_shape(list, map, x, y);
+			}
+			x++;
+		}
+		y++;
 	}
-	free(map);
-	return (0);
+	return (NULL);
 }
 
 /*
 **  function to create and increase the map for arrange the shapes
 */
 
-char	**ft_make_map(char ***map, int map_size)
+static char		**ft_make_map(char ***map, int map_size)
 {
 	int		x;
 	int		y;
@@ -72,32 +76,28 @@ char	**ft_make_map(char ***map, int map_size)
 }
 
 /*
-**  recursive algorithm for solving the issue
+**  algorithm control module
 */
 
-char	**ft_backtrack_algo(char **map, t_tetri *list, int map_size)
+int				ft_solving(t_tetri *list)
 {
-	int		x;
-	int		y;
+	char	**map;
+	int		j;
+	int		map_size;
 
-	y = 0;
-	while (y < map_size)
+	map = NULL;
+	map_size = ft_smallest_square(list);
+	if (!(map = ft_make_map(&map, map_size)))
+		return (-1);
+	while (!(ft_backtrack_algo(map, list, map_size)))
+		if (!(map = ft_make_map(&map, ++map_size)))
+			return (-1);
+	j = 0;
+	while (map[j])
 	{
-		x = 0;
-		while (x < map_size)
-		{
-			if (ft_check_space_for_shape(list, map, x, y))
-			{
-				ft_put_shape(list, map, x, y);
-				if (!list->next ||
-				(list->next && ft_backtrack_algo(map, list->next, map_size)))
-					return (map);
-				else
-					ft_del_shape(list, map, x, y);
-			}
-			x++;
-		}
-		y++;
+		ft_putstr(map[j]);
+		free(map[j++]);
 	}
-	return (NULL);
+	free(map);
+	return (0);
 }

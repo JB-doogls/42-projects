@@ -6,7 +6,7 @@
 /*   By: edoll <edoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 20:11:55 by edoll             #+#    #+#             */
-/*   Updated: 2019/11/08 21:08:42 by edoll            ###   ########.fr       */
+/*   Updated: 2019/11/10 14:49:31 by edoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 ** number.
 */
 
-int		count_adjacent(int i, char *block)
+static int		ft_count_adjacent(int i, char *block)
 {
 	int		num_adjacent;
 
@@ -43,7 +43,7 @@ int		count_adjacent(int i, char *block)
 ** Returns 1 if invalid, 0 if valid.
 */
 
-int		block_invalid(char *block)
+static int		ft_block_invalid(char *block)
 {
 	int		i;
 	int		num_hashes;
@@ -59,7 +59,7 @@ int		block_invalid(char *block)
 		if (block[i] == '#')
 		{
 			++num_hashes;
-			num_connections += count_adjacent(i, block);
+			num_connections += ft_count_adjacent(i, block);
 		}
 		if ((block[i] == '\n') && !((i + 1) % 5 == 0))
 			return (1);
@@ -79,7 +79,7 @@ int		block_invalid(char *block)
 ** Returns NULL on error, list head on success.
 */
 
-t_tetri	*read_input(int fd)
+t_tetri			*ft_read_input(int fd)
 {
 	char	buffer[NUM_CHARS_IN_BLOCK_WITH_NEWLINE + 1];
 	int		read_result;
@@ -93,8 +93,8 @@ t_tetri	*read_input(int fd)
 	block_letter = 'A';
 	ft_bzero(buffer, NUM_CHARS_IN_BLOCK_WITH_NEWLINE + 1);
 	while ((read_result = read(fd, buffer, NUM_CHARS_IN_BLOCK_WITH_NEWLINE)))
-		if (!((read_result < NUM_CHARS_IN_BLOCK) || block_invalid(buffer))
-		&& save_tetri(buffer, block_letter, list) && (++block_letter))
+		if (!((read_result < NUM_CHARS_IN_BLOCK) || ft_block_invalid(buffer))
+		&& ft_save_tetri(buffer, block_letter, list) && (++block_letter))
 			last_read = read_result;
 		else
 			return (ft_deletelist(list));
