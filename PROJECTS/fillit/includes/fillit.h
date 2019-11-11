@@ -6,7 +6,7 @@
 /*   By: edoll <edoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/30 13:58:11 by edoll             #+#    #+#             */
-/*   Updated: 2019/11/10 14:48:16 by edoll            ###   ########.fr       */
+/*   Updated: 2019/11/10 20:32:46 by edoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@
 
 typedef struct	s_point
 {
-	unsigned char	x;
-	unsigned char	y;
+	char	x;
+	char	y;
 }				t_point;
 
 typedef struct	s_tetri
@@ -46,7 +46,7 @@ void			ft_clear_map(char ***map);
 int				ft_smallest_square(t_tetri *list);
 
 t_tetri			*ft_createlist(t_point const *shape, char letter);
-int				ft_addnode(t_point *shape, char letter, t_tetri *last_node);
 t_tetri			*ft_deletelist(t_tetri *list_head);
+int				ft_addnode(t_point *shape, char letter, t_tetri *last_node);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: edoll <edoll@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/10 13:36:16 by edoll             #+#    #+#             */
-/*   Updated: 2019/11/10 14:45:51 by edoll            ###   ########.fr       */
+/*   Updated: 2019/11/10 20:32:15 by edoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,52 +15,42 @@
 /*
 ** Shifts the coords to the upper-left (to the origin)
 ** Input:
-** 		t_point struct min_xy with minimum x and y coords;
+** 		t_point struct xy with x and y coords of first point in an
 ** 		array of 4 t_point structs.
 ** Output:
 ** 		array of 4 t_point structs.
 */
 
-static t_point		*ft_normalize_coords(t_point min_xy, t_point coords[])
+static t_point		*ft_normalize_coords(t_point xy, t_point coords[])
 {
 	int	i;
 
 	i = 0;
 	while (i < POINTS_IN_SHAPE)
 	{
-		coords[i].x -= min_xy.x;
-		coords[i].y -= min_xy.y;
+		coords[i].x -= xy.x;
+		coords[i].y -= xy.y;
 		++i;
 	}
 	return (coords);
 }
 
 /*
-** Gets the minimum x and y coords in an array of 4 point structs.
+** Gets the x and y coords of the first pont in an array of 4 point structs.
 ** Returns a point struct.
 */
 
-static t_point		ft_get_min_xy(t_point coords[])
+static t_point		ft_get_first_xy(t_point coords[])
 {
-	t_point	min_xy;
-	int		min_x;
-	int		min_y;
-	int		i;
+	t_point	xy;
+	int		x;
+	int		y;
 
-	min_x = coords[0].x;
-	min_y = coords[0].y;
-	i = 0;
-	while (i < POINTS_IN_SHAPE)
-	{
-		if (coords[i].x < min_x)
-			min_x = coords[i].x;
-		if (coords[i].y < min_y)
-			min_y = coords[i].y;
-		++i;
-	}
-	min_xy.x = min_x;
-	min_xy.y = min_y;
-	return (min_xy);
+	x = coords[0].x;
+	y = coords[0].y;
+	xy.x = x;
+	xy.y = y;
+	return (xy);
 }
 
 /*
@@ -132,7 +122,7 @@ int					ft_save_tetri(char *block, char block_letter, t_tetri *node)
 	shape = ft_get_coords(block);
 	if (shape)
 	{
-		min_coords = ft_get_min_xy(shape);
+		min_coords = ft_get_first_xy(shape);
 		shape = ft_normalize_coords(min_coords, shape);
 		if (!(ft_save_in_node(shape, block_letter, node)))
 		{
