@@ -1,0 +1,78 @@
+
+% [flags]	[width]	[.precision]	[length]	[type]
+
+% [флаги]	[ширина]	[точность]	[размер]	[тип]
+
+
+AIM (base)
+
+type		c, s, p,  d, i, o, u, x, X, f
+
+length		hh, h, l, ll	(with type	 d, I, o, u, x, X)
+
+length		l, L		(with type	f)
+
+esc seq	%%
+
+flags		#, 0, -, + (‘ ‘ - space – additional???)
+
+widht		min field_width
+
+precision			(with type	d, I, o, u, x, X
+						f	(all: a, A, e, E, f, F)
+						g, G
+						s
+
+          FLAGS
+----------------------------------------------------------------------------
+
+    HASH    #
+
+used with specifiers:     o, x, X 
+
+Used with o, x or X specifiers the value is preceeded with 0, 0x or 0X respectively for values ​​different than zero. By default, if no digits follow, no decimal point is written.
+
+
+    ZERO    0
+
+Left-pads the number with zeroes (0) instead of spaces when padding is specified
+
+
+    MINUS   -
+
+Left-justify within the given field width;  Right justification is the default
+
+
+    SPACE   ' '
+            additional???
+
+If no sign is going to be written, a blank space is inserted before the value.
+
+
+    PLUS  +
+
+Forces to preceed the result with a plus or minus sign (+ or -), even for positive numbers. By default, only negative numbers are preceded with a minus (-) sign.
+
+
+
+
+	Stdarg.h
+----------------------------------------------------------------------------
+
+Kernighan, Ritchie: c.167, 275
+
+#include <stdarg.h>
+
+	va_list	variadic arguments list
+	ap 		argument pointer
+	parmN		n-tetrameter
+
+type va_arg(va_list ar, type);
+void va_copy(va_list dest, va_list src);
+void va_end(va_list ap);
+void va_start(va_list ap, parmN);
+
+
+
+
+
