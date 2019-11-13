@@ -74,19 +74,13 @@ FUNCTIONS = ft_memset \
 			ft_lstiter \
 			ft_lstmap \
 			ft_lstinsert_before \
-			ft_lstinsert_after \
-			ft_lstnewset \
-			ft_strjoin_free
+			ft_lstinsert_after
 OBJ = $(patsubst %,%.o,$(FUNCTIONS))
 SRC = $(patsubst %,%.c,$(FUNCTIONS))
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
-HEAD = libft.h
 NAME = libft.a
-
-#*
-#*** 	MAKEFILE .a
-#*
+HEAD = libft.h
 
 .PHONY: all clean fclean re
 
@@ -107,7 +101,7 @@ re: fclean all
 
 
 #*
-#*** 	MAKEFILE .so & .a
+#*** 	MAKEFILE FOR .so & .a 
 #*
 
 # OBJ = $(patsubst %,%.o,$(FUNCTIONS))
@@ -128,12 +122,13 @@ re: fclean all
 # 	$(CC) -shared -Wl,-soname -o $(SONAME) $(OBJ)
 
 # $(NAME): $(OBJ)
-# 	ar rc $(NAME) $(OBJ)
+# 	ar rc $(NAME) $(OBJ)5
 
 # clean:
 # 	/bin/rm -f $(OBJ)
 
 # fclean: clean
 # 	/bin/rm -f $(SONAME) -f $(NAME)
+
 
 # re: fclean all
