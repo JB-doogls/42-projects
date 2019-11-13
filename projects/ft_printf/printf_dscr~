@@ -54,30 +54,6 @@ If no sign is going to be written, a blank space is inserted before the value.
 Forces to preceed the result with a plus or minus sign (+ or -), even for positive numbers. By default, only negative numbers are preceded with a minus (-) sign.
 
 
-Types
-
-	%d %i     Decimal signed integer.
-			(equal for output, different used for input with scanf)
-	%o        Octal integer.
-	%x %X     Hex integer.
-	%u        Unsigned integer.
-	%c        Character.
-	%s        String. See below.
-	%f %F     double	????
-	%e %E     double.
-	%g %G     double.
-	%a %A	Hex float
-	%c		char
-			(converted uchar || wchar_t)
-	%s		string 
-			(null-terminated)
-	%S		eq. %ls = wchar_t
-	%p        pointer.
-	%n        Number of characters written by this printf.
-			No argument expected.
-	%%        %. No argument expected.
-
-
 
 
 	Stdarg.h
@@ -95,4 +71,8 @@ type va_arg(va_list ar, type);
 void va_copy(va_list dest, va_list src);
 void va_end(va_list ap);
 void va_start(va_list ap, parmN);
+
+
+
+
 
