@@ -1,0 +1,12 @@
+e36f31deff18f0e0fa3aeee4444ef00cd2ecd913		branch 'master' of https://github.com/jgigault/42FileChecker
+3d3203726dec7431c396827b22bad2705f9727e6	not-for-merge	branch 'Seluj78-patch-1' of https://github.com/jgigault/42FileChecker
+d9e3e4cd753e6802b744324227cb6ee79ca95ff9	not-for-merge	branch 'dev' of https://github.com/jgigault/42FileChecker
+f5b817157d50d649f2c1c8ad95d4fba43ea807b9	not-for-merge	branch 'enhancement/foreground-update-of-42fc' of https://github.com/jgigault/42FileChecker
+29c60bf8b18159e21b742eb2385ee59fdf771f23	not-for-merge	branch 'enhancement/get-inode-util' of https://github.com/jgigault/42FileChecker
+2d025ff20d6d60f8c5dfe77d9c8fb162edd1bf6b	not-for-merge	branch 'feature/editor-config' of https://github.com/jgigault/42FileChecker
+9269c60399f985da8a4d8075d02935c2392a964b	not-for-merge	branch 'feature/xdg-open' of https://github.com/jgigault/42FileChecker
+e2ef1f6606b629b9ebfebaa61f8a8cd1a8244e32	not-for-merge	branch 'fix/compile-get-inode-ubuntu' of https://github.com/jgigault/42FileChecker
+f64282c7aa4d31bc5d641dc5bcc9ca6e0e305406	not-for-merge	branch 'fix/failed-gnl-compilation' of https://github.com/jgigault/42FileChecker
+2b7b1a67d5cb5ce151fc56cbdef3219537bdea6d	not-for-merge	branch 'fix/gnl-filename1-instead-of-filename1' of https://github.com/jgigault/42FileChecker
+ee2ba8ac20641a7876297d99a00ab2169d3a8ee7	not-for-merge	branch 'no-splash' of https://github.com/jgigault/42FileChecker
+8f49b92311b19e3019805df3e0aa9cb3ec1078c1	not-for-merge	branch 'ui/move-splash-screen-and-change-header' of https://github.com/jgigault/42FileChecker

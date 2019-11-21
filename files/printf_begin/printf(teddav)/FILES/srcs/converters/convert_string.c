@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   convert_string.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abungert <abungert@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jbdoogls <jbdoogls@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/01/15 15:54:28 by antoinebungert    #+#    #+#             */
-/*   Updated: 2016/01/26 16:51:45 by abungert         ###   ########.fr       */
+/*   Created: 2016/01/15 15:54:28 by antoinebung       #+#    #+#             */
+/*   Updated: 2019/11/21 23:04:47 by jbdoogls         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

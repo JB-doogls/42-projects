@@ -1,0 +1,13 @@
+# pack-refs with: peeled fully-peeled sorted 
+3d3203726dec7431c396827b22bad2705f9727e6 refs/remotes/origin/Seluj78-patch-1
+d9e3e4cd753e6802b744324227cb6ee79ca95ff9 refs/remotes/origin/dev
+f5b817157d50d649f2c1c8ad95d4fba43ea807b9 refs/remotes/origin/enhancement/foreground-update-of-42fc
+29c60bf8b18159e21b742eb2385ee59fdf771f23 refs/remotes/origin/enhancement/get-inode-util
+2d025ff20d6d60f8c5dfe77d9c8fb162edd1bf6b refs/remotes/origin/feature/editor-config
+9269c60399f985da8a4d8075d02935c2392a964b refs/remotes/origin/feature/xdg-open
+e2ef1f6606b629b9ebfebaa61f8a8cd1a8244e32 refs/remotes/origin/fix/compile-get-inode-ubuntu
+f64282c7aa4d31bc5d641dc5bcc9ca6e0e305406 refs/remotes/origin/fix/failed-gnl-compilation
+2b7b1a67d5cb5ce151fc56cbdef3219537bdea6d refs/remotes/origin/fix/gnl-filename1-instead-of-filename1
+e36f31deff18f0e0fa3aeee4444ef00cd2ecd913 refs/remotes/origin/master
+ee2ba8ac20641a7876297d99a00ab2169d3a8ee7 refs/remotes/origin/no-splash
+8f49b92311b19e3019805df3e0aa9cb3ec1078c1 refs/remotes/origin/ui/move-splash-screen-and-change-header
