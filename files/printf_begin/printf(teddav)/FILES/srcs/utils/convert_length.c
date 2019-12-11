@@ -3,14 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   convert_length.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abungert <abungert@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jbdoogls <jbdoogls@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/01/15 16:58:51 by antoinebungert    #+#    #+#             */
-/*   Updated: 2016/01/26 16:55:45 by abungert         ###   ########.fr       */
+/*   Created: 2016/01/15 16:58:51 by antoinebung       #+#    #+#             */
+/*   Updated: 2019/12/10 17:44:14 by jbdoogls         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+/*
+**	0 none
+**	1 h
+**	2 hh
+**	3 l
+**	4 ll
+**	5 j
+**	6 z
+*/
 
 uintmax_t		get_unsigned_length(uintmax_t nbr, t_tag *tag)
 {
