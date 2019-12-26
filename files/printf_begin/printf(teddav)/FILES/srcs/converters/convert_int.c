@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   convert_int.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abungert <abungert@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jbdoogls <jbdoogls@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/14 14:31:37 by abungert          #+#    #+#             */
-/*   Updated: 2016/02/01 16:42:17 by dtedgui          ###   ########.fr       */
+/*   Updated: 2019/12/19 21:20:59 by jbdoogls         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int					print_int(t_tag *tag, intmax_t nbr)
 		print_width_pad(nbr_strlen - cut, tag->width, '0');
 	else if (tag->has_precision)
 		print_width_pad(ft_getsize(nbr), tag->precision, '0');
-	ft_putnbr_max(nbr);
+	ft_punbr_max(nbr);
 	if (tag->has_width && tag->flag_minus)
 		print_width_pad(nbr_strlen - cut, tag->width, ' ');
 	if (tag->has_width)

@@ -1,0 +1,15 @@
+Use traceroute command with option -m 5 to limit of number of hops and make output shorter.
+
+Executable command in Terminal: traceroute slash16.org -m 5
+The output is:
+
+traceroute to slash16.org (54.192.99.175), 5 hops max, 60 byte packets
+ 1  * * *
+ 2  10.133.0.1 (10.133.0.1)  4.185 ms  4.582 ms  4.558 ms
+ 3  10.109.11.125 (10.109.11.125)  5.353 ms  5.621 ms  6.009 ms
+ 4  10.109.11.126 (10.109.11.126)  8.051 ms  8.453 ms  8.426 ms
+ 5  5.1.188.212.in-addr.arpa (212.188.1.5)  6.405 ms  6.824 ms  6.798 ms
+
+The first found device (line 2 output) is the next one after local network on the way to outside.
+Device name:		10.133.0.1
+Device IP address	10.133.0.1

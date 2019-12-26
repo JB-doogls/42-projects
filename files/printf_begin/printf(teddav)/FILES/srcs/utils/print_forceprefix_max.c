@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_forceprefix_max.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abungert <abungert@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jbdoogls <jbdoogls@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/25 12:12:51 by abungert          #+#    #+#             */
-/*   Updated: 2016/01/26 16:58:07 by abungert         ###   ########.fr       */
+/*   Updated: 2019/12/19 20:34:54 by jbdoogls         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,16 @@ int						nbr_strlength_max(t_tag *tag, intmax_t nbr, char *base)
 	return (nbr_strlen);
 }
 
+
+
+
+/*
+**		COMPARE TWO FUNCS
+*/
+
+
+// nbr < -2147483647
+
 int						print_forceprefix_max(t_tag *tag, intmax_t nbr,
 							char *prefix, char *base)
 {
@@ -64,4 +74,32 @@ int						print_forceprefix_max(t_tag *tag, intmax_t nbr,
 	if (nbr >= -9223372036854775807)
 		ft_putstr(prefix);
 	return (prefix_len + nbr_len);
+}
+
+
+
+
+// nbr >= -2147483647
+
+int					print_forceprefix(t_tag *tag, uintmax_t nbr,
+						char *prefix, char *base)
+{
+	unsigned int	nbr_strlen;
+	unsigned int	prefix_cut;
+	int				prefix_len;
+	unsigned int	nbr_len;
+
+	prefix_cut = (!ft_strcmp(prefix, " ") ? 0 : 1);
+	nbr_strlen = nbr_strlength(tag, nbr, base);
+	nbr_len = nbr_length(nbr, base);
+	prefix_len = ft_strlen(prefix);
+	if (tag->has_width && !tag->flag_minus && !tag->flag_zero)
+	{
+		print_width_pad(nbr_strlen, tag->width - prefix_cut, ' ');
+		tag->width -= ft_strlen(prefix);
+	}
+	else if (tag->has_width)
+		tag->width -= ft_strlen(prefix);
+	ft_putstr(prefix);
+	return (prefix_len + nbr_strlen);
 }

@@ -1,0 +1,4 @@
+# I need to reroute the IP addres of domain intra.42.fr in file /etc/hosts/ to value 46.19.122.85 intra.42.fr
+
+# The command might look like:
+# echo "46.19.122.85 intra.42.fr" >> /etc/hosts

@@ -1,0 +1,16 @@
+To find the provider of slash16.org we can follow next consistency:
+
+ 1. Find the IP address of slash16.org using by command - nslookup slash16.org
+
+The result is:
+
+slash16.org	address: 54.192.99.66
+slash16.org	address: 54.192.99.24
+slash16.org	address: 54.192.99.175
+slash16.org	address: 54.192.99.177
+
+ 2. Find out the provider by IP address with command - whois 54.192.99.24
+
+The result is:
+
+Provider of slash16.org - Amazon Technologies Inc.

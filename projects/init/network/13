@@ -1,0 +1,4 @@
+### IP_DHCP = ifconfig en0 | grep "inet " | awk '{print $2}' (last command)
+### nslookup IP_DHCP | grep name | awk '{print $4}'
+
+-the output value-

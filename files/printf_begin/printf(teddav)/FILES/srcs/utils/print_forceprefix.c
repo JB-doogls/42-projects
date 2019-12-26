@@ -3,14 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   print_forceprefix.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abungert <abungert@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jbdoogls <jbdoogls@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/14 11:58:54 by abungert          #+#    #+#             */
-/*   Updated: 2016/01/26 16:57:09 by abungert         ###   ########.fr       */
+/*   Updated: 2019/12/19 20:22:37 by jbdoogls         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+
+// nbr >= -2147483647
+
 
 int					print_forceprefix(t_tag *tag, uintmax_t nbr,
 						char *prefix, char *base)
