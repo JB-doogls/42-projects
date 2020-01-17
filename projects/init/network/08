@@ -4,12 +4,12 @@ To find the provider of slash16.org we can follow next consistency:
 
 The result is:
 
-slash16.org	address: 54.192.99.66
-slash16.org	address: 54.192.99.24
-slash16.org	address: 54.192.99.175
-slash16.org	address: 54.192.99.177
+Address: 13.33.242.215
+Address: 13.33.242.162
+Address: 13.33.242.74
+Address: 13.33.242.31
 
- 2. Find out the provider by IP address with command - whois 54.192.99.24
+ 2. Find out the provider by IP address with command - whois 13.33.242.162
 
 The result is:
 

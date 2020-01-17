@@ -1,1 +1,2 @@
-cron
+Use daemon 'cron'
+To configure cron use command crontab
