@@ -1,1 +1,2 @@
+#!/bin/bash
 systemctl list-units --type service | grep active | awk -F'.service' '{print $1}'

@@ -1,1 +1,2 @@
+#!/bin/bash
 ifconfig en0 | grep -w broadcast | awk '{print $6}'

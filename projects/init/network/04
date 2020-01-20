@@ -1,1 +1,2 @@
+#!/bin/bash
 netstat -nr | grep en0 | grep -w 'default' | awk '{print $2}'

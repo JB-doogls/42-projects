@@ -1,1 +1,2 @@
-adduser <name>
+#!/bin/bash
+adduser <username>

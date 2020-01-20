@@ -4,6 +4,6 @@ Graphic session:
 
 SSH session: 
 1. Check if the ssh is active, start it.
-2. In Terminal use 'ssh new_user_name@127.0.0.1'.
+2. In Terminal use 'ssh new_user_name@hostname'.
 3. Restart ssh session.
-4. Login with new_user_name by 'ssh new_user_name@127.0.0.1'.
+4. Login with new_user_name by 'ssh new_user_name@hostname'.

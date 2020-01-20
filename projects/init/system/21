@@ -1,1 +1,2 @@
+#!/bin/bash
 cat /etc/passwd | awk -F':' '{if ($3 >= 1000 && $3 < 30000) print $1}'

@@ -1,1 +1,2 @@
+#!/bin/bash
 nslookup slash16.org | grep -w Server | awk '{print $2}'

@@ -1,1 +1,2 @@
+#!/bin/bash
 systemctl status ssh

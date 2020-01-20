@@ -1,1 +1,2 @@
-service ssh stop
+#!/bin/bash
+systemctl stop ssh

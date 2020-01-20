@@ -1,1 +1,2 @@
+#!/bin/bash
 df -h
