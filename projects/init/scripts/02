@@ -1,7 +1,6 @@
 #!/bin/bash
 USER=$1
-pgrep -u $USER
-while read PID; do sudo pkill -9 $PID; done
+pgrep -u $USER | while read PID; do sudo pkill -9 $PID; done
 /sbin/userdel -f $USER
-echo "We have following human users on the system now:"
+echo "Human users on the system now:"
 cat /etc/passwd | awk -F':' '{if ($3 >= 1000 && $3 < 30000) print $1}'
