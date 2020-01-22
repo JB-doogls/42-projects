@@ -1,2 +1,10 @@
 #!/bin/bash
-userdel -f -r $1
+USER=$1
+pgrep -u $USER
+while read PID
+do
+sudo pkill -9 $PID
+done
+/sbin/userdel if $USER
+echo "We have following human users on the system now:"
+cat /etc/passwd | awk -F':' '{if ($3 >= 1000 && $3 < 30000) print $1}'
